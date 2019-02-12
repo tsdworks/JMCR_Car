@@ -1,0 +1,70 @@
+C51 COMPILER V9.59.0.0   PID                                                               02/12/2019 22:33:38 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE PID
+OBJECT MODULE PLACED IN .\Objects\PID.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\PID.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) D
+                    -EBUG OBJECTEXTEND PRINT(.\Listings\PID.lst) TABS(2) OBJECT(.\Objects\PID.obj)
+
+line level    source
+
+   1          #include "STC15.h"
+   2          #include "IO.h"
+   3          #include "MOTOR.h"
+   4          #include "SERVO.h"
+   5          #include "SENSOR.h"
+   6          #include "PID.h"
+   7          
+   8          //PID Paras
+   9          float PID_KP;
+  10          float PID_KI;
+  11          float PID_KD;
+  12          int pid_e;
+  13          long pid_i;
+  14          int pid_d;
+  15          int pid_le;
+  16          
+  17          //Data for Apply
+  18          u8 PIDservoAngle = 90;
+  19          int leftMotorPWM = 100;
+  20          int rightMotorPWM = 100;
+  21          
+  22          void PID_Setup(float kp, float ki, float kd)
+  23          {
+  24   1        PID_KP = kp;
+  25   1        PID_KI = ki;
+  26   1        PID_KD = kd;
+  27   1        pid_e = 0;
+  28   1        pid_i = 0;
+  29   1        pid_d = 0;
+  30   1        pid_le = 0;
+  31   1      }
+  32          
+  33          void PID_Calc(int sensorData)
+  34          {
+  35   1        leftMotorPWM = 100;
+  36   1        rightMotorPWM = 100;
+  37   1        pid_e = sensorData;
+  38   1        pid_i += pid_e;
+  39   1        pid_d = pid_e - pid_le;
+  40   1        PIDservoAngle = 90 + (u8)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
+  41   1        if(servoAngle > 90)leftMotorPWM -= servoAngle - 90;
+  42   1        else rightMotorPWM -= 90 - servoAngle; 
+  43   1      }
+  44          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    379    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     27      12
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.59.0.0   PID                                                               02/12/2019 22:33:38 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

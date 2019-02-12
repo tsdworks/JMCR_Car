@@ -1,0 +1,80 @@
+C51 COMPILER V9.59.0.0   STDFUNC                                                           02/12/2019 22:33:38 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE STDFUNC
+OBJECT MODULE PLACED IN .\Objects\STDFUNC.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\STDFUNC.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DE
+                    -BUG OBJECTEXTEND PRINT(.\Listings\STDFUNC.lst) TABS(2) OBJECT(.\Objects\STDFUNC.obj)
+
+line level    source
+
+   1          /*
+   2          ---- STD Functions Module ----
+   3          Author: Zhang Muhua
+   4          Date: 2019.2.7
+   5          ----------------------------
+   6          */
+   7          #include "STC15.h"
+   8          #include "IO.h"
+   9          #include "PWM.h"
+  10          #include "STDFUNC.h"
+  11          
+  12          //Delay 1ms for 24Mhz Clock
+  13          void delay_ms(unsigned int t)
+  14          {
+  15   1        unsigned char i, j;
+  16   1        while(t--)
+  17   1        {
+  18   2          i = 24;
+  19   2          j = 85;
+  20   2          do
+  21   2          {
+  22   3            while (--j);
+  23   3          }
+  24   2          while (--i);
+  25   2        }
+  26   1      }
+  27          
+  28          //Select the max number
+  29          int maxInt(int numA, int numB)
+  30          {
+  31   1        if(numA > numB)return numA;
+  32   1        return numB;
+  33   1      }
+  34          
+  35          //Select the max number
+  36          double maxDouble(double numA, double numB)
+  37          {
+  38   1        if(numA > numB)return numA;
+  39   1        return numB;
+  40   1      }
+  41          
+  42          //Select the min number
+  43          int minInt(int numA, int numB)
+  44          {
+  45   1        if(numA < numB)return numA;
+  46   1        return numB;
+  47   1      }
+  48          
+  49          //Select the min number
+  50          double minDouble(double numA, double numB)
+  51          {
+  52   1        if(numA < numB)return numA;
+  53   1        return numB;
+  54   1      }
+C51 COMPILER V9.59.0.0   STDFUNC                                                           02/12/2019 22:33:38 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    179    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----      16
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,133 @@
+C51 COMPILER V9.59.0.0   USART                                                             02/12/2019 22:33:38 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USART
+OBJECT MODULE PLACED IN .\Objects\USART.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\USART.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBU
+                    -G OBJECTEXTEND PRINT(.\Listings\USART.lst) TABS(2) OBJECT(.\Objects\USART.obj)
+
+line level    source
+
+   1          /*
+   2          ---- USART Module ----
+   3          Author: Zhang Muhua
+   4          Date: 2019.2.9 
+   5          ----------------------------
+   6          */
+   7          #include "STC15.h"
+   8          #include "IO.h"
+   9          #include "STDFUNC.h"
+  10          #include "USART.h"
+  11          
+  12          u8 readBuffer[READ_BUFFER_LENGTH];
+  13          u8 readBufferLength;
+  14          u8 readBufferHead;
+  15          u8 readBufferTail;
+  16          
+  17          //Begin the Serial1
+  18          void Serial1_Begin(unsigned long BAUD)
+  19          {
+  20   1        //Setup IO Mode
+  21   1        pinMode(3, 0, INPUT_PULLUP);
+  22   1        pinMode(3, 1, OUTPUT);
+  23   1        //Setup USART Registers
+  24   1        ES = 0;
+  25   1        TR1 = 0;
+  26   1        SCON = 0x50;
+  27   1        AUXR |= 0x40;
+  28   1        AUXR &= 0xFE;
+  29   1        TMOD &= 0x0F;
+  30   1        TH1 = (u8)((65536UL - (MAIN_FOSC / 4 / BAUD))>>8);
+  31   1        TL1 = (u8)(65536UL - (MAIN_FOSC / 4 / BAUD));
+  32   1        TR1 = 1;
+  33   1        PS = 1;
+  34   1        ES = 1;
+  35   1        EA = 1;
+  36   1        //Clear Buffer
+  37   1        readBufferLength = 0;
+  38   1        readBufferHead = 0;
+  39   1        readBufferTail = 0;
+  40   1      }
+  41          
+  42          //Send One Char via Serial1
+  43          void Serial1_SendByte(u8 s)
+  44          {
+  45   1        SBUF = s;
+  46   1        while(!TI);
+  47   1        TI = 0;
+  48   1      }
+  49          
+  50          //Send One String via Serial1
+  51          void Serial1_SendStr(u8 *s)
+  52          {
+  53   1        while(*s)
+  54   1        {
+C51 COMPILER V9.59.0.0   USART                                                             02/12/2019 22:33:38 PAGE 2   
+
+  55   2          Serial1_SendByte(*s++);
+  56   2        }
+  57   1      }
+  58          
+  59          //Send Fixed Length String via Serial1
+  60          void Serial1_SendLenStr(u8 *s, int length)
+  61          {
+  62   1        while(length && *s)
+  63   1        {
+  64   2          Serial1_SendByte(*s++);
+  65   2          length--;
+  66   2        }
+  67   1      }
+  68          
+  69          //Serial ISP
+  70          void Serial1_ISP() interrupt 4
+  71          {
+  72   1        ES = 0;
+  73   1        if(RI)
+  74   1        {
+  75   2          RI = 0;
+  76   2          if(readBufferLength > READ_BUFFER_LENGTH)
+  77   2          {
+  78   3            readBufferHead = (readBufferHead + 1) % READ_BUFFER_LENGTH;
+  79   3            readBufferLength =  READ_BUFFER_LENGTH;
+  80   3          }
+  81   2          readBufferLength++;
+  82   2          readBuffer[readBufferTail] = SBUF;
+  83   2          readBufferTail = (readBufferTail + 1) % READ_BUFFER_LENGTH;
+  84   2        }
+  85   1        ES = 1;
+  86   1      }
+  87          
+  88          //Is Serial1 Has Data To Read 
+  89          u8 Serial1_Available()
+  90          {
+  91   1        return readBufferLength > 0;
+  92   1      }
+  93          
+  94          //Read Data in Serial1 Buffer Area
+  95          u8 Serial1_ReadByte()
+  96          {
+  97   1        u8 retValue = 0;
+  98   1        if(Serial1_Available())
+  99   1        {
+ 100   2          retValue = readBuffer[readBufferHead];
+ 101   2          readBufferHead = (readBufferHead + 1) % READ_BUFFER_LENGTH;
+ 102   2          readBufferLength--;
+ 103   2        }
+ 104   1        return retValue;
+ 105   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    388    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     67      10
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.59.0.0   USART                                                             02/12/2019 22:33:38 PAGE 3   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
