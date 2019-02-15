@@ -2,7 +2,7 @@
 ---- Motor Control Module ----
 Author: Zhang Muhua
 Date: 2019.2.11
-Notice: PWM2 - Right - Motor A, PWM3 - Left - Motor B
+Notice: PWM2 - Left - Motor A, PWM3 - Right - Motor B
 ----------------------------
 */
 #include "STC15.h"
@@ -20,8 +20,8 @@ void Motor_Init()
 		pinMode(3, i, OUTPUT_PP);	
 }
 
-//Set Motor Right
-void Motor_Right(int value)
+//Set Motor Left
+void Motor_Left(int value)
 {
 	if(value > 0)
 	{
@@ -37,8 +37,8 @@ void Motor_Right(int value)
 	PWM2_Output(value);
 }
 
-//Set Motor Left
-void Motor_Left(int value)
+//Set Motor Right
+void Motor_Right(int value)
 {
 	if(value > 0)
 	{
