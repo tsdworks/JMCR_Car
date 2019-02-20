@@ -1,7 +1,7 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/15/2019  21:24:31  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/20/2019  23:28:07  PAGE 1
 
 
-BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
 C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\IO.obj, .\Objects\PWM.obj, .\Objects\USART.obj, .\Objects\STDFUNC.obj, .\Objects\S
 >> ERVO.obj, .\Objects\MOTOR.obj, .\Objects\PID.obj, .\Objects\SENSOR.obj, .\Objects\JMCR_Car.obj TO .\Objects\JMCR_Car 
 >> PRINT (.\Listings\JMCR_Car.m51) RAMSIZE (256)
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\JMCR_Car (IO)
             XDATA   006EH     000AH     UNIT         ?XD?SENSOR
             XDATA   0078H     0008H     UNIT         ?XD?_MAXDOUBLE?STDFUNC
             XDATA   0080H     0008H     UNIT         ?XD?_MINDOUBLE?STDFUNC
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 2
 
 
             XDATA   0088H     0008H     UNIT         ?XD?SERVO
@@ -83,46 +83,46 @@ LINK MAP OF MODULE:  .\Objects\JMCR_Car (IO)
             CODE    0713H     00E4H     UNIT         ?PR?_PINMODE?IO
             CODE    07F7H     00D3H     UNIT         ?PR?_DIGITALREAD?IO
             CODE    08CAH     00BAH     UNIT         ?PR?_PINMODEGROUP?IO
-            CODE    0984H     00AAH     UNIT         ?PR?SENSOR_GETDATA?SENSOR
-            CODE    0A2EH     008CH     UNIT         ?C_C51STARTUP
-            CODE    0ABAH     0089H     UNIT         ?PR?TIMER0_ISP?SERVO
-            CODE    0B43H     0087H     UNIT         ?PR?_SERIAL1_BEGIN?USART
-            CODE    0BCAH     007BH     UNIT         ?PR?_PWM2_OUTPUT?PWM
-            CODE    0C45H     007BH     UNIT         ?PR?_PWM3_OUTPUT?PWM
-            CODE    0CC0H     0070H     UNIT         ?PR?_DIGITALWRITE?IO
-            CODE    0D30H     0070H     UNIT         ?PR?_MOTOR_LEFT?MOTOR
-            CODE    0DA0H     0070H     UNIT         ?PR?_MOTOR_RIGHT?MOTOR
-            CODE    0E10H     005BH     UNIT         ?PR?PWM_INIT?PWM
-            CODE    0E6BH     005AH     UNIT         ?PR?_DIGITALREADGROUP?IO
-            CODE    0EC5H     005AH     UNIT         ?PR?_DIGITALWRITEGROUP?IO
-            CODE    0F1FH     0059H     UNIT         ?PR?SERIAL1_ISP?USART
-            CODE    0F78H     004EH     UNIT         ?PR?SENSOR_REFRESHDATA?SENSOR
-            CODE    0FC6H     004BH     UNIT         ?PR?_PID_SETUP?PID
-            CODE    1011H     004AH     UNIT         ?PR?_SERVOATTACH?SERVO
-            CODE    105BH     0049H     UNIT         ?PR?SENSOR_GETSAMPLE?SENSOR
-            CODE    10A4H     0044H     UNIT         ?PR?_SERVOSETANGLE?SERVO
-            CODE    10E8H     0044H     UNIT         ?C?LDIV
-            CODE    112CH     003DH     UNIT         ?PR?MAIN?JMCR_CAR
-            CODE    1169H     003BH     UNIT         ?PR?_MINDOUBLE?STDFUNC
-            CODE    11A4H     0038H     UNIT         ?PR?MOTOR_INIT?MOTOR
-            CODE    11DCH     0030H     UNIT         ?C_INITSEG
-            CODE    120CH     002DH     UNIT         ?PR?_SERIAL1_SENDLENSTR?USART
-            CODE    1239H     002AH     UNIT         ?PR?JMCR_CAR?JMCR_CAR
-            CODE    1263H     0029H     UNIT         ?PR?SERIAL1_READBYTE?USART
-            CODE    128CH     0024H     UNIT         ?PR?_SERIAL1_SENDSTR?USART
-            CODE    12B0H     0021H     UNIT         ?PR?_SENSOR_GETSINGLEDATA?SENSOR
-            CODE    12D1H     0017H     UNIT         ?PR?_SERIAL1_SENDBYTE?USART
-            CODE    12E8H     0016H     UNIT         ?PR?SENSOR_INIT?SENSOR
-            CODE    12FEH     0015H     UNIT         ?PR?TIMER0INIT?SERVO
-            CODE    1313H     0013H     UNIT         ?PR?SERIAL1_AVAILABLE?USART
-            CODE    1326H     0013H     UNIT         ?PR?_MAXINT?STDFUNC
-            CODE    1339H     0013H     UNIT         ?PR?_MININT?STDFUNC
-            CODE    134CH     0013H     UNIT         ?PR?TIMER2_ISP?JMCR_CAR
-            CODE    135FH     000FH     UNIT         ?PR?TIMER2INIT?JMCR_CAR
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 3
+            CODE    0984H     0097H     UNIT         ?PR?SENSOR_GETDATA?SENSOR
+            CODE    0A1BH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0AA7H     0089H     UNIT         ?PR?TIMER0_ISP?SERVO
+            CODE    0B30H     0087H     UNIT         ?PR?_SERIAL1_BEGIN?USART
+            CODE    0BB7H     007BH     UNIT         ?PR?_PWM2_OUTPUT?PWM
+            CODE    0C32H     007BH     UNIT         ?PR?_PWM3_OUTPUT?PWM
+            CODE    0CADH     0070H     UNIT         ?PR?_MOTOR_LEFT?MOTOR
+            CODE    0D1DH     0070H     UNIT         ?PR?_MOTOR_RIGHT?MOTOR
+            CODE    0D8DH     006DH     UNIT         ?PR?_DIGITALWRITE?IO
+            CODE    0DFAH     005BH     UNIT         ?PR?PWM_INIT?PWM
+            CODE    0E55H     005AH     UNIT         ?PR?_DIGITALREADGROUP?IO
+            CODE    0EAFH     0057H     UNIT         ?PR?_DIGITALWRITEGROUP?IO
+            CODE    0F06H     0055H     UNIT         ?PR?SERIAL1_ISP?USART
+            CODE    0F5BH     004EH     UNIT         ?PR?SENSOR_REFRESHDATA?SENSOR
+            CODE    0FA9H     004BH     UNIT         ?PR?_PID_SETUP?PID
+            CODE    0FF4H     004AH     UNIT         ?PR?_SERVOATTACH?SERVO
+            CODE    103EH     0044H     UNIT         ?C?LDIV
+            CODE    1082H     0040H     UNIT         ?PR?SENSOR_GETSAMPLE?SENSOR
+            CODE    10C2H     003FH     UNIT         ?PR?_SERVOSETANGLE?SERVO
+            CODE    1101H     003DH     UNIT         ?PR?MAIN?JMCR_CAR
+            CODE    113EH     003BH     UNIT         ?PR?_MINDOUBLE?STDFUNC
+            CODE    1179H     0038H     UNIT         ?PR?MOTOR_INIT?MOTOR
+            CODE    11B1H     0030H     UNIT         ?C_INITSEG
+            CODE    11E1H     002DH     UNIT         ?PR?_SERIAL1_SENDLENSTR?USART
+            CODE    120EH     002AH     UNIT         ?PR?JMCR_CAR?JMCR_CAR
+            CODE    1238H     0029H     UNIT         ?PR?SERIAL1_READBYTE?USART
+            CODE    1261H     0024H     UNIT         ?PR?_SERIAL1_SENDSTR?USART
+            CODE    1285H     0022H     UNIT         ?PR?_SENSOR_GETSINGLEDATA?SENSOR
+            CODE    12A7H     0017H     UNIT         ?PR?_SERIAL1_SENDBYTE?USART
+            CODE    12BEH     0017H     UNIT         ?PR?SENSOR_INIT?SENSOR
+            CODE    12D5H     0015H     UNIT         ?PR?TIMER0INIT?SERVO
+            CODE    12EAH     0013H     UNIT         ?PR?_MAXINT?STDFUNC
+            CODE    12FDH     0013H     UNIT         ?PR?_MININT?STDFUNC
+            CODE    1310H     0013H     UNIT         ?PR?TIMER2_ISP?JMCR_CAR
+            CODE    1323H     0010H     UNIT         ?PR?SERIAL1_AVAILABLE?USART
+            CODE    1333H     000FH     UNIT         ?PR?TIMER2INIT?JMCR_CAR
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 3
 
 
-            CODE    136EH     000EH     UNIT         ?PR?PWM_DISPOSE?PWM
+            CODE    1342H     000EH     UNIT         ?PR?PWM_DISPOSE?PWM
 
 
 
@@ -179,7 +179,7 @@ SEGMENT                                    XDATA_GROUP
   +--> ?PR?_SERVOSETANGLE?SERVO
   +--> ?PR?_MOTOR_LEFT?MOTOR
   +--> ?PR?_MOTOR_RIGHT?MOTOR
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 4
 
 
 
@@ -221,7 +221,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00B4H         PUBLIC        P4M0
   D:00B1H         PUBLIC        P3M1
   D:00A0H         PUBLIC        P2
-  C:0EC5H         PUBLIC        _digitalWriteGroup
+  C:0EAFH         PUBLIC        _digitalWriteGroup
   D:00B3H         PUBLIC        P4M1
   D:00B0H         PUBLIC        P3
   D:00C0H         PUBLIC        P4
@@ -236,10 +236,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0713H         PUBLIC        _pinMode
   C:07F7H         PUBLIC        _digitalRead
   C:08CAH         PUBLIC        _pinModeGroup
-  C:0CC0H         PUBLIC        _digitalWrite
-  C:0E6BH         PUBLIC        _digitalReadGroup
+  C:0D8DH         PUBLIC        _digitalWrite
+  C:0E55H         PUBLIC        _digitalReadGroup
   D:00D0H         PUBLIC        PSW
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 5
 
 
   D:0094H         PUBLIC        P0M0
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:075FH         LINE#         58
   C:0773H         LINE#         59
   C:0773H         LINE#         60
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 6
 
 
   C:0773H         LINE#         61
@@ -359,7 +359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:07D3H         LINE#         115
   C:07D3H         LINE#         116
   C:07D3H         LINE#         117
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 7
 
 
   C:07D8H         LINE#         118
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:08F4H         LINE#         170
   C:08F7H         LINE#         171
   C:08F7H         LINE#         172
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 8
 
 
   C:08F7H         LINE#         173
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0946H         LINE#         227
   C:0957H         LINE#         228
   C:0957H         LINE#         229
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 9
 
 
   C:0957H         LINE#         230
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:081AH         LINE#         278
   C:081DH         LINE#         279
   C:082BH         LINE#         280
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 10
 
 
   C:082BH         LINE#         281
@@ -596,73 +596,73 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         PROC          _DIGITALREADGROUP
   D:0007H         SYMBOL        IOMode
   D:0005H         SYMBOL        IOGroup
-  C:0E6BH         LINE#         333
-  C:0E6BH         LINE#         334
-  C:0E6BH         LINE#         335
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 11
+  C:0E55H         LINE#         333
+  C:0E55H         LINE#         334
+  C:0E55H         LINE#         335
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 11
 
 
-  C:0E6EH         LINE#         336
-  C:0E6EH         LINE#         337
-  C:0E7FH         LINE#         338
-  C:0E7FH         LINE#         339
-  C:0E7FH         LINE#         340
-  C:0E7FH         LINE#         341
-  C:0E82H         LINE#         342
-  C:0E85H         LINE#         343
-  C:0E85H         LINE#         344
-  C:0E85H         LINE#         345
-  C:0E85H         LINE#         346
-  C:0E85H         LINE#         347
-  C:0E88H         LINE#         348
-  C:0E8BH         LINE#         349
-  C:0E8BH         LINE#         350
-  C:0E8BH         LINE#         351
-  C:0E8BH         LINE#         352
-  C:0E8BH         LINE#         353
-  C:0E8EH         LINE#         354
-  C:0E91H         LINE#         355
-  C:0E91H         LINE#         356
-  C:0E91H         LINE#         357
-  C:0E91H         LINE#         358
-  C:0E91H         LINE#         359
-  C:0E94H         LINE#         360
-  C:0E97H         LINE#         361
-  C:0E97H         LINE#         362
-  C:0E97H         LINE#         363
-  C:0E97H         LINE#         364
-  C:0E97H         LINE#         365
-  C:0E9AH         LINE#         366
-  C:0E9DH         LINE#         367
-  C:0E9DH         LINE#         368
-  C:0E9DH         LINE#         369
-  C:0E9DH         LINE#         370
-  C:0E9DH         LINE#         371
-  C:0EA2H         LINE#         372
-  C:0EA2H         LINE#         373
-  C:0EB3H         LINE#         374
-  C:0EB3H         LINE#         375
-  C:0EB3H         LINE#         376
-  C:0EB6H         LINE#         377
-  C:0EB6H         LINE#         378
-  C:0EB6H         LINE#         379
-  C:0EB9H         LINE#         380
-  C:0EB9H         LINE#         381
-  C:0EB9H         LINE#         382
-  C:0EBCH         LINE#         383
-  C:0EBCH         LINE#         384
-  C:0EBCH         LINE#         385
-  C:0EBFH         LINE#         386
-  C:0EBFH         LINE#         387
-  C:0EBFH         LINE#         388
-  C:0EC2H         LINE#         389
-  C:0EC2H         LINE#         390
-  C:0EC2H         LINE#         391
-  C:0EC2H         LINE#         392
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 12
+  C:0E58H         LINE#         336
+  C:0E58H         LINE#         337
+  C:0E69H         LINE#         338
+  C:0E69H         LINE#         339
+  C:0E69H         LINE#         340
+  C:0E69H         LINE#         341
+  C:0E6CH         LINE#         342
+  C:0E6FH         LINE#         343
+  C:0E6FH         LINE#         344
+  C:0E6FH         LINE#         345
+  C:0E6FH         LINE#         346
+  C:0E6FH         LINE#         347
+  C:0E72H         LINE#         348
+  C:0E75H         LINE#         349
+  C:0E75H         LINE#         350
+  C:0E75H         LINE#         351
+  C:0E75H         LINE#         352
+  C:0E75H         LINE#         353
+  C:0E78H         LINE#         354
+  C:0E7BH         LINE#         355
+  C:0E7BH         LINE#         356
+  C:0E7BH         LINE#         357
+  C:0E7BH         LINE#         358
+  C:0E7BH         LINE#         359
+  C:0E7EH         LINE#         360
+  C:0E81H         LINE#         361
+  C:0E81H         LINE#         362
+  C:0E81H         LINE#         363
+  C:0E81H         LINE#         364
+  C:0E81H         LINE#         365
+  C:0E84H         LINE#         366
+  C:0E87H         LINE#         367
+  C:0E87H         LINE#         368
+  C:0E87H         LINE#         369
+  C:0E87H         LINE#         370
+  C:0E87H         LINE#         371
+  C:0E8CH         LINE#         372
+  C:0E8CH         LINE#         373
+  C:0E9DH         LINE#         374
+  C:0E9DH         LINE#         375
+  C:0E9DH         LINE#         376
+  C:0EA0H         LINE#         377
+  C:0EA0H         LINE#         378
+  C:0EA0H         LINE#         379
+  C:0EA3H         LINE#         380
+  C:0EA3H         LINE#         381
+  C:0EA3H         LINE#         382
+  C:0EA6H         LINE#         383
+  C:0EA6H         LINE#         384
+  C:0EA6H         LINE#         385
+  C:0EA9H         LINE#         386
+  C:0EA9H         LINE#         387
+  C:0EA9H         LINE#         388
+  C:0EACH         LINE#         389
+  C:0EACH         LINE#         390
+  C:0EACH         LINE#         391
+  C:0EACH         LINE#         392
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 12
 
 
-  C:0EC4H         LINE#         393
+  C:0EAEH         LINE#         393
   -------         ENDPROC       _DIGITALREADGROUP
   -------         PROC          _DIGITALWRITE
   D:0007H         SYMBOL        IOMode
@@ -672,105 +672,105 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         DO            
   D:0007H         SYMBOL        regVal
   -------         ENDDO         
-  C:0CC0H         LINE#         396
-  C:0CC0H         LINE#         397
-  C:0CC0H         LINE#         399
-  C:0CCDH         LINE#         400
-  C:0CDBH         LINE#         401
-  C:0CE1H         LINE#         402
-  C:0CE1H         LINE#         403
-  C:0CF2H         LINE#         404
-  C:0CF2H         LINE#         405
-  C:0CF2H         LINE#         406
-  C:0CF5H         LINE#         407
-  C:0CF6H         LINE#         408
-  C:0CF6H         LINE#         409
-  C:0CF9H         LINE#         410
-  C:0CFAH         LINE#         411
-  C:0CFAH         LINE#         412
-  C:0CFDH         LINE#         413
-  C:0CFEH         LINE#         414
-  C:0CFEH         LINE#         415
-  C:0D01H         LINE#         416
-  C:0D02H         LINE#         417
-  C:0D02H         LINE#         418
-  C:0D05H         LINE#         419
-  C:0D06H         LINE#         420
-  C:0D06H         LINE#         421
-  C:0D06H         LINE#         423
-  C:0D06H         LINE#         424
-  C:0D17H         LINE#         425
-  C:0D17H         LINE#         426
-  C:0D17H         LINE#         427
-  C:0D1BH         LINE#         428
-  C:0D1CH         LINE#         429
-  C:0D1CH         LINE#         430
-  C:0D20H         LINE#         431
-  C:0D21H         LINE#         432
-  C:0D21H         LINE#         433
-  C:0D25H         LINE#         434
-  C:0D26H         LINE#         435
-  C:0D26H         LINE#         436
-  C:0D2AH         LINE#         437
-  C:0D2BH         LINE#         438
-  C:0D2BH         LINE#         439
-  C:0D2FH         LINE#         440
-  C:0D2FH         LINE#         441
-  C:0D2FH         LINE#         442
-  C:0D2FH         LINE#         443
+  C:0D8DH         LINE#         396
+  C:0D8DH         LINE#         397
+  C:0D8DH         LINE#         399
+  C:0D97H         LINE#         400
+  C:0DA5H         LINE#         401
+  C:0DABH         LINE#         402
+  C:0DABH         LINE#         403
+  C:0DBCH         LINE#         404
+  C:0DBCH         LINE#         405
+  C:0DBCH         LINE#         406
+  C:0DBFH         LINE#         407
+  C:0DC0H         LINE#         408
+  C:0DC0H         LINE#         409
+  C:0DC3H         LINE#         410
+  C:0DC4H         LINE#         411
+  C:0DC4H         LINE#         412
+  C:0DC7H         LINE#         413
+  C:0DC8H         LINE#         414
+  C:0DC8H         LINE#         415
+  C:0DCBH         LINE#         416
+  C:0DCCH         LINE#         417
+  C:0DCCH         LINE#         418
+  C:0DCFH         LINE#         419
+  C:0DD0H         LINE#         420
+  C:0DD0H         LINE#         421
+  C:0DD0H         LINE#         423
+  C:0DD0H         LINE#         424
+  C:0DE1H         LINE#         425
+  C:0DE1H         LINE#         426
+  C:0DE1H         LINE#         427
+  C:0DE5H         LINE#         428
+  C:0DE6H         LINE#         429
+  C:0DE6H         LINE#         430
+  C:0DEAH         LINE#         431
+  C:0DEBH         LINE#         432
+  C:0DEBH         LINE#         433
+  C:0DEFH         LINE#         434
+  C:0DF0H         LINE#         435
+  C:0DF0H         LINE#         436
+  C:0DF4H         LINE#         437
+  C:0DF5H         LINE#         438
+  C:0DF5H         LINE#         439
+  C:0DF9H         LINE#         440
+  C:0DF9H         LINE#         441
+  C:0DF9H         LINE#         442
+  C:0DF9H         LINE#         443
   -------         ENDPROC       _DIGITALWRITE
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 13
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 13
 
 
   -------         PROC          _DIGITALWRITEGROUP
   D:0007H         SYMBOL        IOMode
   D:0005H         SYMBOL        IOGroup
   D:0003H         SYMBOL        content
-  C:0EC5H         LINE#         446
-  C:0EC5H         LINE#         447
-  C:0EC5H         LINE#         448
-  C:0ED2H         LINE#         449
-  C:0ED5H         LINE#         450
-  C:0ED5H         LINE#         451
-  C:0EE6H         LINE#         452
-  C:0EE6H         LINE#         453
-  C:0EE6H         LINE#         454
-  C:0EE9H         LINE#         455
-  C:0EEAH         LINE#         456
-  C:0EEAH         LINE#         457
-  C:0EEDH         LINE#         458
-  C:0EEEH         LINE#         459
-  C:0EEEH         LINE#         460
-  C:0EF1H         LINE#         461
-  C:0EF2H         LINE#         462
-  C:0EF2H         LINE#         463
-  C:0EF5H         LINE#         464
-  C:0EF6H         LINE#         465
-  C:0EF6H         LINE#         466
-  C:0EF9H         LINE#         467
-  C:0EFAH         LINE#         468
-  C:0EFAH         LINE#         469
-  C:0EFAH         LINE#         471
-  C:0EFAH         LINE#         472
-  C:0F0BH         LINE#         473
-  C:0F0BH         LINE#         474
-  C:0F0BH         LINE#         475
-  C:0F0EH         LINE#         476
-  C:0F0FH         LINE#         477
-  C:0F0FH         LINE#         478
-  C:0F12H         LINE#         479
-  C:0F13H         LINE#         480
-  C:0F13H         LINE#         481
-  C:0F16H         LINE#         482
-  C:0F17H         LINE#         483
-  C:0F17H         LINE#         484
-  C:0F1AH         LINE#         485
-  C:0F1BH         LINE#         486
-  C:0F1BH         LINE#         487
-  C:0F1EH         LINE#         488
-  C:0F1EH         LINE#         489
-  C:0F1EH         LINE#         490
-  C:0F1EH         LINE#         491
+  C:0EAFH         LINE#         446
+  C:0EAFH         LINE#         447
+  C:0EAFH         LINE#         448
+  C:0EB9H         LINE#         449
+  C:0EBCH         LINE#         450
+  C:0EBCH         LINE#         451
+  C:0ECDH         LINE#         452
+  C:0ECDH         LINE#         453
+  C:0ECDH         LINE#         454
+  C:0ED0H         LINE#         455
+  C:0ED1H         LINE#         456
+  C:0ED1H         LINE#         457
+  C:0ED4H         LINE#         458
+  C:0ED5H         LINE#         459
+  C:0ED5H         LINE#         460
+  C:0ED8H         LINE#         461
+  C:0ED9H         LINE#         462
+  C:0ED9H         LINE#         463
+  C:0EDCH         LINE#         464
+  C:0EDDH         LINE#         465
+  C:0EDDH         LINE#         466
+  C:0EE0H         LINE#         467
+  C:0EE1H         LINE#         468
+  C:0EE1H         LINE#         469
+  C:0EE1H         LINE#         471
+  C:0EE1H         LINE#         472
+  C:0EF2H         LINE#         473
+  C:0EF2H         LINE#         474
+  C:0EF2H         LINE#         475
+  C:0EF5H         LINE#         476
+  C:0EF6H         LINE#         477
+  C:0EF6H         LINE#         478
+  C:0EF9H         LINE#         479
+  C:0EFAH         LINE#         480
+  C:0EFAH         LINE#         481
+  C:0EFDH         LINE#         482
+  C:0EFEH         LINE#         483
+  C:0EFEH         LINE#         484
+  C:0F01H         LINE#         485
+  C:0F02H         LINE#         486
+  C:0F02H         LINE#         487
+  C:0F05H         LINE#         488
+  C:0F05H         LINE#         489
+  C:0F05H         LINE#         490
+  C:0F05H         LINE#         491
   -------         ENDPROC       _DIGITALWRITEGROUP
   -------         ENDMOD        IO
 
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 14
 
 
   D:00B0H         PUBLIC        P3
@@ -793,89 +793,89 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00BAH         PUBLIC        P_SW2
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:0BCAH         PUBLIC        _PWM2_Output
-  C:0C45H         PUBLIC        _PWM3_Output
+  C:0BB7H         PUBLIC        _PWM2_Output
+  C:0C32H         PUBLIC        _PWM3_Output
   D:00D8H         PUBLIC        CCON
   B:00B0H.7       PUBLIC        PWM2
   B:00A0H.1       PUBLIC        PWM3
-  C:136EH         PUBLIC        PWM_Dispose
+  C:1342H         PUBLIC        PWM_Dispose
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   D:00F1H         PUBLIC        PWMCFG
-  C:0E10H         PUBLIC        PWM_Init
+  C:0DFAH         PUBLIC        PWM_Init
   D:00D0H         PUBLIC        PSW
   -------         PROC          PWM_INIT
-  C:0E10H         LINE#         15
-  C:0E10H         LINE#         16
-  C:0E10H         LINE#         18
-  C:0E19H         LINE#         19
-  C:0E22H         LINE#         21
-  C:0E25H         LINE#         22
-  C:0E28H         LINE#         23
-  C:0E2EH         LINE#         24
-  C:0E38H         LINE#         25
-  C:0E3DH         LINE#         26
-  C:0E41H         LINE#         27
-  C:0E47H         LINE#         28
-  C:0E4CH         LINE#         29
-  C:0E53H         LINE#         30
-  C:0E58H         LINE#         31
-  C:0E5BH         LINE#         32
-  C:0E5EH         LINE#         34
-  C:0E66H         LINE#         35
-  C:0E6AH         LINE#         36
+  C:0DFAH         LINE#         15
+  C:0DFAH         LINE#         16
+  C:0DFAH         LINE#         18
+  C:0E03H         LINE#         19
+  C:0E0CH         LINE#         21
+  C:0E0FH         LINE#         22
+  C:0E12H         LINE#         23
+  C:0E18H         LINE#         24
+  C:0E22H         LINE#         25
+  C:0E27H         LINE#         26
+  C:0E2BH         LINE#         27
+  C:0E31H         LINE#         28
+  C:0E36H         LINE#         29
+  C:0E3DH         LINE#         30
+  C:0E42H         LINE#         31
+  C:0E45H         LINE#         32
+  C:0E48H         LINE#         34
+  C:0E50H         LINE#         35
+  C:0E54H         LINE#         36
   -------         ENDPROC       PWM_INIT
   -------         PROC          _PWM2_OUTPUT
   X:0064H         SYMBOL        duty
-  C:0BCAH         LINE#         39
-  C:0BD2H         LINE#         40
-  C:0BD2H         LINE#         41
-  C:0BDEH         LINE#         42
-  C:0BEFH         LINE#         43
-  C:0BEFH         LINE#         44
-  C:0BF2H         LINE#         45
-  C:0BFEH         LINE#         46
-  C:0C00H         LINE#         48
-  C:0C00H         LINE#         49
-  C:0C03H         LINE#         50
-  C:0C0AH         LINE#         51
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 15
+  C:0BB7H         LINE#         39
+  C:0BBFH         LINE#         40
+  C:0BBFH         LINE#         41
+  C:0BCBH         LINE#         42
+  C:0BDCH         LINE#         43
+  C:0BDCH         LINE#         44
+  C:0BDFH         LINE#         45
+  C:0BEBH         LINE#         46
+  C:0BEDH         LINE#         48
+  C:0BEDH         LINE#         49
+  C:0BF0H         LINE#         50
+  C:0BF7H         LINE#         51
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 15
 
 
-  C:0C2FH         LINE#         52
-  C:0C32H         LINE#         53
-  C:0C35H         LINE#         54
-  C:0C35H         LINE#         55
-  C:0C44H         LINE#         56
+  C:0C1CH         LINE#         52
+  C:0C1FH         LINE#         53
+  C:0C22H         LINE#         54
+  C:0C22H         LINE#         55
+  C:0C31H         LINE#         56
   -------         ENDPROC       _PWM2_OUTPUT
   -------         PROC          _PWM3_OUTPUT
   X:0064H         SYMBOL        duty
-  C:0C45H         LINE#         59
-  C:0C4DH         LINE#         60
-  C:0C4DH         LINE#         61
-  C:0C59H         LINE#         62
-  C:0C6AH         LINE#         63
-  C:0C6AH         LINE#         64
-  C:0C6DH         LINE#         65
-  C:0C79H         LINE#         66
-  C:0C7BH         LINE#         68
-  C:0C7BH         LINE#         69
-  C:0C7EH         LINE#         70
-  C:0C85H         LINE#         71
-  C:0CAAH         LINE#         72
-  C:0CADH         LINE#         73
-  C:0CB0H         LINE#         74
-  C:0CB0H         LINE#         75
-  C:0CBFH         LINE#         76
+  C:0C32H         LINE#         59
+  C:0C3AH         LINE#         60
+  C:0C3AH         LINE#         61
+  C:0C46H         LINE#         62
+  C:0C57H         LINE#         63
+  C:0C57H         LINE#         64
+  C:0C5AH         LINE#         65
+  C:0C66H         LINE#         66
+  C:0C68H         LINE#         68
+  C:0C68H         LINE#         69
+  C:0C6BH         LINE#         70
+  C:0C72H         LINE#         71
+  C:0C97H         LINE#         72
+  C:0C9AH         LINE#         73
+  C:0C9DH         LINE#         74
+  C:0C9DH         LINE#         75
+  C:0CACH         LINE#         76
   -------         ENDPROC       _PWM3_OUTPUT
   -------         PROC          PWM_DISPOSE
-  C:136EH         LINE#         79
-  C:136EH         LINE#         80
-  C:136EH         LINE#         81
-  C:1371H         LINE#         82
-  C:1374H         LINE#         83
-  C:1377H         LINE#         84
-  C:137BH         LINE#         85
+  C:1342H         LINE#         79
+  C:1342H         LINE#         80
+  C:1342H         LINE#         81
+  C:1345H         LINE#         82
+  C:1348H         LINE#         83
+  C:134BH         LINE#         84
+  C:134FH         LINE#         85
   -------         ENDPROC       PWM_DISPOSE
   -------         ENDMOD        PWM
 
@@ -891,15 +891,15 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00E8H         PUBLIC        P6
   D:00F8H         PUBLIC        P7
   X:0000H         PUBLIC        readBufferTail
-  C:1263H         PUBLIC        Serial1_ReadByte
+  C:1238H         PUBLIC        Serial1_ReadByte
   D:00A8H         PUBLIC        IE
   B:00A8H.4       PUBLIC        ES
-  C:12E0H         PUBLIC        _Serial1_SendByte
+  C:12B6H         PUBLIC        _Serial1_SendByte
   D:00B8H         PUBLIC        IP
   B:0098H.0       PUBLIC        RI
   B:0098H.1       PUBLIC        TI
   B:00B8H.4       PUBLIC        PS
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 16
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 16
 
 
   D:00D8H         PUBLIC        CCON
@@ -907,119 +907,119 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  C:128CH         PUBLIC        _Serial1_SendStr
+  C:1261H         PUBLIC        _Serial1_SendStr
   D:008EH         PUBLIC        AUXR
   D:008DH         PUBLIC        TH1
   D:008BH         PUBLIC        TL1
   B:0088H.6       PUBLIC        TR1
-  C:0B43H         PUBLIC        _Serial1_Begin
-  C:120CH         PUBLIC        _Serial1_SendLenStr
-  C:0F1FH         PUBLIC        Serial1_ISP
+  C:0B30H         PUBLIC        _Serial1_Begin
+  C:11E1H         PUBLIC        _Serial1_SendLenStr
+  C:0F06H         PUBLIC        Serial1_ISP
   X:0001H         PUBLIC        readBufferLength
   X:0002H         PUBLIC        readBufferHead
   D:00D0H         PUBLIC        PSW
-  C:1313H         PUBLIC        Serial1_Available
+  C:1323H         PUBLIC        Serial1_Available
   X:0003H         PUBLIC        readBuffer
   -------         PROC          _SERIAL1_BEGIN
   X:0094H         SYMBOL        BAUD
-  C:0B43H         LINE#         18
-  C:0B49H         LINE#         19
-  C:0B49H         LINE#         21
-  C:0B51H         LINE#         22
-  C:0B5AH         LINE#         24
-  C:0B5CH         LINE#         25
-  C:0B5EH         LINE#         26
-  C:0B61H         LINE#         27
-  C:0B64H         LINE#         28
-  C:0B67H         LINE#         29
-  C:0B6AH         LINE#         30
-  C:0B98H         LINE#         31
-  C:0BB6H         LINE#         32
-  C:0BB8H         LINE#         33
-  C:0BBAH         LINE#         34
-  C:0BBCH         LINE#         35
-  C:0BBEH         LINE#         37
-  C:0BC3H         LINE#         38
-  C:0BC5H         LINE#         39
-  C:0BC9H         LINE#         40
+  C:0B30H         LINE#         18
+  C:0B36H         LINE#         19
+  C:0B36H         LINE#         21
+  C:0B3EH         LINE#         22
+  C:0B47H         LINE#         24
+  C:0B49H         LINE#         25
+  C:0B4BH         LINE#         26
+  C:0B4EH         LINE#         27
+  C:0B51H         LINE#         28
+  C:0B54H         LINE#         29
+  C:0B57H         LINE#         30
+  C:0B85H         LINE#         31
+  C:0BA3H         LINE#         32
+  C:0BA5H         LINE#         33
+  C:0BA7H         LINE#         34
+  C:0BA9H         LINE#         35
+  C:0BABH         LINE#         37
+  C:0BB0H         LINE#         38
+  C:0BB2H         LINE#         39
+  C:0BB6H         LINE#         40
   -------         ENDPROC       _SERIAL1_BEGIN
   -------         PROC          L?0020
   -------         ENDPROC       L?0020
   -------         PROC          _SERIAL1_SENDBYTE
   D:0007H         SYMBOL        s
-  C:12E0H         LINE#         43
-  C:12E0H         LINE#         44
-  C:12E0H         LINE#         45
-  C:12E2H         LINE#         46
-  C:12E5H         LINE#         47
-  C:12E7H         LINE#         48
+  C:12B6H         LINE#         43
+  C:12B6H         LINE#         44
+  C:12B6H         LINE#         45
+  C:12B8H         LINE#         46
+  C:12BBH         LINE#         47
+  C:12BDH         LINE#         48
   -------         ENDPROC       _SERIAL1_SENDBYTE
   -------         PROC          _SERIAL1_SENDSTR
   X:0098H         SYMBOL        s
-  C:128CH         LINE#         51
-  C:1297H         LINE#         52
-  C:1297H         LINE#         53
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 17
+  C:1261H         LINE#         51
+  C:126CH         LINE#         52
+  C:126CH         LINE#         53
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 17
 
 
-  C:12A7H         LINE#         54
-  C:12A7H         LINE#         55
-  C:12ADH         LINE#         56
-  C:12AFH         LINE#         57
+  C:127CH         LINE#         54
+  C:127CH         LINE#         55
+  C:1282H         LINE#         56
+  C:1284H         LINE#         57
   -------         ENDPROC       _SERIAL1_SENDSTR
   -------         PROC          _SERIAL1_SENDLENSTR
   X:009BH         SYMBOL        s
   D:0004H         SYMBOL        length
-  C:120CH         LINE#         60
-  C:1217H         LINE#         61
-  C:1217H         LINE#         62
-  C:122BH         LINE#         63
-  C:122BH         LINE#         64
-  C:1231H         LINE#         65
-  C:1236H         LINE#         66
-  C:1238H         LINE#         67
+  C:11E1H         LINE#         60
+  C:11ECH         LINE#         61
+  C:11ECH         LINE#         62
+  C:1200H         LINE#         63
+  C:1200H         LINE#         64
+  C:1206H         LINE#         65
+  C:120BH         LINE#         66
+  C:120DH         LINE#         67
   -------         ENDPROC       _SERIAL1_SENDLENSTR
   -------         PROC          SERIAL1_ISP
-  C:0F1FH         LINE#         70
-  C:0F2CH         LINE#         72
-  C:0F2EH         LINE#         73
-  C:0F31H         LINE#         74
-  C:0F31H         LINE#         75
-  C:0F33H         LINE#         76
-  C:0F40H         LINE#         77
-  C:0F40H         LINE#         78
-  C:0F46H         LINE#         79
-  C:0F4CH         LINE#         80
-  C:0F4CH         LINE#         81
-  C:0F52H         LINE#         82
-  C:0F63H         LINE#         83
-  C:0F6BH         LINE#         84
-  C:0F6BH         LINE#         85
-  C:0F6DH         LINE#         86
+  C:0F06H         LINE#         70
+  C:0F13H         LINE#         72
+  C:0F15H         LINE#         73
+  C:0F18H         LINE#         74
+  C:0F18H         LINE#         75
+  C:0F1AH         LINE#         76
+  C:0F23H         LINE#         77
+  C:0F23H         LINE#         78
+  C:0F29H         LINE#         79
+  C:0F2FH         LINE#         80
+  C:0F2FH         LINE#         81
+  C:0F35H         LINE#         82
+  C:0F46H         LINE#         83
+  C:0F4EH         LINE#         84
+  C:0F4EH         LINE#         85
+  C:0F50H         LINE#         86
   -------         ENDPROC       SERIAL1_ISP
   -------         PROC          SERIAL1_AVAILABLE
-  C:1313H         LINE#         89
-  C:1313H         LINE#         90
-  C:1313H         LINE#         91
-  C:1325H         LINE#         92
+  C:1323H         LINE#         89
+  C:1323H         LINE#         90
+  C:1323H         LINE#         91
+  C:1332H         LINE#         92
   -------         ENDPROC       SERIAL1_AVAILABLE
   -------         PROC          SERIAL1_READBYTE
   -------         DO            
   D:0006H         SYMBOL        retValue
   -------         ENDDO         
-  C:1263H         LINE#         95
-  C:1263H         LINE#         96
-  C:1263H         LINE#         97
-  C:1265H         LINE#         98
-  C:126BH         LINE#         99
-  C:126BH         LINE#         100
-  C:127BH         LINE#         101
-  C:1283H         LINE#         102
-  C:1289H         LINE#         103
-  C:1289H         LINE#         104
-  C:128BH         LINE#         105
+  C:1238H         LINE#         95
+  C:1238H         LINE#         96
+  C:1238H         LINE#         97
+  C:123AH         LINE#         98
+  C:1240H         LINE#         99
+  C:1240H         LINE#         100
+  C:1250H         LINE#         101
+  C:1258H         LINE#         102
+  C:125EH         LINE#         103
+  C:125EH         LINE#         104
+  C:1260H         LINE#         105
   -------         ENDPROC       SERIAL1_READBYTE
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 18
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 18
 
 
   -------         ENDMOD        USART
@@ -1037,13 +1037,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:00D8H         PUBLIC        CCON
-  C:1169H         PUBLIC        _minDouble
+  C:113EH         PUBLIC        _minDouble
   C:0026H         PUBLIC        _maxDouble
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   C:000EH         PUBLIC        _delay_ms
-  C:1339H         PUBLIC        _minInt
-  C:1326H         PUBLIC        _maxInt
+  C:12FDH         PUBLIC        _minInt
+  C:12EAH         PUBLIC        _maxInt
   D:00D0H         PUBLIC        PSW
   -------         PROC          _DELAY_MS
   D:0006H         SYMBOL        t
@@ -1067,11 +1067,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         PROC          _MAXINT
   D:0006H         SYMBOL        numA
   D:0004H         SYMBOL        numB
-  C:1326H         LINE#         29
-  C:1326H         LINE#         30
-  C:1326H         LINE#         31
-  C:1334H         LINE#         32
-  C:1338H         LINE#         33
+  C:12EAH         LINE#         29
+  C:12EAH         LINE#         30
+  C:12EAH         LINE#         31
+  C:12F8H         LINE#         32
+  C:12FCH         LINE#         33
   -------         ENDPROC       _MAXINT
   -------         PROC          _MAXDOUBLE
   X:0078H         SYMBOL        numA
@@ -1079,7 +1079,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0026H         LINE#         36
   C:002CH         LINE#         37
   C:002CH         LINE#         38
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 19
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 19
 
 
   C:0054H         LINE#         39
@@ -1088,20 +1088,20 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         PROC          _MININT
   D:0006H         SYMBOL        numA
   D:0004H         SYMBOL        numB
-  C:1339H         LINE#         43
-  C:1339H         LINE#         44
-  C:1339H         LINE#         45
-  C:1347H         LINE#         46
-  C:134BH         LINE#         47
+  C:12FDH         LINE#         43
+  C:12FDH         LINE#         44
+  C:12FDH         LINE#         45
+  C:130BH         LINE#         46
+  C:130FH         LINE#         47
   -------         ENDPROC       _MININT
   -------         PROC          _MINDOUBLE
   X:0080H         SYMBOL        numA
   X:0084H         SYMBOL        numB
-  C:1169H         LINE#         50
-  C:116FH         LINE#         51
-  C:116FH         LINE#         52
-  C:1195H         LINE#         53
-  C:11A3H         LINE#         54
+  C:113EH         LINE#         50
+  C:1144H         LINE#         51
+  C:1144H         LINE#         52
+  C:116AH         LINE#         53
+  C:1178H         LINE#         54
   -------         ENDPROC       _MINDOUBLE
   -------         ENDMOD        STDFUNC
 
@@ -1109,7 +1109,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
-  C:0ABAH         PUBLIC        Timer0_ISP
+  C:0AA7H         PUBLIC        Timer0_ISP
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00C0H         PUBLIC        P4
@@ -1120,7 +1120,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00B8H         PUBLIC        IP
   X:0088H         PUBLIC        servoAngle
   D:00D8H         PUBLIC        CCON
-  C:10A4H         PUBLIC        _ServoSetAngle
+  C:10C2H         PUBLIC        _ServoSetAngle
   X:008AH         PUBLIC        highLevelCount
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
@@ -1130,64 +1130,64 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:008EH         PUBLIC        AUXR
   B:00A8H.1       PUBLIC        ET0
   B:0088H.5       PUBLIC        TF0
-  C:12FEH         PUBLIC        Timer0Init
+  C:12D5H         PUBLIC        Timer0Init
   D:008CH         PUBLIC        TH0
   D:008AH         PUBLIC        TL0
   B:0088H.4       PUBLIC        TR0
   X:008FH         PUBLIC        servoIOGroup
-  C:1011H         PUBLIC        _ServoAttach
+  C:0FF4H         PUBLIC        _ServoAttach
   D:00D0H         PUBLIC        PSW
   -------         PROC          TIMER0INIT
-  C:12FEH         LINE#         19
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 20
+  C:12D5H         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 20
 
 
-  C:12FEH         LINE#         20
-  C:12FEH         LINE#         21
-  C:1300H         LINE#         22
-  C:1302H         LINE#         23
-  C:1305H         LINE#         24
-  C:1308H         LINE#         25
-  C:130BH         LINE#         26
-  C:130EH         LINE#         27
-  C:1310H         LINE#         28
-  C:1312H         LINE#         29
+  C:12D5H         LINE#         20
+  C:12D5H         LINE#         21
+  C:12D7H         LINE#         22
+  C:12D9H         LINE#         23
+  C:12DCH         LINE#         24
+  C:12DFH         LINE#         25
+  C:12E2H         LINE#         26
+  C:12E5H         LINE#         27
+  C:12E7H         LINE#         28
+  C:12E9H         LINE#         29
   -------         ENDPROC       TIMER0INIT
   -------         PROC          TIMER0_ISP
-  C:0ABAH         LINE#         32
-  C:0AD7H         LINE#         34
-  C:0AD9H         LINE#         35
-  C:0B01H         LINE#         36
-  C:0B05H         LINE#         38
-  C:0B0CH         LINE#         39
-  C:0B26H         LINE#         40
-  C:0B28H         LINE#         41
+  C:0AA7H         LINE#         32
+  C:0AC4H         LINE#         34
+  C:0AC6H         LINE#         35
+  C:0AEEH         LINE#         36
+  C:0AF2H         LINE#         38
+  C:0AF9H         LINE#         39
+  C:0B13H         LINE#         40
+  C:0B15H         LINE#         41
   -------         ENDPROC       TIMER0_ISP
   -------         PROC          _SERVOATTACH
   X:0062H         SYMBOL        IOGroup
   X:0063H         SYMBOL        IONumber
-  C:1011H         LINE#         44
-  C:1019H         LINE#         45
-  C:1019H         LINE#         47
-  C:1022H         LINE#         48
-  C:1027H         LINE#         49
-  C:102EH         LINE#         50
-  C:1034H         LINE#         51
-  C:103CH         LINE#         53
-  C:1041H         LINE#         54
-  C:1053H         LINE#         55
-  C:1058H         LINE#         57
+  C:0FF4H         LINE#         44
+  C:0FFCH         LINE#         45
+  C:0FFCH         LINE#         47
+  C:1005H         LINE#         48
+  C:100AH         LINE#         49
+  C:1011H         LINE#         50
+  C:1017H         LINE#         51
+  C:101FH         LINE#         53
+  C:1024H         LINE#         54
+  C:1036H         LINE#         55
+  C:103BH         LINE#         57
   -------         ENDPROC       _SERVOATTACH
   -------         PROC          _SERVOSETANGLE
   D:0007H         SYMBOL        Angle
-  C:10A4H         LINE#         61
-  C:10A4H         LINE#         62
-  C:10A4H         LINE#         63
-  C:10C2H         LINE#         64
-  C:10C4H         LINE#         65
-  C:10CEH         LINE#         66
-  C:10E5H         LINE#         67
-  C:10E7H         LINE#         68
+  C:10C2H         LINE#         61
+  C:10C2H         LINE#         62
+  C:10C2H         LINE#         63
+  C:10DBH         LINE#         64
+  C:10DDH         LINE#         65
+  C:10E7H         LINE#         66
+  C:10FEH         LINE#         67
+  C:1100H         LINE#         68
   -------         ENDPROC       _SERVOSETANGLE
   -------         ENDMOD        SERVO
 
@@ -1195,71 +1195,71 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
-  C:0D30H         PUBLIC        _Motor_Left
+  C:0CADH         PUBLIC        _Motor_Left
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00C0H         PUBLIC        P4
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 21
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 21
 
 
   D:00C8H         PUBLIC        P5
   D:00E8H         PUBLIC        P6
   D:00F8H         PUBLIC        P7
-  C:11A4H         PUBLIC        Motor_Init
+  C:1179H         PUBLIC        Motor_Init
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:00D8H         PUBLIC        CCON
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:0DA0H         PUBLIC        _Motor_Right
+  C:0D1DH         PUBLIC        _Motor_Right
   D:00D0H         PUBLIC        PSW
   -------         PROC          MOTOR_INIT
   -------         DO            
   X:0062H         SYMBOL        i
   -------         ENDDO         
-  C:11A4H         LINE#         15
-  C:11A4H         LINE#         16
-  C:11A4H         LINE#         18
-  C:11A7H         LINE#         19
-  C:11C2H         LINE#         20
-  C:11DBH         LINE#         21
+  C:1179H         LINE#         15
+  C:1179H         LINE#         16
+  C:1179H         LINE#         18
+  C:117CH         LINE#         19
+  C:1197H         LINE#         20
+  C:11B0H         LINE#         21
   -------         ENDPROC       MOTOR_INIT
   -------         PROC          _MOTOR_LEFT
   X:0062H         SYMBOL        value
-  C:0D30H         LINE#         24
-  C:0D38H         LINE#         25
-  C:0D38H         LINE#         26
-  C:0D42H         LINE#         27
-  C:0D42H         LINE#         28
-  C:0D50H         LINE#         29
-  C:0D5FH         LINE#         30
-  C:0D61H         LINE#         32
-  C:0D61H         LINE#         33
-  C:0D70H         LINE#         34
-  C:0D7EH         LINE#         35
-  C:0D95H         LINE#         36
-  C:0D95H         LINE#         37
+  C:0CADH         LINE#         24
+  C:0CB5H         LINE#         25
+  C:0CB5H         LINE#         26
+  C:0CBFH         LINE#         27
+  C:0CBFH         LINE#         28
+  C:0CCDH         LINE#         29
+  C:0CDCH         LINE#         30
+  C:0CDEH         LINE#         32
+  C:0CDEH         LINE#         33
+  C:0CEDH         LINE#         34
+  C:0CFBH         LINE#         35
+  C:0D12H         LINE#         36
+  C:0D12H         LINE#         37
   -------         ENDPROC       _MOTOR_LEFT
   -------         PROC          _MOTOR_RIGHT
   X:0062H         SYMBOL        value
-  C:0DA0H         LINE#         41
-  C:0DA8H         LINE#         42
-  C:0DA8H         LINE#         43
-  C:0DB2H         LINE#         44
-  C:0DB2H         LINE#         45
-  C:0DC0H         LINE#         46
-  C:0DCFH         LINE#         47
-  C:0DD1H         LINE#         49
-  C:0DD1H         LINE#         50
-  C:0DE0H         LINE#         51
-  C:0DEEH         LINE#         52
-  C:0E05H         LINE#         53
-  C:0E05H         LINE#         54
+  C:0D1DH         LINE#         41
+  C:0D25H         LINE#         42
+  C:0D25H         LINE#         43
+  C:0D2FH         LINE#         44
+  C:0D2FH         LINE#         45
+  C:0D3DH         LINE#         46
+  C:0D4CH         LINE#         47
+  C:0D4EH         LINE#         49
+  C:0D4EH         LINE#         50
+  C:0D5DH         LINE#         51
+  C:0D6BH         LINE#         52
+  C:0D82H         LINE#         53
+  C:0D82H         LINE#         54
   -------         ENDPROC       _MOTOR_RIGHT
   -------         ENDMOD        MOTOR
 
   -------         MODULE        PID
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 22
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 22
 
 
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -1283,7 +1283,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0088H         PUBLIC        TCON
   X:004DH         PUBLIC        leftMotorPWM
   X:004FH         PUBLIC        PID_KD
-  C:0FC6H         PUBLIC        _PID_Setup
+  C:0FA9H         PUBLIC        _PID_Setup
   X:0053H         PUBLIC        PID_KI
   X:0057H         PUBLIC        PID_KP
   X:005BH         PUBLIC        pid_le
@@ -1293,16 +1293,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0004H         SYMBOL        kp
   X:0066H         SYMBOL        ki
   X:006AH         SYMBOL        kd
-  C:0FC6H         LINE#         22
-  C:0FC6H         LINE#         23
-  C:0FC6H         LINE#         24
-  C:0FCCH         LINE#         25
-  C:0FE0H         LINE#         26
-  C:0FF4H         LINE#         27
-  C:0FFBH         LINE#         28
-  C:1003H         LINE#         29
-  C:100AH         LINE#         30
-  C:1010H         LINE#         31
+  C:0FA9H         LINE#         22
+  C:0FA9H         LINE#         23
+  C:0FA9H         LINE#         24
+  C:0FAFH         LINE#         25
+  C:0FC3H         LINE#         26
+  C:0FD7H         LINE#         27
+  C:0FDEH         LINE#         28
+  C:0FE6H         LINE#         29
+  C:0FEDH         LINE#         30
+  C:0FF3H         LINE#         31
   -------         ENDPROC       _PID_SETUP
   -------         PROC          _PID_CALC
   D:0006H         SYMBOL        sensorData
@@ -1319,7 +1319,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0712H         LINE#         43
   -------         ENDPROC       _PID_CALC
   -------         ENDMOD        PID
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 23
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 23
 
 
 
@@ -1338,62 +1338,62 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00B8H         PUBLIC        IP
   X:006FH         PUBLIC        sensorData
   D:00D8H         PUBLIC        CCON
-  C:0F78H         PUBLIC        Sensor_RefreshData
+  C:0F5BH         PUBLIC        Sensor_RefreshData
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:12B0H         PUBLIC        _Sensor_GetSingleData
-  C:105BH         PUBLIC        Sensor_GetSample
+  C:1285H         PUBLIC        _Sensor_GetSingleData
+  C:1082H         PUBLIC        Sensor_GetSample
   X:0077H         PUBLIC        isSensorInit
-  C:12E8H         PUBLIC        Sensor_Init
+  C:12BEH         PUBLIC        Sensor_Init
   D:00D0H         PUBLIC        PSW
   C:0984H         PUBLIC        Sensor_GetData
   -------         PROC          SENSOR_INIT
-  C:12E8H         LINE#         11
-  C:12E8H         LINE#         12
-  C:12E8H         LINE#         13
-  C:12EEH         LINE#         14
-  C:12F4H         LINE#         15
-  C:12F7H         LINE#         16
-  C:12FDH         LINE#         17
+  C:12BEH         LINE#         11
+  C:12BEH         LINE#         12
+  C:12BEH         LINE#         13
+  C:12C4H         LINE#         14
+  C:12CBH         LINE#         15
+  C:12CEH         LINE#         16
+  C:12D4H         LINE#         17
   -------         ENDPROC       SENSOR_INIT
   -------         PROC          SENSOR_GETSAMPLE
   -------         DO            
   X:0062H         SYMBOL        i
   X:0063H         SYMBOL        sample
   -------         ENDDO         
-  C:105BH         LINE#         20
-  C:105BH         LINE#         21
-  C:105BH         LINE#         23
-  C:1060H         LINE#         24
-  C:1071H         LINE#         25
-  C:1071H         LINE#         26
-  C:1080H         LINE#         27
-  C:108FH         LINE#         28
-  C:1097H         LINE#         29
-  C:10A3H         LINE#         30
+  C:1082H         LINE#         20
+  C:1082H         LINE#         21
+  C:1082H         LINE#         23
+  C:1087H         LINE#         24
+  C:108BH         LINE#         25
+  C:108BH         LINE#         26
+  C:109AH         LINE#         27
+  C:10A9H         LINE#         28
+  C:10B5H         LINE#         29
+  C:10C1H         LINE#         30
   -------         ENDPROC       SENSOR_GETSAMPLE
   -------         PROC          SENSOR_REFRESHDATA
   -------         DO            
   X:0066H         SYMBOL        i
   -------         ENDDO         
-  C:0F78H         LINE#         33
-  C:0F78H         LINE#         34
-  C:0F78H         LINE#         36
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 24
+  C:0F5BH         LINE#         33
+  C:0F5BH         LINE#         34
+  C:0F5BH         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 24
 
 
-  C:0F7FH         LINE#         37
-  C:0F7FH         LINE#         38
-  C:0FA6H         LINE#         39
-  C:0FC5H         LINE#         40
+  C:0F62H         LINE#         37
+  C:0F62H         LINE#         38
+  C:0F89H         LINE#         39
+  C:0FA8H         LINE#         40
   -------         ENDPROC       SENSOR_REFRESHDATA
   -------         PROC          _SENSOR_GETSINGLEDATA
   X:009EH         SYMBOL        sensorID
-  C:12B0H         LINE#         43
-  C:12B5H         LINE#         44
-  C:12B5H         LINE#         45
-  C:12B8H         LINE#         46
-  C:12D0H         LINE#         47
+  C:1285H         LINE#         43
+  C:128AH         LINE#         44
+  C:128AH         LINE#         45
+  C:128DH         LINE#         46
+  C:12A6H         LINE#         47
   -------         ENDPROC       _SENSOR_GETSINGLEDATA
   -------         PROC          SENSOR_GETDATA
   -------         DO            
@@ -1407,9 +1407,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:098BH         LINE#         55
   C:098FH         LINE#         56
   C:0992H         LINE#         57
-  C:09D5H         LINE#         58
-  C:0A18H         LINE#         59
-  C:0A2DH         LINE#         60
+  C:09CAH         LINE#         58
+  C:0A05H         LINE#         59
+  C:0A1AH         LINE#         60
   -------         ENDPROC       SENSOR_GETDATA
   -------         ENDMOD        SENSOR
 
@@ -1419,7 +1419,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-  C:134CH         PUBLIC        Timer2_ISP
+  C:1310H         PUBLIC        Timer2_ISP
   D:00C0H         PUBLIC        P4
   X:009FH         PUBLIC        callControl
   D:00C8H         PUBLIC        P5
@@ -1429,56 +1429,56 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:00D8H         PUBLIC        CCON
-  C:1239H         PUBLIC        JMCR_Car
-  C:112CH         PUBLIC        main
+  C:120EH         PUBLIC        JMCR_Car
+  C:1101H         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   D:008EH         PUBLIC        AUXR
-  C:135FH         PUBLIC        Timer2Init
+  C:1333H         PUBLIC        Timer2Init
   D:00D6H         PUBLIC        T2H
   D:00D7H         PUBLIC        T2L
   D:00D0H         PUBLIC        PSW
   -------         PROC          TIMER2INIT
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 25
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 25
 
 
-  C:135FH         LINE#         14
-  C:135FH         LINE#         15
-  C:135FH         LINE#         16
-  C:1362H         LINE#         17
-  C:1365H         LINE#         18
-  C:1368H         LINE#         19
-  C:136BH         LINE#         20
-  C:136DH         LINE#         21
+  C:1333H         LINE#         14
+  C:1333H         LINE#         15
+  C:1333H         LINE#         16
+  C:1336H         LINE#         17
+  C:1339H         LINE#         18
+  C:133CH         LINE#         19
+  C:133FH         LINE#         20
+  C:1341H         LINE#         21
   -------         ENDPROC       TIMER2INIT
   -------         PROC          TIMER2_ISP
-  C:134CH         LINE#         23
-  C:1352H         LINE#         25
-  C:1358H         LINE#         26
+  C:1310H         LINE#         23
+  C:1316H         LINE#         25
+  C:131CH         LINE#         26
   -------         ENDPROC       TIMER2_ISP
   -------         PROC          JMCR_CAR
-  C:1239H         LINE#         29
-  C:1239H         LINE#         30
-  C:1239H         LINE#         31
-  C:123FH         LINE#         32
-  C:1247H         LINE#         33
-  C:1252H         LINE#         34
-  C:125DH         LINE#         35
-  C:1262H         LINE#         36
+  C:120EH         LINE#         29
+  C:120EH         LINE#         30
+  C:120EH         LINE#         31
+  C:1214H         LINE#         32
+  C:121CH         LINE#         33
+  C:1227H         LINE#         34
+  C:1232H         LINE#         35
+  C:1237H         LINE#         36
   -------         ENDPROC       JMCR_CAR
   -------         PROC          MAIN
-  C:112CH         LINE#         38
-  C:112CH         LINE#         39
-  C:112CH         LINE#         41
-  C:1133H         LINE#         42
-  C:1136H         LINE#         43
-  C:1139H         LINE#         44
-  C:1158H         LINE#         46
-  C:115BH         LINE#         48
-  C:115EH         LINE#         49
-  C:115EH         LINE#         50
-  C:115EH         LINE#         51
-  C:1167H         LINE#         52
+  C:1101H         LINE#         38
+  C:1101H         LINE#         39
+  C:1101H         LINE#         41
+  C:1108H         LINE#         42
+  C:110BH         LINE#         43
+  C:110EH         LINE#         44
+  C:112DH         LINE#         46
+  C:1130H         LINE#         48
+  C:1133H         LINE#         49
+  C:1133H         LINE#         50
+  C:1133H         LINE#         51
+  C:113CH         LINE#         52
   -------         ENDPROC       MAIN
   -------         ENDMOD        JMCR_CAR
 
@@ -1499,7 +1499,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         MODULE        ?C?FCAST
   C:02E7H         PUBLIC        ?C?FCASTC
   C:02E2H         PUBLIC        ?C?FCASTI
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 26
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 26
 
 
   C:02DDH         PUBLIC        ?C?FCASTL
@@ -1534,7 +1534,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         ENDMOD        ?C?ULDIV
 
   -------         MODULE        ?C?SLDIV
-  C:10E8H         PUBLIC        ?C?SLDIV
+  C:103EH         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
   -------         MODULE        ?C?LNEG
@@ -1559,7 +1559,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DIGITALREADGROUP?IO
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/15/2019  21:24:31  PAGE 27
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2019  23:28:07  PAGE 27
 
 
 
@@ -1604,5 +1604,5 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
     CALLER1: ?PR?TIMER0_ISP?SERVO
     CALLER2: ?C_C51STARTUP
 
-Program Size: data=9.0 xdata=160 code=4980
+Program Size: data=9.0 xdata=160 code=4936
 LINK/LOCATE RUN COMPLETE.  14 WARNING(S),  0 ERROR(S)

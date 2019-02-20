@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   USART                                                             02/15/2019 21:24:30 PAGE 1   
+C51 COMPILER V9.54   USART                                                                 02/20/2019 23:28:06 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USART
+C51 COMPILER V9.54, COMPILATION OF MODULE USART
 OBJECT MODULE PLACED IN .\Objects\USART.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\USART.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBU
                     -G OBJECTEXTEND PRINT(.\Listings\USART.lst) TABS(2) OBJECT(.\Objects\USART.obj)
@@ -62,7 +62,7 @@ line level    source
   52          {
   53   1        while(*s)
   54   1        {
-C51 COMPILER V9.59.0.0   USART                                                             02/15/2019 21:24:30 PAGE 2   
+C51 COMPILER V9.54   USART                                                                 02/20/2019 23:28:06 PAGE 2   
 
   55   2          Serial1_SendByte(*s++);
   56   2        }
@@ -118,7 +118,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    388    ----
+   CODE SIZE        =    381    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     67      10
    PDATA SIZE       =   ----    ----
@@ -127,7 +127,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
-C51 COMPILER V9.59.0.0   USART                                                             02/15/2019 21:24:30 PAGE 3   
+C51 COMPILER V9.54   USART                                                                 02/20/2019 23:28:06 PAGE 3   
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
