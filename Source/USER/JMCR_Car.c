@@ -8,47 +8,33 @@
 #include "SERVO.h"
 #include "SENSOR.h"
 
-u8 callControl = 0;
+#define true 1
+#define CONTROL_INV 60
 
-//2ms@24.0000Mhz
-void Timer2Init(void)
-{
-	AUXR |= 0x04;
-	T2L = 0x80;
-	T2H = 0x44;
-	AUXR |= 0x10;
-	EA = 1;
-}
-
-void Timer2_ISP() interrupt 12
-{
-	callControl = 1;
-}
-
-//Car Main Control
 void JMCR_Car()
 {
 	PID_Calc(Sensor_GetData());
-	ServoSetAngle(PIDservoAngle);
-	Motor_Left(leftMotorPWM);
-	Motor_Right(rightMotorPWM);
-	callControl = 0;
+	Servo_SetAngle(PID_ServoAngle);
+	Motor_Left(PID_LeftMotorPWM);
+	Motor_Right(PID_RightMotorPWM);
 }
 
 void main()
 {
 	//Init Devices
-	ServoAttach(4, 5);
+	Servo_Attach();
 	Motor_Init();
 	Sensor_Init();
-	PID_Setup(2, 0.01, 0.2);
-	//Cold Start
-	JMCR_Car();
-	//Init Timer2
-	Timer2Init();
-	while(1)
+	//Serial1_Begin(115200L);
+	//Init PID
+	PID_Setup(0.3, 0, 0.1);
+	//Wait for initializing
+	delay_ms(CONTROL_INV);
+	while(true)
 	{
-		if(callControl)JMCR_Car();
+		JMCR_Car();
+		//Serial1_SendByte(PID_ServoAngle);
+		delay_ms(CONTROL_INV);
 	}
 }
 

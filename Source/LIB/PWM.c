@@ -15,8 +15,8 @@ int lastDutyPWM3 = -1;
 void PWM_Init()
 {
 	//IO P-P Registers Setup
-	pinMode(3, 7, OUTPUT_PP);
-	pinMode(2, 1, OUTPUT_PP);
+	pinMode(3, 7, OUTPUT);
+	pinMode(2, 1, OUTPUT);
 	//PWM Registers Setup
 	P_SW2 |= 0x80;
 	PWMCFG = 0x00;
@@ -62,7 +62,7 @@ void PWM3_Output(unsigned int duty)
 	if(duty == PWM_DUTY_MIN || duty == PWM_DUTY_MAX)
 	{
 		PWMCR &= ~0x02;
-		PWM2 = duty == PWM_DUTY_MAX;
+		PWM3 = duty == PWM_DUTY_MAX;
 	}
 	else
 	{

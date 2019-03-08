@@ -8,7 +8,7 @@ Date: 2019.2.7
 */
 #include "STC15.h"
 #include "IO.h"
-#define PWM_CYCLE 6000L
+#define PWM_CYCLE 8000L
 #define PWM_DUTY_MAX 100
 #define PWM_DUTY_MIN 0
 

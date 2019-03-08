@@ -13,20 +13,17 @@ Date: 2019.2.9
 #define SERVO_MAX_ANGLE 180
 #define SERVO_MIN_ANGLE 0
 #define SERVO_MID_ANGLE 90
-#define SERVO_MAX_PULSE 200
-#define SERVO_MIN_PULSE 100
-#define SERVO_MID_PULSE 150
-#define SERVO_PULSE_WIDTH 2000
-#define TIMER_DIV 10
+#define SERVO_IO_GROUP 4
+#define SERVO_IO_NUMBER 5
 
-extern u8 servoIOGroup;
-extern u8 servoIONumber;
+sbit servoPin = P4^5;
+
 extern int servoAngle;
-extern int highLevelCount;
-extern int pulseWidthCount;
+extern int servoHighFreq;
 
 void Timer0Init();
-void ServoAttach(u8 IOGroup, u8 IONumber);
-void ServoSetAngle(u8 Angle);
+void Timer3Init();
+void Servo_Attach();
+void Servo_SetAngle(u8 Angle);
 
 #endif

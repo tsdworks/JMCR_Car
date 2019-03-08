@@ -21,18 +21,16 @@ void Serial1_Begin(unsigned long BAUD)
 	pinMode(3, 0, INPUT_PULLUP);
 	pinMode(3, 1, OUTPUT);
 	//Setup USART Registers
-	ES = 0;
-	TR1 = 0;
-	SCON = 0x50;
-	AUXR |= 0x40;
-	AUXR &= 0xFE;
-	TMOD &= 0x0F;
-	TH1 = (u8)((65536UL - (MAIN_FOSC / 4 / BAUD))>>8);
-	TL1 = (u8)(65536UL - (MAIN_FOSC / 4 / BAUD));
-	TR1 = 1;
-	PS = 1;
-	ES = 1;
-	EA = 1;
+	ACC = P_SW1;
+  ACC &= ~(S1_S0 | S1_S1);
+  P_SW1 = ACC;
+  AUXR |= 0x40;
+  TMOD = 0x00;
+  TL1 = (65536 - (FOSC/4/BAUD));
+  TH1 = (65536 - (FOSC/4/BAUD))>>8;
+  TR1 = 1;
+  ES = 1;
+  EA = 1;
 	//Clear Buffer
 	readBufferLength = 0;
 	readBufferHead = 0;
@@ -69,7 +67,6 @@ void Serial1_SendLenStr(u8 *s, int length)
 //Serial ISP
 void Serial1_ISP() interrupt 4
 {
-	ES = 0;
 	if(RI)
 	{
 		RI = 0;
@@ -82,7 +79,10 @@ void Serial1_ISP() interrupt 4
 		readBuffer[readBufferTail] = SBUF;
 		readBufferTail = (readBufferTail + 1) % READ_BUFFER_LENGTH;
 	}
-	ES = 1;
+	if(TI)
+	{
+		TI = 0;
+	}
 }
 
 //Is Serial1 Has Data To Read 

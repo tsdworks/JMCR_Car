@@ -15,9 +15,9 @@ int pid_d;
 int pid_le;
 
 //Data for Apply
-u8 PIDservoAngle = 90;
-int leftMotorPWM = 100;
-int rightMotorPWM = 100;
+u8 PID_ServoAngle = MID_ANGLE;
+int PID_LeftMotorPWM = MOTOR_MAX_PWM;
+int PID_RightMotorPWM = MOTOR_MAX_PWM;
 
 void PID_Setup(float kp, float ki, float kd)
 {
@@ -32,13 +32,15 @@ void PID_Setup(float kp, float ki, float kd)
 
 void PID_Calc(int sensorData)
 {
-	leftMotorPWM = 100;
-	rightMotorPWM = 100;
+	PID_LeftMotorPWM = MOTOR_MAX_PWM;
+	PID_RightMotorPWM = MOTOR_MAX_PWM;
 	pid_e = sensorData;
 	pid_i += pid_e;
 	pid_d = pid_e - pid_le;
-	PIDservoAngle = 90 + (u8)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
-	if(servoAngle > 90)leftMotorPWM -= servoAngle - 90;
-	else rightMotorPWM -= 90 - servoAngle; 
+	pid_le = pid_e;
+	PID_ServoAngle += (char)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
+	PID_ServoAngle = PID_ServoAngle > MAX_ANGLE ? MAX_ANGLE : (PID_ServoAngle < MIN_ANGLE ? MIN_ANGLE : PID_ServoAngle);
+	if(PID_ServoAngle > MID_ANGLE)PID_LeftMotorPWM -= PID_ServoAngle - MID_ANGLE;
+	else PID_RightMotorPWM -= MID_ANGLE - PID_ServoAngle; 
 }
 

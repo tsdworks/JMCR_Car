@@ -11,9 +11,8 @@ Device: FST SEN2020
 #include "IO.h"
 #include "STDFUNC.h"
 
-#define IO_MODE OUTPUT
+#define IO_MODE INPUT_PULLUP
 #define SENSOR_NUM 8
-#define SENSOR_INTERDIS 200
 #define L0 7
 #define L1 6
 #define L2 5

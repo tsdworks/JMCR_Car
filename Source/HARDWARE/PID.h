@@ -12,6 +12,10 @@ Date: 2019.2.11
 #include "SERVO.h"
 #include "SENSOR.h"
 
+#define MAX_ANGLE 140
+#define MIN_ANGLE 40
+#define MID_ANGLE 90
+
 //PID Paras
 extern float PID_KP;
 extern float PID_KI;
@@ -22,9 +26,9 @@ extern int pid_d;
 extern int pid_le;
 
 //Data for Apply
-extern u8 PIDservoAngle;
-extern int leftMotorPWM;
-extern int rightMotorPWM;
+extern u8 PID_ServoAngle;
+extern int PID_LeftMotorPWM;
+extern int PID_RightMotorPWM;
 
 void PID_Setup(float kp, float ki, float kd);
 void PID_Calc(int sensorData);

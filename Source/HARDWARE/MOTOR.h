@@ -17,6 +17,8 @@ Notice: PWM2 - Right - Motor A, PWM3 - Left - Motor B
 #define BIN1 5
 #define BIN2 6
 
+#define MOTOR_MAX_PWM 95
+
 void Motor_Init();
 void Motor_Left(int value);
 void Motor_Right(int value);

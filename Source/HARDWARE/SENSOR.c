@@ -26,7 +26,8 @@ void Sensor_GetSample()
 		sample += digitalRead(IO_MODE, 0, L3);
 		sample += digitalRead(IO_MODE, 0, R3);
 	}
-	sensorSample = sample / 40;
+	//sensorSample = sample / 40;
+	sensorSample = 0;
 }
 
 //Refresh Sensor Data
@@ -35,7 +36,7 @@ void Sensor_RefreshData()
 	int i;
 	for(i = 0; i < SENSOR_NUM; i++)
 	{
-		sensorData[i] = digitalRead(IO_MODE, 0, 0) == sensorSample;
+		sensorData[i] = digitalRead(IO_MODE, 0, i) == sensorSample;
 	}
 }
 
@@ -54,9 +55,8 @@ int Sensor_GetData()
 	leftValue = 0;
 	rightValue = 0;
 	Sensor_RefreshData();
-	for(i = L0; i >= L3 ; i--)leftValue += sensorData[i] * (i - 4) * 20 + 10;
-	for(i = R0; i <= R3; i++)rightValue += sensorData[i] * (3 - i) * 20 + 10;
-	return leftValue - rightValue;
+	for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, (i == L3 ? sensorData[i] * 10 : sensorData[i] * ((i - L3) * 20 + 10)));
+	for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, (i == R3 ? sensorData[i] * 10 : sensorData[i] * ((R3 - i) * 20 + 10)));
+	return rightValue - leftValue;
 }
-
 

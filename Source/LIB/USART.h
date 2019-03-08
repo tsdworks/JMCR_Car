@@ -10,12 +10,12 @@ Date: 2019.2.9
 #include "IO.h"
 #include "STDFUNC.h"
 
-//Define System Clock
-#define MAIN_FOSC 24000000L
 //Define Default BAUD rate
 #define DEFAULT_BAUD 9600L 
 //Define Read Buffer Length
 #define READ_BUFFER_LENGTH 64
+#define S1_S0 0x40
+#define S1_S1 0x80  
 
 extern u8 readBuffer[READ_BUFFER_LENGTH];
 extern u8 readBufferLength;
