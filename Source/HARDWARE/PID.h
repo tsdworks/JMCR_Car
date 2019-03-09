@@ -12,9 +12,9 @@ Date: 2019.2.11
 #include "SERVO.h"
 #include "SENSOR.h"
 
-#define MAX_ANGLE 140
-#define MIN_ANGLE 40
-#define MID_ANGLE 90
+#define MAX_ANGLE 145
+#define MIN_ANGLE 35
+#define MID_ANGLE 89
 
 //PID Paras
 extern float PID_KP;

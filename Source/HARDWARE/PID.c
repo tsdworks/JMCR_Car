@@ -40,7 +40,7 @@ void PID_Calc(int sensorData)
 	pid_le = pid_e;
 	PID_ServoAngle += (char)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
 	PID_ServoAngle = PID_ServoAngle > MAX_ANGLE ? MAX_ANGLE : (PID_ServoAngle < MIN_ANGLE ? MIN_ANGLE : PID_ServoAngle);
-	if(PID_ServoAngle > MID_ANGLE)PID_LeftMotorPWM -= PID_ServoAngle - MID_ANGLE;
-	else PID_RightMotorPWM -= MID_ANGLE - PID_ServoAngle; 
+	PID_LeftMotorPWM -= PID_ServoAngle - MID_ANGLE - 10;
+	PID_RightMotorPWM -= MID_ANGLE - PID_ServoAngle - 10;
 }
 

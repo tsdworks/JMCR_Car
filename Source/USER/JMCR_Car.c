@@ -9,7 +9,8 @@
 #include "SENSOR.h"
 
 #define true 1
-#define CONTROL_INV 60
+#define CONTROL_INV 20
+#define WAIT_INV 1000
 
 void JMCR_Car()
 {
@@ -27,9 +28,9 @@ void main()
 	Sensor_Init();
 	//Serial1_Begin(115200L);
 	//Init PID
-	PID_Setup(0.3, 0, 0.1);
+	PID_Setup(0.04, 0, 0.016);
 	//Wait for initializing
-	delay_ms(CONTROL_INV);
+	delay_ms(WAIT_INV);
 	while(true)
 	{
 		JMCR_Car();
