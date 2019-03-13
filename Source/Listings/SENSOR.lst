@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   SENSOR                                                                03/09/2019 17:04:38 PAGE 1   
+C51 COMPILER V9.54   SENSOR                                                                03/13/2019 22:03:22 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE SENSOR
@@ -14,72 +14,75 @@ line level    source
    4          #include "SENSOR.h"
    5          
    6          u8 sensorData[SENSOR_NUM] = {0};
-   7          u8 sensorSample = 0;
-   8          u8 isSensorInit = 0;
-   9          
-  10          //Init the Sensor
-  11          void Sensor_Init()
-  12          {
-  13   1        if(isSensorInit)return;
-  14   1        pinModeGroup(0, IO_MODE);
-  15   1        Sensor_GetSample(); 
-  16   1        isSensorInit = 1;
-  17   1      }
-  18          
-  19          //Get Sensor Sample
-  20          void Sensor_GetSample()
-  21          {
-  22   1        u8 i, sample;
-  23   1        sample = 0;
-  24   1        for(i = 0; i < 20; i++)
-  25   1        {
-  26   2          sample += digitalRead(IO_MODE, 0, L3);
-  27   2          sample += digitalRead(IO_MODE, 0, R3);
-  28   2        }
-  29   1        //sensorSample = sample / 40;
-  30   1        sensorSample = 0;
-  31   1      }
-  32          
-  33          //Refresh Sensor Data
-  34          void Sensor_RefreshData()
-  35          {
-  36   1        int i;
-  37   1        for(i = 0; i < SENSOR_NUM; i++)
-  38   1        {
-  39   2          sensorData[i] = digitalRead(IO_MODE, 0, i) == sensorSample;
-  40   2        }
-  41   1      }
-  42          
-  43          //Get Single Sensor Data
-  44          u8 Sensor_GetSingleData(u8 sensorID)
-  45          {
-  46   1        Sensor_RefreshData();
-  47   1        return digitalRead(IO_MODE, 0, sensorID) == sensorSample;
-  48   1      }
-  49          
-  50          //Get Sensor Data for PID
-  51          int Sensor_GetData()
-  52          {
-  53   1        u8 i;
-  54   1        int leftValue, rightValue;
-C51 COMPILER V9.54   SENSOR                                                                03/09/2019 17:04:38 PAGE 2   
+   7          u8 sensorMap[SENSOR_MAP] = {5, 4, 3, 1};
+   8          u8 sensorSample = 0;
+   9          u8 isSensorInit = 0;
+  10          
+  11          //Init the Sensor
+  12          void Sensor_Init()
+  13          {
+  14   1        if(isSensorInit)return;
+  15   1        pinModeGroup(0, IO_MODE);
+  16   1        Sensor_GetSample(); 
+  17   1        isSensorInit = 1;
+  18   1      }
+  19          
+  20          //Get Sensor Sample
+  21          void Sensor_GetSample()
+  22          {
+  23   1        u8 i, sample;
+  24   1        sample = 0;
+  25   1        for(i = 0; i < 20; i++)
+  26   1        {
+  27   2          sample += digitalRead(IO_MODE, 0, L3);
+  28   2          sample += digitalRead(IO_MODE, 0, R3);
+  29   2        }
+  30   1        //sensorSample = sample / 40;
+  31   1        sensorSample = 0;
+  32   1      }
+  33          
+  34          //Refresh Sensor Data
+  35          void Sensor_RefreshData()
+  36          {
+  37   1        int i;
+  38   1        for(i = 0; i < SENSOR_NUM; i++)
+  39   1        {
+  40   2          sensorData[i] = digitalRead(IO_MODE, 0, i) == sensorSample;
+  41   2        }
+  42   1      }
+  43          
+  44          //Get Single Sensor Data
+  45          u8 Sensor_GetSingleData(u8 sensorID)
+  46          {
+  47   1        Sensor_RefreshData();
+  48   1        return digitalRead(IO_MODE, 0, sensorID) == sensorSample;
+  49   1      }
+  50          
+  51          //Get Sensor Data for PID
+  52          int Sensor_GetData()
+  53          {
+  54   1        u8 i;
+C51 COMPILER V9.54   SENSOR                                                                03/13/2019 22:03:22 PAGE 2   
 
-  55   1        leftValue = 0;
-  56   1        rightValue = 0;
-  57   1        Sensor_RefreshData();
-  58   1        for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, (i == L3 ? sensorData[i] * 10 : sensorData[i] * (
-             -(i - L3) * 20 + 10)));
-  59   1        for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, (i == R3 ? sensorData[i] * 10 : sensorData[i] * 
-             -((R3 - i) * 20 + 10)));
-  60   1        return rightValue - leftValue;
-  61   1      }
-  62          
+  55   1        int leftValue, rightValue;
+  56   1        leftValue = 0;
+  57   1        rightValue = 0;
+  58   1        Sensor_RefreshData();
+  59   1        for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, sensorData[i] * sensorMap[L0 - i]);
+  60   1        for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, sensorData[i] * sensorMap[i - R0]);
+  61   1        //for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, (i == L3 ? sensorData[i] : sensorData[i] * ((i 
+             -- L3) * 2)));
+  62   1        //for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, (i == R3 ? sensorData[i] : sensorData[i] * ((R
+             -3 - i) * 2)));
+  63   1        return rightValue - leftValue;
+  64   1      }
+  65          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    416    ----
+   CODE SIZE        =    377    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =     10      10
+   XDATA SIZE       =     14      10
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

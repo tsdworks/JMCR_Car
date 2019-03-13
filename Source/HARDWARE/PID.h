@@ -14,7 +14,8 @@ Date: 2019.2.11
 
 #define MAX_ANGLE 145
 #define MIN_ANGLE 35
-#define MID_ANGLE 89
+#define MAX_INT 2000000000
+#define MIN_INT -2000000000
 
 //PID Paras
 extern float PID_KP;

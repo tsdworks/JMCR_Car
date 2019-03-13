@@ -15,5 +15,7 @@ int maxInt(int numA, int numB);
 double maxDouble(double numA, double numB);
 int minInt(int numA, int numB);
 double minDouble(double numA, double numB);
+int absInt(int num);
+double absDouble(double num);
 
 #endif

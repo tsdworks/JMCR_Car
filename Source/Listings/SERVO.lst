@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   SERVO                                                                 03/09/2019 17:04:38 PAGE 1   
+C51 COMPILER V9.54   SERVO                                                                 03/13/2019 22:03:22 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE SERVO
@@ -62,7 +62,7 @@ line level    source
   52          
   53          //Attach Servo 
   54          void Servo_Attach()
-C51 COMPILER V9.54   SERVO                                                                 03/09/2019 17:04:38 PAGE 2   
+C51 COMPILER V9.54   SERVO                                                                 03/13/2019 22:03:22 PAGE 2   
 
   55          {   
   56   1        //Setup Servo

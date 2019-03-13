@@ -4,6 +4,7 @@
 #include "SENSOR.h"
 
 u8 sensorData[SENSOR_NUM] = {0};
+u8 sensorMap[SENSOR_MAP] = {5, 4, 3, 1};
 u8 sensorSample = 0;
 u8 isSensorInit = 0;
 
@@ -55,8 +56,10 @@ int Sensor_GetData()
 	leftValue = 0;
 	rightValue = 0;
 	Sensor_RefreshData();
-	for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, (i == L3 ? sensorData[i] * 10 : sensorData[i] * ((i - L3) * 20 + 10)));
-	for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, (i == R3 ? sensorData[i] * 10 : sensorData[i] * ((R3 - i) * 20 + 10)));
+	for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, sensorData[i] * sensorMap[L0 - i]);
+	for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, sensorData[i] * sensorMap[i - R0]);
+	//for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, (i == L3 ? sensorData[i] : sensorData[i] * ((i - L3) * 2)));
+	//for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, (i == R3 ? sensorData[i] : sensorData[i] * ((R3 - i) * 2)));
 	return rightValue - leftValue;
 }
 

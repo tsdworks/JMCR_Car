@@ -52,3 +52,15 @@ double minDouble(double numA, double numB)
 	if(numA < numB)return numA;
 	return numB;
 }
+
+//abs Int
+int absInt(int num)
+{
+	return num < 0 ? -1 * num : num;
+}
+	
+//abs Double
+double absDouble(double num)
+{
+	return num < 0 ? -1 * num : num;
+}

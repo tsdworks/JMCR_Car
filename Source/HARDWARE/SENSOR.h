@@ -13,6 +13,7 @@ Device: FST SEN2020
 
 #define IO_MODE INPUT_PULLUP
 #define SENSOR_NUM 8
+#define SENSOR_MAP 4
 #define L0 7
 #define L1 6
 #define L2 5
@@ -23,6 +24,7 @@ Device: FST SEN2020
 #define R0 0
 
 extern u8 sensorData[SENSOR_NUM];
+extern u8 sensorMap[SENSOR_MAP];
 extern u8 sensorSample;
 extern u8 isSensorInit;
 
