@@ -1,2 +1,8 @@
 # JMCR_Car
-Based on STC15W4K32S4, White line tracking smart vechicle.
+MCU: STC15W4K32S4
+
+Freq: 30Mhz
+
+Sensor: S816
+
+White line tracking smart vechicle.
