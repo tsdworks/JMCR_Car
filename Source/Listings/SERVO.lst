@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   SERVO                                                                 03/13/2019 22:03:22 PAGE 1   
+C51 COMPILER V9.54   SERVO                                                                 03/14/2019 12:09:45 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE SERVO
@@ -22,26 +22,26 @@ line level    source
   12          int servoAngle;
   13          int servoHighFreq;
   14          
-  15          //1.5ms@24.000Mhz
+  15          //1.5ms@30.000Mhz
   16          void Timer0Init(void)
   17          {
   18   1        ET0 = 0;
   19   1        TR0 = 0;
   20   1        AUXR |= 0x80;
   21   1        TMOD &= 0xF0; 
-  22   1        TL0 = 0x60;
-  23   1        TH0 = 0x73;
+  22   1        TL0 = 0x38;
+  23   1        TH0 = 0x50;
   24   1        TF0 = 0;
   25   1        ET0 = 1;
   26   1        EA = 1;
   27   1      }
   28          
-  29          //20ms @24.000Mhz
+  29          //20ms @30.000Mhz
   30          void Timer2Init(void)
   31          {
   32   1        AUXR &= 0xFB;
-  33   1        T2L = 0xC0;
-  34   1        T2H = 0x63;
+  33   1        T2L = 0xB0;
+  34   1        T2H = 0x3C;
   35   1        IE2 |= 0x04;
   36   1        EA = 1;
   37   1      }
@@ -62,7 +62,7 @@ line level    source
   52          
   53          //Attach Servo 
   54          void Servo_Attach()
-C51 COMPILER V9.54   SERVO                                                                 03/13/2019 22:03:22 PAGE 2   
+C51 COMPILER V9.54   SERVO                                                                 03/14/2019 12:09:45 PAGE 2   
 
   55          {   
   56   1        //Setup Servo

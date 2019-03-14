@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   STDFUNC                                                               03/13/2019 22:03:22 PAGE 1   
+C51 COMPILER V9.54   STDFUNC                                                               03/14/2019 12:09:44 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE STDFUNC
@@ -25,8 +25,8 @@ line level    source
   15   1        unsigned char i, j;
   16   1        while(t--)
   17   1        {
-  18   2          i = 24;
-  19   2          j = 85;
+  18   2          i = 30;
+  19   2          j = 43;
   20   2          do
   21   2          {
   22   3            while (--j);
@@ -62,7 +62,7 @@ line level    source
   52   1        if(numA < numB)return numA;
   53   1        return numB;
   54   1      }
-C51 COMPILER V9.54   STDFUNC                                                               03/13/2019 22:03:22 PAGE 2   
+C51 COMPILER V9.54   STDFUNC                                                               03/14/2019 12:09:44 PAGE 2   
 
   55          
   56          //abs Int

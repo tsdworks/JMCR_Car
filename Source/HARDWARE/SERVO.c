@@ -12,26 +12,26 @@ Date: 2019.2.9
 int servoAngle;
 int servoHighFreq;
 
-//1.5ms@24.000Mhz
+//1.5ms@30.000Mhz
 void Timer0Init(void)
 {
 	ET0 = 0;
 	TR0 = 0;
 	AUXR |= 0x80;
 	TMOD &= 0xF0;	
-	TL0 = 0x60;
-	TH0 = 0x73;
+	TL0 = 0x38;
+	TH0 = 0x50;
 	TF0 = 0;
 	ET0 = 1;
 	EA = 1;
 }
 
-//20ms @24.000Mhz
+//20ms @30.000Mhz
 void Timer2Init(void)
 {
 	AUXR &= 0xFB;
-	T2L = 0xC0;
-	T2H = 0x63;
+	T2L = 0xB0;
+	T2H = 0x3C;
 	IE2 |= 0x04;
 	EA = 1;
 }

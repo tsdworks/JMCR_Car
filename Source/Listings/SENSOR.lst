@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   SENSOR                                                                03/13/2019 22:03:22 PAGE 1   
+C51 COMPILER V9.54   SENSOR                                                                03/14/2019 12:09:45 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE SENSOR
@@ -62,7 +62,7 @@ line level    source
   52          int Sensor_GetData()
   53          {
   54   1        u8 i;
-C51 COMPILER V9.54   SENSOR                                                                03/13/2019 22:03:22 PAGE 2   
+C51 COMPILER V9.54   SENSOR                                                                03/14/2019 12:09:45 PAGE 2   
 
   55   1        int leftValue, rightValue;
   56   1        leftValue = 0;

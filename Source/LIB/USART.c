@@ -26,8 +26,8 @@ void Serial1_Begin(unsigned long BAUD)
   P_SW1 = ACC;
   AUXR |= 0x40;
   TMOD = 0x00;
-  TL1 = (65536 - (FOSC/4/BAUD));
-  TH1 = (65536 - (FOSC/4/BAUD))>>8;
+  TL1 = (65536 - (FOSC / 4 / BAUD));
+  TH1 = (65536 - (FOSC / 4 / BAUD)) >> 8;
   TR1 = 1;
   ES = 1;
   EA = 1;

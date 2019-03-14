@@ -15,8 +15,8 @@ void delay_ms(unsigned int t)
 	unsigned char i, j;
 	while(t--)
 	{
-		i = 24;
-		j = 85;
+		i = 30;
+		j = 43;
 		do
 		{
 			while (--j);

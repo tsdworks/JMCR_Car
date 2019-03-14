@@ -2,7 +2,7 @@
 #define __STC15_H_
 
 #define u8 unsigned char
-#define FOSC 24000000L
+#define FOSC 30000000L
 
 /////////////////////////////////////////////////
 //注意: STC15W4K32S4系列的芯片,上电后所有与PWM相关的IO口均为
