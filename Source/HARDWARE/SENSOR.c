@@ -4,8 +4,9 @@
 #include "SENSOR.h"
 
 u8 sensorData[SENSOR_NUM] = {0};
-u8 sensorMap[SENSOR_MAP] = {5, 4, 3, 1};
-u8 sensorSample = 0;
+u8 sensorMap[SENSOR_MAP] = {7, 6, 5, 4, 3, 2, 1, 0};
+int leftValue = 0;
+int rightValue = 0;
 u8 isSensorInit = 0;
 
 //Init the Sensor
@@ -13,31 +14,34 @@ void Sensor_Init()
 {
 	if(isSensorInit)return;
 	pinModeGroup(0, IO_MODE);
-	Sensor_GetSample(); 
+	pinMode(LD_GROUP, LD_ID, OUTPUT_PP);
+	pinMode(CH_GROUP, CH_ID, OUTPUT_PP);
+	//Init LED
+	digitalWrite(OUTPUT_PP, LD_GROUP, LD_ID, 1);
+	//Init Channel
+	digitalWrite(OUTPUT_PP, CH_GROUP, CH_ID, 1);
 	isSensorInit = 1;
-}
-
-//Get Sensor Sample
-void Sensor_GetSample()
-{
-	u8 i, sample;
-	sample = 0;
-	for(i = 0; i < 20; i++)
-	{
-		sample += digitalRead(IO_MODE, 0, L3);
-		sample += digitalRead(IO_MODE, 0, R3);
-	}
-	//sensorSample = sample / 40;
-	sensorSample = 0;
 }
 
 //Refresh Sensor Data
 void Sensor_RefreshData()
 {
 	int i;
-	for(i = 0; i < SENSOR_NUM; i++)
+	u8 roundNum;
+	roundNum = SENSOR_NUM / 2;
+	//Get Data 1 - 8
+	digitalWrite(OUTPUT_PP, CH_GROUP, CH_ID, 1);
+	delay_ms(WAIT_TIME);
+	for(i = 0; i < roundNum; i++)
 	{
-		sensorData[i] = digitalRead(IO_MODE, 0, i) == sensorSample;
+		sensorData[i] = digitalRead(IO_MODE, 0, i) == SENSOR_SAMPLE;
+	}
+	//Get Data 9-16
+	digitalWrite(OUTPUT_PP, CH_GROUP, CH_ID, 0);
+	delay_ms(WAIT_TIME);
+	for(i = roundNum; i < SENSOR_NUM; i++)
+	{
+		sensorData[i] = digitalRead(IO_MODE, 0, i) == SENSOR_SAMPLE;
 	}
 }
 
@@ -45,21 +49,18 @@ void Sensor_RefreshData()
 u8 Sensor_GetSingleData(u8 sensorID)
 {
 	Sensor_RefreshData();
-	return digitalRead(IO_MODE, 0, sensorID) == sensorSample;
+	return digitalRead(IO_MODE, 0, sensorID) == SENSOR_SAMPLE;
 }
 
 //Get Sensor Data for PID
 int Sensor_GetData()
 {
 	u8 i;
-	int leftValue, rightValue;
 	leftValue = 0;
 	rightValue = 0;
 	Sensor_RefreshData();
-	for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, sensorData[i] * sensorMap[L0 - i]);
-	for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, sensorData[i] * sensorMap[i - R0]);
-	//for(i = L0; i >= L3 ; i--)leftValue = maxInt(leftValue, (i == L3 ? sensorData[i] : sensorData[i] * ((i - L3) * 2)));
-	//for(i = R0; i <= R3; i++)rightValue = maxInt(rightValue, (i == R3 ? sensorData[i] : sensorData[i] * ((R3 - i) * 2)));
+	for(i = L0; i >= L7 ; i--)leftValue = maxInt(leftValue, sensorData[i] * sensorMap[L0 - i]);
+	for(i = R0; i <= R7; i++)rightValue = maxInt(rightValue, sensorData[i] * sensorMap[i - R0]);
 	return rightValue - leftValue;
 }
 

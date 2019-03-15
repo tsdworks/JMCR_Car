@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   JMCR_CAR                                                              03/14/2019 12:09:45 PAGE 1   
+C51 COMPILER V9.54   JMCR_CAR                                                              03/15/2019 11:23:17 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE JMCR_CAR
@@ -37,7 +37,7 @@ line level    source
   27   1        Sensor_Init();
   28   1        Servo_Attach();
   29   1        //Init PID
-  30   1        PID_Setup(0.34, 0, 0.15);
+  30   1        PID_Setup(0.2, 0, 0.15);
   31   1        //Wait for initializing
   32   1        delay_ms(WAIT_INV);
   33   1        while(true)

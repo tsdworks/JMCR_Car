@@ -12,8 +12,8 @@ Date: 2019.2.11
 #include "SERVO.h"
 #include "SENSOR.h"
 
-#define MAX_ANGLE 145
-#define MIN_ANGLE 35
+#define PID_MAX_ANGLE 145
+#define PID_MIN_ANGLE 35
 #define MAX_INT 2000000000
 #define MIN_INT -2000000000
 

@@ -37,15 +37,12 @@ void PID_Calc(int sensorData)
 	pid_e = sensorData;
 	pid_i += pid_e;
 	pid_i = pid_i > MAX_INT ? MAX_INT : (pid_i < MIN_INT ? MIN_INT : pid_i);
-	//if(absInt(pid_e - pid_le) >= 7)return;
 	pid_d = pid_e - pid_le;
 	pid_le = pid_e;
 	PID_ServoAngle += (char)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
-	PID_ServoAngle = PID_ServoAngle > MAX_ANGLE ? MAX_ANGLE : (PID_ServoAngle < MIN_ANGLE ? MIN_ANGLE : PID_ServoAngle);
+	PID_ServoAngle = PID_ServoAngle > PID_MAX_ANGLE ? PID_MAX_ANGLE : (PID_ServoAngle < PID_MIN_ANGLE ? PID_MIN_ANGLE : PID_ServoAngle);
 	//Motor Auto Suit
-	PID_LeftMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2 + 5;
-	PID_RightMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2 + 5;
-	//PID_LeftMotorPWM -= (PID_ServoAngle - MID_ANGLE) / 3;
-	//PID_RightMotorPWM -= (MID_ANGLE - PID_ServoAngle) / 3;
+	PID_LeftMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
+	PID_RightMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
 }
 

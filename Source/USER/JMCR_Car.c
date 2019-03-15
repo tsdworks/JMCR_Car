@@ -27,7 +27,7 @@ void main()
 	Sensor_Init();
 	Servo_Attach();
 	//Init PID
-	PID_Setup(0.34, 0, 0.15);
+	PID_Setup(0.2, 0, 0.15);
 	//Wait for initializing
 	delay_ms(WAIT_INV);
 	while(true)
