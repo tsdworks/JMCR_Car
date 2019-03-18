@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   SERVO                                                                 03/15/2019 11:23:16 PAGE 1   
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE SERVO
 OBJECT MODULE PLACED IN .\Objects\SERVO.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\SERVO.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB)
-                    - DEBUG OBJECTEXTEND PRINT(.\Listings\SERVO.lst) TABS(2) OBJECT(.\Objects\SERVO.obj)
+                    - DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\SERVO.lst) TABS(2) OBJECT(.\Objects\SERVO.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52          
   53          //Attach Servo 
   54          void Servo_Attach()
-C51 COMPILER V9.54   SERVO                                                                 03/15/2019 11:23:16 PAGE 2   
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 2   
 
   55          {   
   56   1        //Setup Servo
@@ -95,6 +95,264 @@ line level    source
   83   1        TR0 = 1;
   84   1        AUXR |= 0x10;
   85   1      }
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION Timer0Init (BEGIN)
+                                           ; SOURCE LINE # 16
+                                           ; SOURCE LINE # 17
+                                           ; SOURCE LINE # 18
+0000 C2A9              CLR     ET0
+                                           ; SOURCE LINE # 19
+0002 C28C              CLR     TR0
+                                           ; SOURCE LINE # 20
+0004 438E80            ORL     AUXR,#080H
+                                           ; SOURCE LINE # 21
+0007 5389F0            ANL     TMOD,#0F0H
+                                           ; SOURCE LINE # 22
+000A 758A38            MOV     TL0,#038H
+                                           ; SOURCE LINE # 23
+000D 758C50            MOV     TH0,#050H
+                                           ; SOURCE LINE # 24
+0010 C28D              CLR     TF0
+                                           ; SOURCE LINE # 25
+0012 D2A9              SETB    ET0
+                                           ; SOURCE LINE # 26
+0014 D2AF              SETB    EA
+                                           ; SOURCE LINE # 27
+0016 22                RET     
+             ; FUNCTION Timer0Init (END)
+
+             ; FUNCTION Timer2Init (BEGIN)
+                                           ; SOURCE LINE # 30
+                                           ; SOURCE LINE # 31
+                                           ; SOURCE LINE # 32
+0000 538EFB            ANL     AUXR,#0FBH
+                                           ; SOURCE LINE # 33
+0003 75D7B0            MOV     T2L,#0B0H
+                                           ; SOURCE LINE # 34
+0006 75D63C            MOV     T2H,#03CH
+                                           ; SOURCE LINE # 35
+0009 43AF04            ORL     IE2,#04H
+                                           ; SOURCE LINE # 36
+000C D2AF              SETB    EA
+                                           ; SOURCE LINE # 37
+000E 22                RET     
+             ; FUNCTION Timer2Init (END)
+
+             ; FUNCTION Timer0_ISP (BEGIN)
+                                           ; SOURCE LINE # 40
+                                           ; SOURCE LINE # 42
+0000 C2C5              CLR     servoPin
+                                           ; SOURCE LINE # 43
+0002 C28C              CLR     TR0
+                                           ; SOURCE LINE # 44
+0004 32                RETI    
+             ; FUNCTION Timer0_ISP (END)
+
+             ; FUNCTION Timer2_ISP (BEGIN)
+                                           ; SOURCE LINE # 47
+                                           ; SOURCE LINE # 49
+0000 D2C5              SETB    servoPin
+                                           ; SOURCE LINE # 50
+0002 D28C              SETB    TR0
+                                           ; SOURCE LINE # 51
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 4   
+
+0004 32                RETI    
+             ; FUNCTION Timer2_ISP (END)
+
+             ; FUNCTION Servo_Attach (BEGIN)
+                                           ; SOURCE LINE # 54
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 57
+0000 E4                CLR     A
+0001 900000      R     MOV     DPTR,#servoAngle
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 59
+0007 7B03              MOV     R3,#03H
+0009 7D05              MOV     R5,#05H
+000B 7F04              MOV     R7,#04H
+000D 120000      E     LCALL   _pinMode
+                                           ; SOURCE LINE # 60
+0010 E4                CLR     A
+0011 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0014 F0                MOVX    @DPTR,A
+0015 7B05              MOV     R3,#05H
+0017 7D04              MOV     R5,#04H
+0019 7F03              MOV     R7,#03H
+001B 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 62
+001E 120000      R     LCALL   Timer0Init
+                                           ; SOURCE LINE # 63
+0021 120000      R     LCALL   Timer2Init
+                                           ; SOURCE LINE # 65
+0024 7F5A              MOV     R7,#05AH
+0026 020000      R     LJMP    _Servo_SetAngle
+             ; FUNCTION Servo_Attach (END)
+
+             ; FUNCTION _Servo_SetAngle (BEGIN)
+                                           ; SOURCE LINE # 69
+;---- Variable 'Angle' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 70
+                                           ; SOURCE LINE # 71
+0000 EF                MOV     A,R7
+0001 C3                CLR     C
+0002 9400              SUBB    A,#00H
+0004 5003              JNC     $ + 5H
+0006 020000      R     LJMP    ?C0008
+0009 EF                MOV     A,R7
+000A D3                SETB    C
+000B 94B4              SUBB    A,#0B4H
+000D 4003              JC      $ + 5H
+000F 020000      R     LJMP    ?C0008
+0012 EF                MOV     A,R7
+0013 FD                MOV     R5,A
+0014 900000      R     MOV     DPTR,#servoAngle
+0017 E0                MOVX    A,@DPTR
+0018 7003              JNZ     ?C0009
+001A A3                INC     DPTR
+001B E0                MOVX    A,@DPTR
+001C 6D                XRL     A,R5
+001D         ?C0009:
+001D 7003              JNZ     $ + 5H
+001F 020000      R     LJMP    ?C0008
+0022         ?C0006:
+                                           ; SOURCE LINE # 73
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 5   
+
+0022 C28C              CLR     TR0
+                                           ; SOURCE LINE # 74
+0024 538EEF            ANL     AUXR,#0EFH
+                                           ; SOURCE LINE # 76
+0027 C2C5              CLR     servoPin
+                                           ; SOURCE LINE # 77
+0029 7E00              MOV     R6,#00H
+002B 900000      R     MOV     DPTR,#servoAngle
+002E EE                MOV     A,R6
+002F F0                MOVX    @DPTR,A
+0030 A3                INC     DPTR
+0031 EF                MOV     A,R7
+0032 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 78
+0033 7C00              MOV     R4,#00H
+0035 7D0A              MOV     R5,#0AH
+0037 120000      E     LCALL   ?C?IMUL
+003A 1D                DEC     R5
+003B 120000      E     LCALL   ?C?SIDIV
+003E EF                MOV     A,R7
+003F 2432              ADD     A,#032H
+0041 FF                MOV     R7,A
+0042 E4                CLR     A
+0043 3E                ADDC    A,R6
+0044 AB07              MOV     R3,AR7
+0046 FA                MOV     R2,A
+0047 33                RLC     A
+0048 95E0              SUBB    A,ACC
+004A F9                MOV     R1,A
+004B F8                MOV     R0,A
+004C 7FA0              MOV     R7,#0A0H
+004E 7E86              MOV     R6,#086H
+0050 7D01              MOV     R5,#01H
+0052 7C00              MOV     R4,#00H
+0054 120000      E     LCALL   ?C?SLDIV
+0057 900000      R     MOV     DPTR,#servoHighFreq
+005A EE                MOV     A,R6
+005B F0                MOVX    @DPTR,A
+005C A3                INC     DPTR
+005D EF                MOV     A,R7
+005E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 79
+005F FB                MOV     R3,A
+0060 AA06              MOV     R2,AR6
+0062 EA                MOV     A,R2
+0063 33                RLC     A
+0064 95E0              SUBB    A,ACC
+0066 F9                MOV     R1,A
+0067 F8                MOV     R0,A
+0068 7F80              MOV     R7,#080H
+006A 7EC3              MOV     R6,#0C3H
+006C 7DC9              MOV     R5,#0C9H
+006E 7C01              MOV     R4,#01H
+0070 120000      E     LCALL   ?C?SLDIV
+0073 C3                CLR     C
+0074 E4                CLR     A
+0075 9F                SUBB    A,R7
+0076 FF                MOV     R7,A
+0077 E4                CLR     A
+0078 9E                SUBB    A,R6
+0079 FE                MOV     R6,A
+007A 7401              MOV     A,#01H
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 6   
+
+007C 9D                SUBB    A,R5
+007D FD                MOV     R5,A
+007E E4                CLR     A
+007F 9C                SUBB    A,R4
+0080 FC                MOV     R4,A
+0081 E4                CLR     A
+0082 FB                MOV     R3,A
+0083 7A01              MOV     R2,#01H
+0085 F9                MOV     R1,A
+0086 F8                MOV     R0,A
+0087 120000      E     LCALL   ?C?SLDIV
+008A AF03              MOV     R7,AR3
+008C 8F8A              MOV     TL0,R7
+                                           ; SOURCE LINE # 80
+008E 900000      R     MOV     DPTR,#servoHighFreq
+0091 E0                MOVX    A,@DPTR
+0092 FE                MOV     R6,A
+0093 A3                INC     DPTR
+0094 E0                MOVX    A,@DPTR
+0095 FB                MOV     R3,A
+0096 AA06              MOV     R2,AR6
+0098 EA                MOV     A,R2
+0099 33                RLC     A
+009A 95E0              SUBB    A,ACC
+009C F9                MOV     R1,A
+009D F8                MOV     R0,A
+009E 7F80              MOV     R7,#080H
+00A0 7EC3              MOV     R6,#0C3H
+00A2 7DC9              MOV     R5,#0C9H
+00A4 7C01              MOV     R4,#01H
+00A6 120000      E     LCALL   ?C?SLDIV
+00A9 C3                CLR     C
+00AA E4                CLR     A
+00AB 9F                SUBB    A,R7
+00AC FF                MOV     R7,A
+00AD E4                CLR     A
+00AE 9E                SUBB    A,R6
+00AF FE                MOV     R6,A
+00B0 7401              MOV     A,#01H
+00B2 9D                SUBB    A,R5
+00B3 FD                MOV     R5,A
+00B4 E4                CLR     A
+00B5 9C                SUBB    A,R4
+00B6 FC                MOV     R4,A
+00B7 E4                CLR     A
+00B8 FB                MOV     R3,A
+00B9 7A01              MOV     R2,#01H
+00BB F9                MOV     R1,A
+00BC F8                MOV     R0,A
+00BD 120000      E     LCALL   ?C?SLDIV
+00C0 8F8C              MOV     TH0,R7
+                                           ; SOURCE LINE # 81
+00C2 D2C5              SETB    servoPin
+                                           ; SOURCE LINE # 83
+00C4 D28C              SETB    TR0
+                                           ; SOURCE LINE # 84
+00C6 438E10            ORL     AUXR,#010H
+                                           ; SOURCE LINE # 85
+00C9         ?C0008:
+00C9 22                RET     
+             ; FUNCTION _Servo_SetAngle (END)
+
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 17:47:40 PAGE 7   
+
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

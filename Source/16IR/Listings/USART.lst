@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   USART                                                                 03/15/2019 11:23:16 PAGE 1   
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE USART
 OBJECT MODULE PLACED IN .\Objects\USART.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\USART.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBU
-                    -G OBJECTEXTEND PRINT(.\Listings\USART.lst) TABS(2) OBJECT(.\Objects\USART.obj)
+                    -G OBJECTEXTEND CODE NOCOND PRINT(.\Listings\USART.lst) TABS(2) OBJECT(.\Objects\USART.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   1        {
   53   2          Serial1_SendByte(*s++);
   54   2        }
-C51 COMPILER V9.54   USART                                                                 03/15/2019 11:23:16 PAGE 2   
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 2   
 
   55   1      }
   56          
@@ -115,6 +115,365 @@ line level    source
  103   2        }
  104   1        return retValue;
  105   1      }
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION _Serial1_Begin (BEGIN)
+                                           ; SOURCE LINE # 18
+0000 900000      R     MOV     DPTR,#BAUD
+0003 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 19
+                                           ; SOURCE LINE # 21
+0006 E4                CLR     A
+0007 FB                MOV     R3,A
+0008 FD                MOV     R5,A
+0009 7F03              MOV     R7,#03H
+000B 120000      E     LCALL   _pinMode
+                                           ; SOURCE LINE # 22
+000E 7B02              MOV     R3,#02H
+0010 7D01              MOV     R5,#01H
+0012 7F03              MOV     R7,#03H
+0014 120000      E     LCALL   _pinMode
+                                           ; SOURCE LINE # 24
+0017 E5A2              MOV     A,P_SW1
+                                           ; SOURCE LINE # 25
+0019 543F              ANL     A,#03FH
+                                           ; SOURCE LINE # 26
+001B F5A2              MOV     P_SW1,A
+                                           ; SOURCE LINE # 27
+001D 438E40            ORL     AUXR,#040H
+                                           ; SOURCE LINE # 28
+0020 E4                CLR     A
+0021 F589              MOV     TMOD,A
+                                           ; SOURCE LINE # 29
+0023 900000      R     MOV     DPTR,#BAUD
+0026 E0                MOVX    A,@DPTR
+0027 F8                MOV     R0,A
+0028 A3                INC     DPTR
+0029 E0                MOVX    A,@DPTR
+002A F9                MOV     R1,A
+002B A3                INC     DPTR
+002C E0                MOVX    A,@DPTR
+002D FA                MOV     R2,A
+002E A3                INC     DPTR
+002F E0                MOVX    A,@DPTR
+0030 FB                MOV     R3,A
+0031 7FE0              MOV     R7,#0E0H
+0033 7E70              MOV     R6,#070H
+0035 7D72              MOV     R5,#072H
+0037 7C00              MOV     R4,#00H
+0039 120000      E     LCALL   ?C?ULDIV
+003C EF                MOV     A,R7
+003D F4                CPL     A
+003E 04                INC     A
+003F F58B              MOV     TL1,A
+                                           ; SOURCE LINE # 30
+0041 900000      R     MOV     DPTR,#BAUD
+0044 E0                MOVX    A,@DPTR
+0045 F8                MOV     R0,A
+0046 A3                INC     DPTR
+0047 E0                MOVX    A,@DPTR
+0048 F9                MOV     R1,A
+0049 A3                INC     DPTR
+004A E0                MOVX    A,@DPTR
+004B FA                MOV     R2,A
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 4   
+
+004C A3                INC     DPTR
+004D E0                MOVX    A,@DPTR
+004E FB                MOV     R3,A
+004F 7FE0              MOV     R7,#0E0H
+0051 7E70              MOV     R6,#070H
+0053 7D72              MOV     R5,#072H
+0055 7C00              MOV     R4,#00H
+0057 120000      E     LCALL   ?C?ULDIV
+005A C3                CLR     C
+005B E4                CLR     A
+005C 9F                SUBB    A,R7
+005D FF                MOV     R7,A
+005E E4                CLR     A
+005F 9E                SUBB    A,R6
+0060 FE                MOV     R6,A
+0061 7401              MOV     A,#01H
+0063 9D                SUBB    A,R5
+0064 FD                MOV     R5,A
+0065 E4                CLR     A
+0066 9C                SUBB    A,R4
+0067 FC                MOV     R4,A
+0068 7808              MOV     R0,#08H
+006A 120000      E     LCALL   ?C?ULSHR
+006D 8F8D              MOV     TH1,R7
+                                           ; SOURCE LINE # 31
+006F D28E              SETB    TR1
+                                           ; SOURCE LINE # 32
+0071 D2AC              SETB    ES
+                                           ; SOURCE LINE # 33
+0073 D2AF              SETB    EA
+                                           ; SOURCE LINE # 35
+0075 E4                CLR     A
+0076 900000      R     MOV     DPTR,#readBufferLength
+0079 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 36
+007A A3                INC     DPTR
+007B F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 37
+007C 900000      R     MOV     DPTR,#readBufferTail
+007F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 38
+0080 22                RET     
+             ; FUNCTION _Serial1_Begin (END)
+
+             ; FUNCTION L?0021 (BEGIN)
+0000 A3                INC     DPTR
+0001 E4                CLR     A
+0002 75F001            MOV     B,#01H
+0005 120000      E     LCALL   ?C?ILDIX
+0008 A9F0              MOV     R1,B
+000A FA                MOV     R2,A
+000B 120000      E     LCALL   ?C?CLDPTR
+000E FF                MOV     R7,A
+             ; FUNCTION _Serial1_SendByte (BEGIN)
+                                           ; SOURCE LINE # 41
+;---- Variable 's' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 42
+                                           ; SOURCE LINE # 43
+000F 8F99              MOV     SBUF,R7
+0011         ?C0002:
+                                           ; SOURCE LINE # 44
+0011 3099FD            JNB     TI,?C0002
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 5   
+
+0014         ?C0003:
+                                           ; SOURCE LINE # 45
+0014 C299              CLR     TI
+                                           ; SOURCE LINE # 46
+0016 22                RET     
+             ; FUNCTION _Serial1_SendByte (END)
+
+             ; FUNCTION _Serial1_SendStr (BEGIN)
+                                           ; SOURCE LINE # 49
+0000 900000      R     MOV     DPTR,#s
+0003 EB                MOV     A,R3
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EA                MOV     A,R2
+0007 F0                MOVX    @DPTR,A
+0008 A3                INC     DPTR
+0009 E9                MOV     A,R1
+000A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 50
+000B         ?C0005:
+                                           ; SOURCE LINE # 51
+000B 900000      R     MOV     DPTR,#s
+000E E0                MOVX    A,@DPTR
+000F FB                MOV     R3,A
+0010 A3                INC     DPTR
+0011 E0                MOVX    A,@DPTR
+0012 FA                MOV     R2,A
+0013 A3                INC     DPTR
+0014 E0                MOVX    A,@DPTR
+0015 F9                MOV     R1,A
+0016 120000      E     LCALL   ?C?CLDPTR
+0019 6008              JZ      ?C0007
+                                           ; SOURCE LINE # 52
+                                           ; SOURCE LINE # 53
+001B 900000      R     MOV     DPTR,#s
+001E 120000      R     LCALL   L?0021
+                                           ; SOURCE LINE # 54
+0021 80E8              SJMP    ?C0005
+                                           ; SOURCE LINE # 55
+0023         ?C0007:
+0023 22                RET     
+             ; FUNCTION _Serial1_SendStr (END)
+
+             ; FUNCTION _Serial1_SendLenStr (BEGIN)
+                                           ; SOURCE LINE # 58
+0000 900000      R     MOV     DPTR,#s
+0003 EB                MOV     A,R3
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EA                MOV     A,R2
+0007 F0                MOVX    @DPTR,A
+0008 A3                INC     DPTR
+0009 E9                MOV     A,R1
+000A F0                MOVX    @DPTR,A
+;---- Variable 'length' assigned to Register 'R4/R5' ----
+                                           ; SOURCE LINE # 59
+000B         ?C0008:
+                                           ; SOURCE LINE # 60
+000B ED                MOV     A,R5
+000C 4C                ORL     A,R4
+000D 601D              JZ      ?C0010
+000F 900000      R     MOV     DPTR,#s
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 6   
+
+0012 E0                MOVX    A,@DPTR
+0013 FB                MOV     R3,A
+0014 A3                INC     DPTR
+0015 E0                MOVX    A,@DPTR
+0016 FA                MOV     R2,A
+0017 A3                INC     DPTR
+0018 E0                MOVX    A,@DPTR
+0019 F9                MOV     R1,A
+001A 120000      E     LCALL   ?C?CLDPTR
+001D 600D              JZ      ?C0010
+                                           ; SOURCE LINE # 61
+                                           ; SOURCE LINE # 62
+001F 900000      R     MOV     DPTR,#s
+0022 120000      R     LCALL   L?0021
+                                           ; SOURCE LINE # 63
+0025 ED                MOV     A,R5
+0026 1D                DEC     R5
+0027 70E2              JNZ     ?C0008
+0029 1C                DEC     R4
+002A         ?C0020:
+                                           ; SOURCE LINE # 64
+002A 80DF              SJMP    ?C0008
+                                           ; SOURCE LINE # 65
+002C         ?C0010:
+002C 22                RET     
+             ; FUNCTION _Serial1_SendLenStr (END)
+
+             ; FUNCTION Serial1_ISP (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C0D0              PUSH    PSW
+0008 75D000            MOV     PSW,#00H
+000B C007              PUSH    AR7
+                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 70
+000D 309836            JNB     RI,?C0011
+                                           ; SOURCE LINE # 71
+                                           ; SOURCE LINE # 72
+0010 C298              CLR     RI
+                                           ; SOURCE LINE # 73
+0012 900000      R     MOV     DPTR,#readBufferLength
+0015 E0                MOVX    A,@DPTR
+0016 D3                SETB    C
+0017 9440              SUBB    A,#040H
+0019 400C              JC      ?C0012
+                                           ; SOURCE LINE # 74
+                                           ; SOURCE LINE # 75
+001B A3                INC     DPTR
+001C E0                MOVX    A,@DPTR
+001D 04                INC     A
+001E 543F              ANL     A,#03FH
+0020 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 76
+0021 900000      R     MOV     DPTR,#readBufferLength
+0024 7440              MOV     A,#040H
+0026 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 77
+0027         ?C0012:
+                                           ; SOURCE LINE # 78
+0027 900000      R     MOV     DPTR,#readBufferLength
+002A E0                MOVX    A,@DPTR
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 7   
+
+002B 04                INC     A
+002C F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 79
+002D 900000      R     MOV     DPTR,#readBufferTail
+0030 E0                MOVX    A,@DPTR
+0031 FF                MOV     R7,A
+0032 2400        R     ADD     A,#LOW readBuffer
+0034 F582              MOV     DPL,A
+0036 E4                CLR     A
+0037 3400        R     ADDC    A,#HIGH readBuffer
+0039 F583              MOV     DPH,A
+003B E599              MOV     A,SBUF
+003D F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 80
+003E EF                MOV     A,R7
+003F 04                INC     A
+0040 543F              ANL     A,#03FH
+0042 900000      R     MOV     DPTR,#readBufferTail
+0045 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 81
+0046         ?C0011:
+                                           ; SOURCE LINE # 82
+0046 309902            JNB     TI,?C0014
+                                           ; SOURCE LINE # 83
+                                           ; SOURCE LINE # 84
+0049 C299              CLR     TI
+                                           ; SOURCE LINE # 85
+                                           ; SOURCE LINE # 86
+004B         ?C0014:
+004B D007              POP     AR7
+004D D0D0              POP     PSW
+004F D082              POP     DPL
+0051 D083              POP     DPH
+0053 D0E0              POP     ACC
+0055 32                RETI    
+             ; FUNCTION Serial1_ISP (END)
+
+             ; FUNCTION Serial1_Available (BEGIN)
+                                           ; SOURCE LINE # 89
+                                           ; SOURCE LINE # 90
+                                           ; SOURCE LINE # 91
+0000 900000      R     MOV     DPTR,#readBufferLength
+0003 E0                MOVX    A,@DPTR
+0004 D3                SETB    C
+0005 9400              SUBB    A,#00H
+0007 4004              JC      ?C0015
+0009 7F01              MOV     R7,#01H
+000B 8002              SJMP    ?C0016
+000D         ?C0015:
+000D 7F00              MOV     R7,#00H
+000F         ?C0016:
+                                           ; SOURCE LINE # 92
+000F         ?C0017:
+000F 22                RET     
+             ; FUNCTION Serial1_Available (END)
+
+             ; FUNCTION Serial1_ReadByte (BEGIN)
+                                           ; SOURCE LINE # 95
+                                           ; SOURCE LINE # 96
+                                           ; SOURCE LINE # 97
+;---- Variable 'retValue' assigned to Register 'R6' ----
+0000 E4                CLR     A
+C51 COMPILER V9.54   USART                                                                 03/18/2019 17:47:39 PAGE 8   
+
+0001 FE                MOV     R6,A
+                                           ; SOURCE LINE # 98
+0002 120000      R     LCALL   Serial1_Available
+0005 EF                MOV     A,R7
+0006 601E              JZ      ?C0018
+                                           ; SOURCE LINE # 99
+                                           ; SOURCE LINE # 100
+0008 900000      R     MOV     DPTR,#readBufferHead
+000B E0                MOVX    A,@DPTR
+000C FF                MOV     R7,A
+000D 2400        R     ADD     A,#LOW readBuffer
+000F F582              MOV     DPL,A
+0011 E4                CLR     A
+0012 3400        R     ADDC    A,#HIGH readBuffer
+0014 F583              MOV     DPH,A
+0016 E0                MOVX    A,@DPTR
+0017 FE                MOV     R6,A
+                                           ; SOURCE LINE # 101
+0018 EF                MOV     A,R7
+0019 04                INC     A
+001A 543F              ANL     A,#03FH
+001C 900000      R     MOV     DPTR,#readBufferHead
+001F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 102
+0020 900000      R     MOV     DPTR,#readBufferLength
+0023 E0                MOVX    A,@DPTR
+0024 14                DEC     A
+0025 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 103
+0026         ?C0018:
+                                           ; SOURCE LINE # 104
+0026 AF06              MOV     R7,AR6
+                                           ; SOURCE LINE # 105
+0028         ?C0019:
+0028 22                RET     
+             ; FUNCTION Serial1_ReadByte (END)
+
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -126,8 +485,6 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
-
-C51 COMPILER V9.54   USART                                                                 03/15/2019 11:23:16 PAGE 3   
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

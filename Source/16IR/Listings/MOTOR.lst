@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   MOTOR                                                                 03/15/2019 11:23:17 PAGE 1   
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MOTOR
 OBJECT MODULE PLACED IN .\Objects\MOTOR.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\MOTOR.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB)
-                    - DEBUG OBJECTEXTEND PRINT(.\Listings\MOTOR.lst) TABS(2) OBJECT(.\Objects\MOTOR.obj)
+                    - DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\MOTOR.lst) TABS(2) OBJECT(.\Objects\MOTOR.obj)
 
 line level    source
 
@@ -62,9 +62,254 @@ line level    source
   52   2          value *= -1;
   53   2        }
   54   1        PWM3_Output(value > MOTOR_MAX_PWM ? MOTOR_MAX_PWM : value);
-C51 COMPILER V9.54   MOTOR                                                                 03/15/2019 11:23:17 PAGE 2   
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 2   
 
   55   1      }
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION Motor_Init (BEGIN)
+                                           ; SOURCE LINE # 15
+                                           ; SOURCE LINE # 16
+                                           ; SOURCE LINE # 18
+0000 120000      E     LCALL   PWM_Init
+                                           ; SOURCE LINE # 19
+0003 900000      R     MOV     DPTR,#i
+0006 E4                CLR     A
+0007 F0                MOVX    @DPTR,A
+0008 A3                INC     DPTR
+0009 7403              MOV     A,#03H
+000B F0                MOVX    @DPTR,A
+000C         ?C0001:
+000C 900000      R     MOV     DPTR,#i
+000F E0                MOVX    A,@DPTR
+0010 FE                MOV     R6,A
+0011 A3                INC     DPTR
+0012 E0                MOVX    A,@DPTR
+0013 FF                MOV     R7,A
+0014 D3                SETB    C
+0015 9406              SUBB    A,#06H
+0017 EE                MOV     A,R6
+0018 6480              XRL     A,#080H
+001A 9480              SUBB    A,#080H
+001C 5019              JNC     ?C0004
+                                           ; SOURCE LINE # 20
+001E AD07              MOV     R5,AR7
+0020 7B03              MOV     R3,#03H
+0022 7F03              MOV     R7,#03H
+0024 120000      E     LCALL   _pinMode
+0027 900000      R     MOV     DPTR,#i+01H
+002A E0                MOVX    A,@DPTR
+002B 04                INC     A
+002C F0                MOVX    @DPTR,A
+002D 70DD              JNZ     ?C0001
+002F 900000      R     MOV     DPTR,#i
+0032 E0                MOVX    A,@DPTR
+0033 04                INC     A
+0034 F0                MOVX    @DPTR,A
+0035         ?C0015:
+0035 80D5              SJMP    ?C0001
+                                           ; SOURCE LINE # 21
+0037         ?C0004:
+0037 22                RET     
+             ; FUNCTION Motor_Init (END)
+
+             ; FUNCTION _Motor_Left (BEGIN)
+                                           ; SOURCE LINE # 24
+0000 900000      R     MOV     DPTR,#value
+0003 EE                MOV     A,R6
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 25
+                                           ; SOURCE LINE # 26
+0008 D3                SETB    C
+0009 9400              SUBB    A,#00H
+000B EE                MOV     A,R6
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 4   
+
+000C 6480              XRL     A,#080H
+000E 9480              SUBB    A,#080H
+0010 401F              JC      ?C0005
+                                           ; SOURCE LINE # 27
+                                           ; SOURCE LINE # 28
+0012 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0015 7401              MOV     A,#01H
+0017 F0                MOVX    @DPTR,A
+0018 7B03              MOV     R3,#03H
+001A 7D03              MOV     R5,#03H
+001C 7F03              MOV     R7,#03H
+001E 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 29
+0021 E4                CLR     A
+0022 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0025 F0                MOVX    @DPTR,A
+0026 7B04              MOV     R3,#04H
+0028 7D03              MOV     R5,#03H
+002A 7F03              MOV     R7,#03H
+002C 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 30
+002F 8034              SJMP    ?C0006
+0031         ?C0005:
+                                           ; SOURCE LINE # 32
+                                           ; SOURCE LINE # 33
+0031 E4                CLR     A
+0032 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0035 F0                MOVX    @DPTR,A
+0036 7B03              MOV     R3,#03H
+0038 7D03              MOV     R5,#03H
+003A 7F03              MOV     R7,#03H
+003C 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 34
+003F 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0042 7401              MOV     A,#01H
+0044 F0                MOVX    @DPTR,A
+0045 7B04              MOV     R3,#04H
+0047 7D03              MOV     R5,#03H
+0049 7F03              MOV     R7,#03H
+004B 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 35
+004E 900000      R     MOV     DPTR,#value
+0051 E0                MOVX    A,@DPTR
+0052 FE                MOV     R6,A
+0053 A3                INC     DPTR
+0054 E0                MOVX    A,@DPTR
+0055 FF                MOV     R7,A
+0056 7CFF              MOV     R4,#0FFH
+0058 7DFF              MOV     R5,#0FFH
+005A 120000      E     LCALL   ?C?IMUL
+005D 900000      R     MOV     DPTR,#value
+0060 EE                MOV     A,R6
+0061 F0                MOVX    @DPTR,A
+0062 A3                INC     DPTR
+0063 EF                MOV     A,R7
+0064 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 36
+0065         ?C0006:
+                                           ; SOURCE LINE # 37
+0065 900000      R     MOV     DPTR,#value
+0068 E0                MOVX    A,@DPTR
+0069 FC                MOV     R4,A
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 5   
+
+006A A3                INC     DPTR
+006B E0                MOVX    A,@DPTR
+006C FD                MOV     R5,A
+006D D3                SETB    C
+006E 9450              SUBB    A,#050H
+0070 EC                MOV     A,R4
+0071 6480              XRL     A,#080H
+0073 9480              SUBB    A,#080H
+0075 4006              JC      ?C0007
+0077 7E00              MOV     R6,#00H
+0079 7F50              MOV     R7,#050H
+007B 8004              SJMP    ?C0008
+007D         ?C0007:
+007D AE04              MOV     R6,AR4
+007F AF05              MOV     R7,AR5
+0081         ?C0008:
+0081 020000      E     LJMP    _PWM2_Output
+             ; FUNCTION _Motor_Left (END)
+
+             ; FUNCTION _Motor_Right (BEGIN)
+                                           ; SOURCE LINE # 41
+0000 900000      R     MOV     DPTR,#value
+0003 EE                MOV     A,R6
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 42
+                                           ; SOURCE LINE # 43
+0008 D3                SETB    C
+0009 9400              SUBB    A,#00H
+000B EE                MOV     A,R6
+000C 6480              XRL     A,#080H
+000E 9480              SUBB    A,#080H
+0010 401F              JC      ?C0010
+                                           ; SOURCE LINE # 44
+                                           ; SOURCE LINE # 45
+0012 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0015 7401              MOV     A,#01H
+0017 F0                MOVX    @DPTR,A
+0018 7B05              MOV     R3,#05H
+001A 7D03              MOV     R5,#03H
+001C 7F03              MOV     R7,#03H
+001E 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 46
+0021 E4                CLR     A
+0022 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0025 F0                MOVX    @DPTR,A
+0026 7B06              MOV     R3,#06H
+0028 7D03              MOV     R5,#03H
+002A 7F03              MOV     R7,#03H
+002C 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 47
+002F 8034              SJMP    ?C0011
+0031         ?C0010:
+                                           ; SOURCE LINE # 49
+                                           ; SOURCE LINE # 50
+0031 E4                CLR     A
+0032 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0035 F0                MOVX    @DPTR,A
+0036 7B05              MOV     R3,#05H
+0038 7D03              MOV     R5,#03H
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 6   
+
+003A 7F03              MOV     R7,#03H
+003C 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 51
+003F 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0042 7401              MOV     A,#01H
+0044 F0                MOVX    @DPTR,A
+0045 7B06              MOV     R3,#06H
+0047 7D03              MOV     R5,#03H
+0049 7F03              MOV     R7,#03H
+004B 120000      E     LCALL   _digitalWrite
+                                           ; SOURCE LINE # 52
+004E 900000      R     MOV     DPTR,#value
+0051 E0                MOVX    A,@DPTR
+0052 FE                MOV     R6,A
+0053 A3                INC     DPTR
+0054 E0                MOVX    A,@DPTR
+0055 FF                MOV     R7,A
+0056 7CFF              MOV     R4,#0FFH
+0058 7DFF              MOV     R5,#0FFH
+005A 120000      E     LCALL   ?C?IMUL
+005D 900000      R     MOV     DPTR,#value
+0060 EE                MOV     A,R6
+0061 F0                MOVX    @DPTR,A
+0062 A3                INC     DPTR
+0063 EF                MOV     A,R7
+0064 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 53
+0065         ?C0011:
+                                           ; SOURCE LINE # 54
+0065 900000      R     MOV     DPTR,#value
+0068 E0                MOVX    A,@DPTR
+0069 FC                MOV     R4,A
+006A A3                INC     DPTR
+006B E0                MOVX    A,@DPTR
+006C FD                MOV     R5,A
+006D D3                SETB    C
+006E 9450              SUBB    A,#050H
+0070 EC                MOV     A,R4
+0071 6480              XRL     A,#080H
+0073 9480              SUBB    A,#080H
+0075 4006              JC      ?C0012
+0077 7E00              MOV     R6,#00H
+0079 7F50              MOV     R7,#050H
+007B 8004              SJMP    ?C0013
+007D         ?C0012:
+007D AE04              MOV     R6,AR4
+007F AF05              MOV     R7,AR5
+0081         ?C0013:
+0081 020000      E     LJMP    _PWM3_Output
+             ; FUNCTION _Motor_Right (END)
+
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -76,6 +321,8 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
+
+C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 7   
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

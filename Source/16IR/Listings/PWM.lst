@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   PWM                                                                   03/15/2019 11:23:16 PAGE 1   
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE PWM
 OBJECT MODULE PLACED IN .\Objects\PWM.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\PWM.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBUG 
-                    -OBJECTEXTEND PRINT(.\Listings\PWM.lst) TABS(2) OBJECT(.\Objects\PWM.obj)
+                    -OBJECTEXTEND CODE NOCOND PRINT(.\Listings\PWM.lst) TABS(2) OBJECT(.\Objects\PWM.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   2          P_SW2 &= ~0x80;
   53   2          PWMCR |= 0x01;
   54   2        }
-C51 COMPILER V9.54   PWM                                                                   03/15/2019 11:23:16 PAGE 2   
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 2   
 
   55   1        lastDutyPWM2 = duty;
   56   1      }
@@ -95,6 +95,336 @@ line level    source
   83   1        P_SW2 &= ~0x80;
   84   1        PWM2 = PWM3 = 0;
   85   1      }
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION PWM_Init (BEGIN)
+                                           ; SOURCE LINE # 15
+                                           ; SOURCE LINE # 16
+                                           ; SOURCE LINE # 18
+0000 7B02              MOV     R3,#02H
+0002 7D07              MOV     R5,#07H
+0004 7F03              MOV     R7,#03H
+0006 120000      E     LCALL   _pinMode
+                                           ; SOURCE LINE # 19
+0009 7B02              MOV     R3,#02H
+000B 7D01              MOV     R5,#01H
+000D 7F02              MOV     R7,#02H
+000F 120000      E     LCALL   _pinMode
+                                           ; SOURCE LINE # 21
+0012 43BA80            ORL     P_SW2,#080H
+                                           ; SOURCE LINE # 22
+0015 E4                CLR     A
+0016 F5F1              MOV     PWMCFG,A
+                                           ; SOURCE LINE # 23
+0018 90FFF2            MOV     DPTR,#0FFF2H
+001B 740F              MOV     A,#0FH
+001D F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 24
+001E 90FFF0            MOV     DPTR,#0FFF0H
+0021 741F              MOV     A,#01FH
+0023 F0                MOVX    @DPTR,A
+0024 A3                INC     DPTR
+0025 7440              MOV     A,#040H
+0027 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 25
+0028 90FF04            MOV     DPTR,#0FF04H
+002B E4                CLR     A
+002C F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 26
+002D 90FF14            MOV     DPTR,#0FF14H
+0030 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 27
+0031 90FF00            MOV     DPTR,#0FF00H
+0034 F0                MOVX    @DPTR,A
+0035 A3                INC     DPTR
+0036 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 28
+0037 A3                INC     DPTR
+0038 F0                MOVX    @DPTR,A
+0039 A3                INC     DPTR
+003A 04                INC     A
+003B F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 29
+003C 90FF10            MOV     DPTR,#0FF10H
+003F E4                CLR     A
+0040 F0                MOVX    @DPTR,A
+0041 A3                INC     DPTR
+0042 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 30
+0043 A3                INC     DPTR
+0044 F0                MOVX    @DPTR,A
+0045 A3                INC     DPTR
+0046 04                INC     A
+0047 F0                MOVX    @DPTR,A
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 4   
+
+                                           ; SOURCE LINE # 31
+0048 43F580            ORL     PWMCR,#080H
+                                           ; SOURCE LINE # 32
+004B 53BA7F            ANL     P_SW2,#07FH
+                                           ; SOURCE LINE # 34
+004E 74FF              MOV     A,#0FFH
+0050 900000      R     MOV     DPTR,#lastDutyPWM2
+0053 F0                MOVX    @DPTR,A
+0054 A3                INC     DPTR
+0055 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 35
+0056 A3                INC     DPTR
+0057 F0                MOVX    @DPTR,A
+0058 A3                INC     DPTR
+0059 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 36
+005A 22                RET     
+             ; FUNCTION PWM_Init (END)
+
+             ; FUNCTION _PWM2_Output (BEGIN)
+                                           ; SOURCE LINE # 39
+0000 900000      R     MOV     DPTR,#duty
+0003 EE                MOV     A,R6
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 40
+                                           ; SOURCE LINE # 41
+0008 900000      R     MOV     DPTR,#lastDutyPWM2
+000B E0                MOVX    A,@DPTR
+000C 6E                XRL     A,R6
+000D 7003              JNZ     ?C0017
+000F A3                INC     DPTR
+0010 E0                MOVX    A,@DPTR
+0011 6F                XRL     A,R7
+0012         ?C0017:
+0012 6066              JZ      ?C0003
+0014         ?C0002:
+                                           ; SOURCE LINE # 42
+0014 900000      R     MOV     DPTR,#duty
+0017 E0                MOVX    A,@DPTR
+0018 FE                MOV     R6,A
+0019 A3                INC     DPTR
+001A E0                MOVX    A,@DPTR
+001B FF                MOV     R7,A
+001C 4E                ORL     A,R6
+001D 6006              JZ      ?C0005
+001F EF                MOV     A,R7
+0020 6464              XRL     A,#064H
+0022 4E                ORL     A,R6
+0023 7011              JNZ     ?C0004
+0025         ?C0005:
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 44
+0025 53F5FE            ANL     PWMCR,#0FEH
+                                           ; SOURCE LINE # 45
+0028 EF                MOV     A,R7
+0029 6464              XRL     A,#064H
+002B 4E                ORL     A,R6
+002C 7003              JNZ     ?C0006
+002E D3                SETB    C
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 5   
+
+002F 8001              SJMP    ?C0007
+0031         ?C0006:
+0031 C3                CLR     C
+0032         ?C0007:
+0032 92B7              MOV     PWM2,C
+                                           ; SOURCE LINE # 46
+0034 8035              SJMP    ?C0008
+0036         ?C0004:
+                                           ; SOURCE LINE # 48
+                                           ; SOURCE LINE # 49
+0036 43BA80            ORL     P_SW2,#080H
+                                           ; SOURCE LINE # 50
+0039 90FF00            MOV     DPTR,#0FF00H
+003C E4                CLR     A
+003D F0                MOVX    @DPTR,A
+003E A3                INC     DPTR
+003F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 51
+0040 900000      R     MOV     DPTR,#duty
+0043 E0                MOVX    A,@DPTR
+0044 FE                MOV     R6,A
+0045 A3                INC     DPTR
+0046 E0                MOVX    A,@DPTR
+0047 FF                MOV     R7,A
+0048 E4                CLR     A
+0049 FC                MOV     R4,A
+004A FD                MOV     R5,A
+004B 7B40              MOV     R3,#040H
+004D 7A1F              MOV     R2,#01FH
+004F F9                MOV     R1,A
+0050 F8                MOV     R0,A
+0051 120000      E     LCALL   ?C?LMUL
+0054 E4                CLR     A
+0055 7B64              MOV     R3,#064H
+0057 FA                MOV     R2,A
+0058 F9                MOV     R1,A
+0059 F8                MOV     R0,A
+005A 120000      E     LCALL   ?C?SLDIV
+005D 90FF02            MOV     DPTR,#0FF02H
+0060 EE                MOV     A,R6
+0061 F0                MOVX    @DPTR,A
+0062 A3                INC     DPTR
+0063 EF                MOV     A,R7
+0064 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 52
+0065 53BA7F            ANL     P_SW2,#07FH
+                                           ; SOURCE LINE # 53
+0068 43F501            ORL     PWMCR,#01H
+                                           ; SOURCE LINE # 54
+006B         ?C0008:
+                                           ; SOURCE LINE # 55
+006B 900000      R     MOV     DPTR,#duty
+006E E0                MOVX    A,@DPTR
+006F FF                MOV     R7,A
+0070 A3                INC     DPTR
+0071 E0                MOVX    A,@DPTR
+0072 900000      R     MOV     DPTR,#lastDutyPWM2
+0075 CF                XCH     A,R7
+0076 F0                MOVX    @DPTR,A
+0077 A3                INC     DPTR
+0078 EF                MOV     A,R7
+0079 F0                MOVX    @DPTR,A
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 6   
+
+                                           ; SOURCE LINE # 56
+007A         ?C0003:
+007A 22                RET     
+             ; FUNCTION _PWM2_Output (END)
+
+             ; FUNCTION _PWM3_Output (BEGIN)
+                                           ; SOURCE LINE # 59
+0000 900000      R     MOV     DPTR,#duty
+0003 EE                MOV     A,R6
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 61
+0008 900000      R     MOV     DPTR,#lastDutyPWM3
+000B E0                MOVX    A,@DPTR
+000C 6E                XRL     A,R6
+000D 7003              JNZ     ?C0018
+000F A3                INC     DPTR
+0010 E0                MOVX    A,@DPTR
+0011 6F                XRL     A,R7
+0012         ?C0018:
+0012 6066              JZ      ?C0010
+0014         ?C0009:
+                                           ; SOURCE LINE # 62
+0014 900000      R     MOV     DPTR,#duty
+0017 E0                MOVX    A,@DPTR
+0018 FE                MOV     R6,A
+0019 A3                INC     DPTR
+001A E0                MOVX    A,@DPTR
+001B FF                MOV     R7,A
+001C 4E                ORL     A,R6
+001D 6006              JZ      ?C0012
+001F EF                MOV     A,R7
+0020 6464              XRL     A,#064H
+0022 4E                ORL     A,R6
+0023 7011              JNZ     ?C0011
+0025         ?C0012:
+                                           ; SOURCE LINE # 63
+                                           ; SOURCE LINE # 64
+0025 53F5FD            ANL     PWMCR,#0FDH
+                                           ; SOURCE LINE # 65
+0028 EF                MOV     A,R7
+0029 6464              XRL     A,#064H
+002B 4E                ORL     A,R6
+002C 7003              JNZ     ?C0013
+002E D3                SETB    C
+002F 8001              SJMP    ?C0014
+0031         ?C0013:
+0031 C3                CLR     C
+0032         ?C0014:
+0032 92A1              MOV     PWM3,C
+                                           ; SOURCE LINE # 66
+0034 8035              SJMP    ?C0015
+0036         ?C0011:
+                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 69
+0036 43BA80            ORL     P_SW2,#080H
+                                           ; SOURCE LINE # 70
+0039 90FF10            MOV     DPTR,#0FF10H
+003C E4                CLR     A
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 7   
+
+003D F0                MOVX    @DPTR,A
+003E A3                INC     DPTR
+003F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 71
+0040 900000      R     MOV     DPTR,#duty
+0043 E0                MOVX    A,@DPTR
+0044 FE                MOV     R6,A
+0045 A3                INC     DPTR
+0046 E0                MOVX    A,@DPTR
+0047 FF                MOV     R7,A
+0048 E4                CLR     A
+0049 FC                MOV     R4,A
+004A FD                MOV     R5,A
+004B 7B40              MOV     R3,#040H
+004D 7A1F              MOV     R2,#01FH
+004F F9                MOV     R1,A
+0050 F8                MOV     R0,A
+0051 120000      E     LCALL   ?C?LMUL
+0054 E4                CLR     A
+0055 7B64              MOV     R3,#064H
+0057 FA                MOV     R2,A
+0058 F9                MOV     R1,A
+0059 F8                MOV     R0,A
+005A 120000      E     LCALL   ?C?SLDIV
+005D 90FF12            MOV     DPTR,#0FF12H
+0060 EE                MOV     A,R6
+0061 F0                MOVX    @DPTR,A
+0062 A3                INC     DPTR
+0063 EF                MOV     A,R7
+0064 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 72
+0065 53BA7F            ANL     P_SW2,#07FH
+                                           ; SOURCE LINE # 73
+0068 43F502            ORL     PWMCR,#02H
+                                           ; SOURCE LINE # 74
+006B         ?C0015:
+                                           ; SOURCE LINE # 75
+006B 900000      R     MOV     DPTR,#duty
+006E E0                MOVX    A,@DPTR
+006F FF                MOV     R7,A
+0070 A3                INC     DPTR
+0071 E0                MOVX    A,@DPTR
+0072 900000      R     MOV     DPTR,#lastDutyPWM3
+0075 CF                XCH     A,R7
+0076 F0                MOVX    @DPTR,A
+0077 A3                INC     DPTR
+0078 EF                MOV     A,R7
+0079 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 76
+007A         ?C0010:
+007A 22                RET     
+             ; FUNCTION _PWM3_Output (END)
+
+             ; FUNCTION PWM_Dispose (BEGIN)
+                                           ; SOURCE LINE # 79
+                                           ; SOURCE LINE # 80
+                                           ; SOURCE LINE # 81
+0000 43BA80            ORL     P_SW2,#080H
+                                           ; SOURCE LINE # 82
+0003 E4                CLR     A
+0004 F5F5              MOV     PWMCR,A
+                                           ; SOURCE LINE # 83
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 17:47:39 PAGE 8   
+
+0006 53BA7F            ANL     P_SW2,#07FH
+                                           ; SOURCE LINE # 84
+0009 C2A1              CLR     PWM3
+000B C2B7              CLR     PWM2
+                                           ; SOURCE LINE # 85
+000D 22                RET     
+             ; FUNCTION PWM_Dispose (END)
+
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
