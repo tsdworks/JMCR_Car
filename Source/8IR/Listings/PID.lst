@@ -1,0 +1,75 @@
+C51 COMPILER V9.54   PID                                                                   03/18/2019 12:57:47 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE PID
+OBJECT MODULE PLACED IN .\Objects\PID.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\PID.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) D
+                    -EBUG OBJECTEXTEND PRINT(.\Listings\PID.lst) TABS(2) OBJECT(.\Objects\PID.obj)
+
+line level    source
+
+   1          #include "STC15.h"
+   2          #include "IO.h"
+   3          #include "MOTOR.h"
+   4          #include "SERVO.h"
+   5          #include "SENSOR.h"
+   6          #include "PID.h"
+   7          
+   8          //PID Paras
+   9          float PID_KP;
+  10          float PID_KI;
+  11          float PID_KD;
+  12          int pid_e;
+  13          long pid_i;
+  14          int pid_d;
+  15          int pid_le;
+  16          
+  17          //Data for Apply
+  18          u8 PID_ServoAngle = SERVO_MID_ANGLE;
+  19          int PID_LeftMotorPWM = MOTOR_MAX_PWM;
+  20          int PID_RightMotorPWM = MOTOR_MAX_PWM;
+  21          
+  22          void PID_Setup(float kp, float ki, float kd)
+  23          {
+  24   1        PID_KP = kp;
+  25   1        PID_KI = ki;
+  26   1        PID_KD = kd;
+  27   1        pid_e = 0;
+  28   1        pid_i = 0;
+  29   1        pid_d = 0;
+  30   1        pid_le = 0;
+  31   1      }
+  32          
+  33          void PID_Calc(int sensorData)
+  34          {
+  35   1        PID_LeftMotorPWM = MOTOR_MAX_PWM;
+  36   1        PID_RightMotorPWM = MOTOR_MAX_PWM;
+  37   1        pid_e = sensorData;
+  38   1        pid_i += pid_e;
+  39   1        pid_i = pid_i > MAX_INT ? MAX_INT : (pid_i < MIN_INT ? MIN_INT : pid_i);
+  40   1        pid_d = pid_e - pid_le;
+  41   1        pid_le = pid_e;
+  42   1        PID_ServoAngle += (char)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
+  43   1        PID_ServoAngle = PID_ServoAngle > PID_MAX_ANGLE ? PID_MAX_ANGLE : (PID_ServoAngle < PID_MIN_ANGLE ? PID_M
+             -IN_ANGLE : PID_ServoAngle);
+  44   1        //Motor Auto Suit
+  45   1        PID_LeftMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
+  46   1        PID_RightMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
+  47   1      }
+  48          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    515    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.54   PID                                                                   03/18/2019 12:57:47 PAGE 2   
+
+   XDATA SIZE       =     27      12
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

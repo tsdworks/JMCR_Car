@@ -1,0 +1,111 @@
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 12:57:46 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SERVO
+OBJECT MODULE PLACED IN .\Objects\SERVO.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\SERVO.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB)
+                    - DEBUG OBJECTEXTEND PRINT(.\Listings\SERVO.lst) TABS(2) OBJECT(.\Objects\SERVO.obj)
+
+line level    source
+
+   1          /*
+   2          ---- Servo Control Module ----
+   3          Author: Zhang Muhua
+   4          Date: 2019.2.9 
+   5          ----------------------------
+   6          */
+   7          #include "STC15.h"
+   8          #include "IO.h"
+   9          #include "STDFUNC.h"
+  10          #include "SERVO.h"
+  11          
+  12          int servoAngle;
+  13          int servoHighFreq;
+  14          
+  15          //1.5ms@24.000Mhz
+  16          void Timer0Init(void)
+  17          {
+  18   1        ET0 = 0;
+  19   1        TR0 = 0;
+  20   1        AUXR |= 0x80;
+  21   1        TMOD &= 0xF0; 
+  22   1        TL0 = 0x60;
+  23   1        TH0 = 0x73;
+  24   1        TF0 = 0;
+  25   1        ET0 = 1;
+  26   1        EA = 1;
+  27   1      }
+  28          
+  29          //20ms @24.000Mhz
+  30          void Timer2Init(void)
+  31          {
+  32   1        AUXR &= 0xFB;
+  33   1        T2L = 0xc0;
+  34   1        T2H = 0x63;
+  35   1        IE2 |= 0x04;
+  36   1        EA = 1;
+  37   1      }
+  38          
+  39          //Timer0 ISP
+  40          void Timer0_ISP() interrupt 1
+  41          {
+  42   1        servoPin = 0;
+  43   1        TR0 = 0;
+  44   1      }
+  45          
+  46          //Timer2 ISP
+  47          void Timer2_ISP() interrupt 12
+  48          {
+  49   1        servoPin = 1;
+  50   1        TR0 = 1;
+  51   1      }
+  52          
+  53          //Attach Servo 
+  54          void Servo_Attach()
+C51 COMPILER V9.54   SERVO                                                                 03/18/2019 12:57:46 PAGE 2   
+
+  55          {   
+  56   1        //Setup Servo
+  57   1        servoAngle = 0;
+  58   1        //Setup IO Mode
+  59   1        pinMode(SERVO_IO_GROUP, SERVO_IO_NUMBER, OUTPUT_PP);
+  60   1        digitalWrite(OUTPUT_PP, SERVO_IO_GROUP, SERVO_IO_NUMBER, 0);
+  61   1        //Setup Timer0 et Timer2
+  62   1        Timer0Init();
+  63   1        Timer2Init();
+  64   1        //Reset Servo Angle
+  65   1        Servo_SetAngle(SERVO_MID_ANGLE);
+  66   1      }
+  67          
+  68          //Set Servo Angle
+  69          void Servo_SetAngle(u8 Angle)
+  70          {
+  71   1        if(Angle < SERVO_MIN_ANGLE || Angle > SERVO_MAX_ANGLE || Angle == servoAngle)return;
+  72   1        //Timer Stop
+  73   1        TR0 = 0;
+  74   1        AUXR &= ~0x10;
+  75   1        //Set Servo Timer
+  76   1        servoPin = 0;
+  77   1        servoAngle = Angle;
+  78   1        servoHighFreq = 100000L / ((servoAngle * 10) / 9 + 50);
+  79   1        TL0 = (65536 - (long)(FOSC / 1 / servoHighFreq)) % 256;
+  80   1        TH0 = (65536 - (long)(FOSC / 1 / servoHighFreq)) / 256;
+  81   1        servoPin = 1;
+  82   1        //Timer Start
+  83   1        TR0 = 1;
+  84   1        AUXR |= 0x10;
+  85   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    291    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      4    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

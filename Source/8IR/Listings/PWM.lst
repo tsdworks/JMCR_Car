@@ -1,0 +1,111 @@
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 12:57:46 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN .\Objects\PWM.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\PWM.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBUG 
+                    -OBJECTEXTEND PRINT(.\Listings\PWM.lst) TABS(2) OBJECT(.\Objects\PWM.obj)
+
+line level    source
+
+   1          /*
+   2          ---- PWM Control Module ----
+   3          Author: Zhang Muhua
+   4          Date: 2019.2.7
+   5          ----------------------------
+   6          */
+   7          #include "STC15.h"
+   8          #include "PWM.h"
+   9          #include "IO.h"
+  10          
+  11          int lastDutyPWM2 = -1;
+  12          int lastDutyPWM3 = -1;
+  13          
+  14          //Enable PWM2 et PWM3
+  15          void PWM_Init()
+  16          {
+  17   1        //IO P-P Registers Setup
+  18   1        pinMode(3, 7, OUTPUT);
+  19   1        pinMode(2, 1, OUTPUT);
+  20   1        //PWM Registers Setup
+  21   1        P_SW2 |= 0x80;
+  22   1        PWMCFG = 0x00;
+  23   1        PWMCKS = 0x0f;
+  24   1        PWMC = PWM_CYCLE;
+  25   1        PWM2CR = 0x00;
+  26   1        PWM3CR = 0x00;
+  27   1        PWM2T1 = 0x0000;
+  28   1        PWM2T2 = 0x0001;
+  29   1        PWM3T1 = 0x0000;
+  30   1        PWM3T2 = 0x0001;
+  31   1        PWMCR |= 0x80;
+  32   1        P_SW2 &= ~0x80;
+  33   1        //Reset lastDuty Value
+  34   1        lastDutyPWM2 = -1;
+  35   1        lastDutyPWM3 = -1;
+  36   1      }
+  37          
+  38          //PWM2 Duty Control
+  39          void PWM2_Output(unsigned int duty)
+  40          {
+  41   1        if(duty == lastDutyPWM2)return;
+  42   1        if(duty == PWM_DUTY_MIN || duty == PWM_DUTY_MAX)
+  43   1        {
+  44   2          PWMCR &= ~0x01;
+  45   2          PWM2 = duty == PWM_DUTY_MAX;
+  46   2        }
+  47   1        else
+  48   1        {
+  49   2          P_SW2 |= 0x80;
+  50   2          PWM2T1 = 0x00;
+  51   2          PWM2T2 = duty * PWM_CYCLE / 100;
+  52   2          P_SW2 &= ~0x80;
+  53   2          PWMCR |= 0x01;
+  54   2        }
+C51 COMPILER V9.54   PWM                                                                   03/18/2019 12:57:46 PAGE 2   
+
+  55   1        lastDutyPWM2 = duty;
+  56   1      }
+  57          
+  58          //PWM3 Duty Control
+  59          void PWM3_Output(unsigned int duty)
+  60          {
+  61   1        if(duty == lastDutyPWM3)return;
+  62   1        if(duty == PWM_DUTY_MIN || duty == PWM_DUTY_MAX)
+  63   1        {
+  64   2          PWMCR &= ~0x02;
+  65   2          PWM3 = duty == PWM_DUTY_MAX;
+  66   2        }
+  67   1        else
+  68   1        {
+  69   2          P_SW2 |= 0x80;
+  70   2          PWM3T1 = 0x00;
+  71   2          PWM3T2 = duty * PWM_CYCLE / 100;
+  72   2          P_SW2 &= ~0x80;
+  73   2          PWMCR |= 0x02;
+  74   2        }
+  75   1        lastDutyPWM3 = duty;
+  76   1      }
+  77          
+  78          //Dispose PWM Function
+  79          void PWM_Dispose()
+  80          {
+  81   1        P_SW2 |= 0x80;
+  82   1        PWMCR = 0x00;
+  83   1        P_SW2 &= ~0x80;
+  84   1        PWM2 = PWM3 = 0;
+  85   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    351    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      4       4
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
