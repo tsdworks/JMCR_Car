@@ -76,8 +76,16 @@ void Servo_SetAngle(u8 Angle)
 	servoPin = 0;
 	servoAngle = Angle;
 	servoHighFreq = 100000L / ((servoAngle * 10) / 9 + 50);
-	TL0 = (65536 - (long)(FOSC / 1 / servoHighFreq)) % 256;
-	TH0 = (65536 - (long)(FOSC / 1 / servoHighFreq)) / 256;
+	if(Angle == SERVO_MID_ANGLE)
+	{
+		TL0 = 0x38;
+		TH0 = 0x50;
+	}
+	else
+	{
+		TL0 = (65536 - (long)(FOSC / 1 / servoHighFreq)) % 256;
+		TH0 = (65536 - (long)(FOSC / 1 / servoHighFreq)) / 256;
+	}
 	servoPin = 1;
 	//Timer Start
 	TR0 = 1;

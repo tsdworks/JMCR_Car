@@ -22,17 +22,21 @@ void JMCR_Car()
  
 void main()
 {
+	u8 i;
 	//Init Devices
 	Motor_Init();
 	Sensor_Init();
 	Servo_Attach();
 	//Init PID
-	PID_Setup(0.2, 0, 0.15);
+	PID_Setup(0.45, 0, 0.15);
+	//Serial1_Begin(115200);
 	//Wait for initializing
 	delay_ms(WAIT_INV);
 	while(true)
 	{
 		JMCR_Car();
+		for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
+		//Serial1_SendByte(3); 
 		delay_ms(CONTROL_INV);
 	}
 }

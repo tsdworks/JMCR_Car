@@ -25,13 +25,13 @@ void Motor_Left(int value)
 {
 	if(value > 0)
 	{
-		digitalWrite(OUTPUT_PP, 3, AIN1, 1);
-		digitalWrite(OUTPUT_PP, 3, AIN2, 0);
+		digitalWrite(OUTPUT_PP, 3, AIN1, 0);
+		digitalWrite(OUTPUT_PP, 3, AIN2, 1);
 	}
 	else
 	{
-		digitalWrite(OUTPUT_PP, 3, AIN1, 0);
-		digitalWrite(OUTPUT_PP, 3, AIN2, 1);
+		digitalWrite(OUTPUT_PP, 3, AIN1, 1);
+		digitalWrite(OUTPUT_PP, 3, AIN2, 0);
 		value *= -1;
 	}
 	PWM2_Output(value > MOTOR_MAX_PWM ? MOTOR_MAX_PWM : value);
@@ -42,13 +42,13 @@ void Motor_Right(int value)
 {
 	if(value > 0)
 	{
-		digitalWrite(OUTPUT_PP, 3, BIN1, 1);
-		digitalWrite(OUTPUT_PP, 3, BIN2, 0);
+		digitalWrite(OUTPUT_PP, 3, BIN1, 0);
+		digitalWrite(OUTPUT_PP, 3, BIN2, 1);
 	}
 	else
 	{
-		digitalWrite(OUTPUT_PP, 3, BIN1, 0);
-		digitalWrite(OUTPUT_PP, 3, BIN2, 1);
+		digitalWrite(OUTPUT_PP, 3, BIN1, 1);
+		digitalWrite(OUTPUT_PP, 3, BIN2, 0);
 		value *= -1;
 	}
 	PWM3_Output(value > MOTOR_MAX_PWM ? MOTOR_MAX_PWM : value);

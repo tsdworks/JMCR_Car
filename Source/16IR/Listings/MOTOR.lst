@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 1   
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MOTOR
@@ -35,13 +35,13 @@ line level    source
   25          {
   26   1        if(value > 0)
   27   1        {
-  28   2          digitalWrite(OUTPUT_PP, 3, AIN1, 1);
-  29   2          digitalWrite(OUTPUT_PP, 3, AIN2, 0);
+  28   2          digitalWrite(OUTPUT_PP, 3, AIN1, 0);
+  29   2          digitalWrite(OUTPUT_PP, 3, AIN2, 1);
   30   2        }
   31   1        else
   32   1        {
-  33   2          digitalWrite(OUTPUT_PP, 3, AIN1, 0);
-  34   2          digitalWrite(OUTPUT_PP, 3, AIN2, 1);
+  33   2          digitalWrite(OUTPUT_PP, 3, AIN1, 1);
+  34   2          digitalWrite(OUTPUT_PP, 3, AIN2, 0);
   35   2          value *= -1;
   36   2        }
   37   1        PWM2_Output(value > MOTOR_MAX_PWM ? MOTOR_MAX_PWM : value);
@@ -52,20 +52,20 @@ line level    source
   42          {
   43   1        if(value > 0)
   44   1        {
-  45   2          digitalWrite(OUTPUT_PP, 3, BIN1, 1);
-  46   2          digitalWrite(OUTPUT_PP, 3, BIN2, 0);
+  45   2          digitalWrite(OUTPUT_PP, 3, BIN1, 0);
+  46   2          digitalWrite(OUTPUT_PP, 3, BIN2, 1);
   47   2        }
   48   1        else
   49   1        {
-  50   2          digitalWrite(OUTPUT_PP, 3, BIN1, 0);
-  51   2          digitalWrite(OUTPUT_PP, 3, BIN2, 1);
+  50   2          digitalWrite(OUTPUT_PP, 3, BIN1, 1);
+  51   2          digitalWrite(OUTPUT_PP, 3, BIN2, 0);
   52   2          value *= -1;
   53   2        }
   54   1        PWM3_Output(value > MOTOR_MAX_PWM ? MOTOR_MAX_PWM : value);
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 2   
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 2   
 
   55   1      }
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 3   
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -129,23 +129,23 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0008 D3                SETB    C
 0009 9400              SUBB    A,#00H
 000B EE                MOV     A,R6
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 4   
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 4   
 
 000C 6480              XRL     A,#080H
 000E 9480              SUBB    A,#080H
 0010 401F              JC      ?C0005
                                            ; SOURCE LINE # 27
                                            ; SOURCE LINE # 28
-0012 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0015 7401              MOV     A,#01H
-0017 F0                MOVX    @DPTR,A
-0018 7B03              MOV     R3,#03H
-001A 7D03              MOV     R5,#03H
-001C 7F03              MOV     R7,#03H
-001E 120000      E     LCALL   _digitalWrite
+0012 E4                CLR     A
+0013 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0016 F0                MOVX    @DPTR,A
+0017 7B03              MOV     R3,#03H
+0019 7D03              MOV     R5,#03H
+001B 7F03              MOV     R7,#03H
+001D 120000      E     LCALL   _digitalWrite
                                            ; SOURCE LINE # 29
-0021 E4                CLR     A
-0022 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0020 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0023 7401              MOV     A,#01H
 0025 F0                MOVX    @DPTR,A
 0026 7B04              MOV     R3,#04H
 0028 7D03              MOV     R5,#03H
@@ -156,16 +156,16 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0031         ?C0005:
                                            ; SOURCE LINE # 32
                                            ; SOURCE LINE # 33
-0031 E4                CLR     A
-0032 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0035 F0                MOVX    @DPTR,A
-0036 7B03              MOV     R3,#03H
-0038 7D03              MOV     R5,#03H
-003A 7F03              MOV     R7,#03H
-003C 120000      E     LCALL   _digitalWrite
+0031 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0034 7401              MOV     A,#01H
+0036 F0                MOVX    @DPTR,A
+0037 7B03              MOV     R3,#03H
+0039 7D03              MOV     R5,#03H
+003B 7F03              MOV     R7,#03H
+003D 120000      E     LCALL   _digitalWrite
                                            ; SOURCE LINE # 34
-003F 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0042 7401              MOV     A,#01H
+0040 E4                CLR     A
+0041 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
 0044 F0                MOVX    @DPTR,A
 0045 7B04              MOV     R3,#04H
 0047 7D03              MOV     R5,#03H
@@ -193,7 +193,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0065 900000      R     MOV     DPTR,#value
 0068 E0                MOVX    A,@DPTR
 0069 FC                MOV     R4,A
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 5   
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 5   
 
 006A A3                INC     DPTR
 006B E0                MOVX    A,@DPTR
@@ -232,16 +232,16 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0010 401F              JC      ?C0010
                                            ; SOURCE LINE # 44
                                            ; SOURCE LINE # 45
-0012 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0015 7401              MOV     A,#01H
-0017 F0                MOVX    @DPTR,A
-0018 7B05              MOV     R3,#05H
-001A 7D03              MOV     R5,#03H
-001C 7F03              MOV     R7,#03H
-001E 120000      E     LCALL   _digitalWrite
+0012 E4                CLR     A
+0013 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0016 F0                MOVX    @DPTR,A
+0017 7B05              MOV     R3,#05H
+0019 7D03              MOV     R5,#03H
+001B 7F03              MOV     R7,#03H
+001D 120000      E     LCALL   _digitalWrite
                                            ; SOURCE LINE # 46
-0021 E4                CLR     A
-0022 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0020 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0023 7401              MOV     A,#01H
 0025 F0                MOVX    @DPTR,A
 0026 7B06              MOV     R3,#06H
 0028 7D03              MOV     R5,#03H
@@ -252,18 +252,18 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0031         ?C0010:
                                            ; SOURCE LINE # 49
                                            ; SOURCE LINE # 50
-0031 E4                CLR     A
-0032 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0035 F0                MOVX    @DPTR,A
-0036 7B05              MOV     R3,#05H
-0038 7D03              MOV     R5,#03H
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 6   
+0031 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0034 7401              MOV     A,#01H
+0036 F0                MOVX    @DPTR,A
+0037 7B05              MOV     R3,#05H
+0039 7D03              MOV     R5,#03H
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 6   
 
-003A 7F03              MOV     R7,#03H
-003C 120000      E     LCALL   _digitalWrite
+003B 7F03              MOV     R7,#03H
+003D 120000      E     LCALL   _digitalWrite
                                            ; SOURCE LINE # 51
-003F 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0042 7401              MOV     A,#01H
+0040 E4                CLR     A
+0041 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
 0044 F0                MOVX    @DPTR,A
 0045 7B06              MOV     R3,#06H
 0047 7D03              MOV     R5,#03H
@@ -322,7 +322,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
-C51 COMPILER V9.54   MOTOR                                                                 03/18/2019 17:47:40 PAGE 7   
+C51 COMPILER V9.54   MOTOR                                                                 03/28/2019 11:41:51 PAGE 7   
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   JMCR_CAR                                                              03/18/2019 17:47:40 PAGE 1   
+C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:41:52 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE JMCR_CAR
@@ -32,21 +32,25 @@ line level    source
   22           
   23          void main()
   24          {
-  25   1        //Init Devices
-  26   1        Motor_Init();
-  27   1        Sensor_Init();
-  28   1        Servo_Attach();
-  29   1        //Init PID
-  30   1        PID_Setup(0.2, 0, 0.15);
-  31   1        //Wait for initializing
-  32   1        delay_ms(WAIT_INV);
-  33   1        while(true)
-  34   1        {
-  35   2          JMCR_Car();
-  36   2          delay_ms(CONTROL_INV);
-  37   2        }
-  38   1      }
-C51 COMPILER V9.54   JMCR_CAR                                                              03/18/2019 17:47:40 PAGE 2   
+  25   1        u8 i;
+  26   1        //Init Devices
+  27   1        Motor_Init();
+  28   1        Sensor_Init();
+  29   1        Servo_Attach();
+  30   1        //Init PID
+  31   1        PID_Setup(0.45, 0, 0.15);
+  32   1        //Serial1_Begin(115200);
+  33   1        //Wait for initializing
+  34   1        delay_ms(WAIT_INV);
+  35   1        while(true)
+  36   1        {
+  37   2          JMCR_Car();
+  38   2          for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
+  39   2          //Serial1_SendByte(3); 
+  40   2          delay_ms(CONTROL_INV);
+  41   2        }
+  42   1      }
+C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:41:52 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -83,13 +87,13 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION main (BEGIN)
                                            ; SOURCE LINE # 23
                                            ; SOURCE LINE # 24
-                                           ; SOURCE LINE # 26
-0000 120000      E     LCALL   Motor_Init
                                            ; SOURCE LINE # 27
-0003 120000      E     LCALL   Sensor_Init
+0000 120000      E     LCALL   Motor_Init
                                            ; SOURCE LINE # 28
+0003 120000      E     LCALL   Sensor_Init
+                                           ; SOURCE LINE # 29
 0006 120000      E     LCALL   Servo_Attach
-                                           ; SOURCE LINE # 30
+                                           ; SOURCE LINE # 31
 0009 900000      E     MOV     DPTR,#?_PID_Setup?BYTE+04H
 000C 120000      E     LCALL   ?C?LSTKXDATA
 000F 00                DB      00H
@@ -102,36 +106,62 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 001A 19                DB      019H
 001B 99                DB      099H
 001C 9A                DB      09AH
-001D 7FCD              MOV     R7,#0CDH
-001F 7ECC              MOV     R6,#0CCH
-0021 7D4C              MOV     R5,#04CH
+001D 7F66              MOV     R7,#066H
+001F 7E66              MOV     R6,#066H
+0021 7DE6              MOV     R5,#0E6H
 0023 7C3E              MOV     R4,#03EH
 0025 120000      E     LCALL   _PID_Setup
-                                           ; SOURCE LINE # 32
+                                           ; SOURCE LINE # 34
 0028 7FE8              MOV     R7,#0E8H
 002A 7E03              MOV     R6,#03H
-C51 COMPILER V9.54   JMCR_CAR                                                              03/18/2019 17:47:40 PAGE 3   
+C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:41:52 PAGE 3   
 
 002C 120000      E     LCALL   _delay_ms
 002F         ?C0002:
-                                           ; SOURCE LINE # 33
-                                           ; SOURCE LINE # 34
                                            ; SOURCE LINE # 35
-002F 120000      R     LCALL   JMCR_Car
                                            ; SOURCE LINE # 36
-0032 7F0A              MOV     R7,#0AH
-0034 7E00              MOV     R6,#00H
-0036 120000      E     LCALL   _delay_ms
                                            ; SOURCE LINE # 37
-0039 80F4              SJMP    ?C0002
+002F 120000      R     LCALL   JMCR_Car
+                                           ; SOURCE LINE # 38
+0032 E4                CLR     A
+0033 900000      R     MOV     DPTR,#i
+0036 F0                MOVX    @DPTR,A
+0037         ?C0004:
+0037 900000      R     MOV     DPTR,#i
+003A E0                MOVX    A,@DPTR
+003B FF                MOV     R7,A
+003C C3                CLR     C
+003D 9410              SUBB    A,#010H
+003F 5017              JNC     ?C0005
+0041 7400        E     MOV     A,#LOW sensorData
+0043 2F                ADD     A,R7
+0044 F582              MOV     DPL,A
+0046 E4                CLR     A
+0047 3400        E     ADDC    A,#HIGH sensorData
+0049 F583              MOV     DPH,A
+004B E0                MOVX    A,@DPTR
+004C FF                MOV     R7,A
+004D 120000      E     LCALL   _Serial1_SendByte
+0050 900000      R     MOV     DPTR,#i
+0053 E0                MOVX    A,@DPTR
+0054 04                INC     A
+0055 F0                MOVX    @DPTR,A
+0056 80DF              SJMP    ?C0004
+0058         ?C0005:
+                                           ; SOURCE LINE # 40
+0058 7F0A              MOV     R7,#0AH
+005A 7E00              MOV     R6,#00H
+005C 120000      E     LCALL   _delay_ms
+                                           ; SOURCE LINE # 41
+005F 80CE              SJMP    ?C0002
              ; FUNCTION main (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     95    ----
+   CODE SIZE        =    133    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =   ----    ----
+   XDATA SIZE       =   ----       1
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
