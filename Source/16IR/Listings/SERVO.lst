@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 1   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE SERVO
@@ -62,7 +62,7 @@ line level    source
   52          
   53          //Attach Servo 
   54          void Servo_Attach()
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 2   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 2   
 
   55          {   
   56   1        //Setup Servo
@@ -103,7 +103,7 @@ line level    source
   91   1        TR0 = 1;
   92   1        AUXR |= 0x10;
   93   1      }
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 3   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -167,7 +167,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 50
 0002 D28C              SETB    TR0
                                            ; SOURCE LINE # 51
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 4   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 4   
 
 0004 32                RETI    
              ; FUNCTION Timer2_ISP (END)
@@ -231,7 +231,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0022 020000      R     LJMP    ?C0008
 0025         ?C0006:
                                            ; SOURCE LINE # 73
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 5   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 5   
 
 0025 C28C              CLR     TR0
                                            ; SOURCE LINE # 74
@@ -295,7 +295,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0079 E0                MOVX    A,@DPTR
 007A FE                MOV     R6,A
 007B A3                INC     DPTR
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 6   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 6   
 
 007C E0                MOVX    A,@DPTR
 007D FB                MOV     R3,A
@@ -359,7 +359,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00CE 7401              MOV     A,#01H
 00D0 9D                SUBB    A,R5
 00D1 FD                MOV     R5,A
-C51 COMPILER V9.54   SERVO                                                                 03/28/2019 11:47:45 PAGE 7   
+C51 COMPILER V9.54   SERVO                                                                 03/28/2019 15:22:49 PAGE 7   
 
 00D2 E4                CLR     A
 00D3 9C                SUBB    A,R4

@@ -4,7 +4,7 @@
 #include "SENSOR.h"
 
 u8 sensorData[SENSOR_NUM] = {0};
-u8 sensorMap[SENSOR_MAP] = {8, 7, 6, 5, 4, 3, 2, 1};
+u8 sensorMap[SENSOR_MAP] = {9, 8, 7, 6, 5, 4, 3, 2};
 int leftValue = 0;
 int rightValue = 0;
 u8 isSensorInit = 0;

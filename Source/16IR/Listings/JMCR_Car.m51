@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        03/28/2019  11:47:46  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/28/2019  15:22:49  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\JMCR_Car (IO)
             XDATA   0060H     001BH     UNIT         ?XD?PID
             XDATA   007BH     000DH     UNIT         _XDATA_GROUP_
             XDATA   0088H     0008H     UNIT         ?XD?_MAXDOUBLE?STDFUNC
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 2
 
 
             XDATA   0090H     0008H     UNIT         ?XD?_MINDOUBLE?STDFUNC
@@ -119,7 +119,7 @@ LINK MAP OF MODULE:  .\Objects\JMCR_Car (IO)
             CODE    151FH     0013H     UNIT         ?PR?_MININT?STDFUNC
             CODE    1532H     0012H     UNIT         ?PR?_ABSINT?STDFUNC
             CODE    1544H     0010H     UNIT         ?PR?SERIAL1_AVAILABLE?USART
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 3
 
 
             CODE    1554H     000FH     UNIT         ?PR?TIMER2INIT?SERVO
@@ -179,7 +179,7 @@ SEGMENT                                    XDATA_GROUP
   +--> ?PR?_MOTOR_RIGHT?MOTOR
 
 ?PR?SENSOR_GETDATA?SENSOR                007CH    0001H
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 4
 
 
   +--> ?PR?SENSOR_REFRESHDATA?SENSOR
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0088H         PUBLIC        TCON
   C:09E7H         PUBLIC        _pinMode
   C:0ACBH         PUBLIC        _digitalRead
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 5
 
 
   C:0C5AH         PUBLIC        _pinModeGroup
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0A2EH         LINE#         54
   C:0A2EH         LINE#         55
   C:0A2EH         LINE#         56
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 6
 
 
   C:0A33H         LINE#         57
@@ -359,7 +359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0AA0H         LINE#         111
   C:0AA3H         LINE#         112
   C:0AA6H         LINE#         113
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 7
 
 
   C:0AA6H         LINE#         114
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0C82H         LINE#         166
   C:0C82H         LINE#         167
   C:0C84H         LINE#         168
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 8
 
 
   C:0C84H         LINE#         169
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0CD1H         LINE#         223
   C:0CD1H         LINE#         224
   C:0CD1H         LINE#         225
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 9
 
 
   C:0CD6H         LINE#         226
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0ADAH         LINE#         274
   C:0AEEH         LINE#         275
   C:0AEEH         LINE#         276
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 10
 
 
   C:0AEEH         LINE#         277
@@ -599,7 +599,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         ENDPROC       _DIGITALREAD
   -------         PROC          _DIGITALREADGROUP
   D:0007H         SYMBOL        IOMode
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 11
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 11
 
 
   D:0005H         SYMBOL        IOGroup
@@ -659,7 +659,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:113BH         LINE#         386
   C:113BH         LINE#         387
   C:113BH         LINE#         388
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 12
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 12
 
 
   C:113EH         LINE#         389
@@ -719,7 +719,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:1087H         LINE#         438
   C:1087H         LINE#         439
   C:108BH         LINE#         440
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 13
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 13
 
 
   C:108BH         LINE#         441
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         ENDMOD        IO
 
   -------         MODULE        PWM
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 14
 
 
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -839,7 +839,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:0F4EH         LINE#         44
   C:0F51H         LINE#         45
   C:0F5DH         LINE#         46
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 15
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 15
 
 
   C:0F5FH         LINE#         48
@@ -899,7 +899,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00A2H         PUBLIC        P_SW1
   D:00A8H         PUBLIC        IE
   B:00A8H.4       PUBLIC        ES
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 16
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 16
 
 
   C:14EDH         PUBLIC        _Serial1_SendByte
@@ -959,7 +959,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   -------         ENDPROC       _SERIAL1_SENDBYTE
   -------         PROC          _SERIAL1_SENDSTR
   X:00A8H         SYMBOL        s
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 17
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 17
 
 
   C:1478H         LINE#         49
@@ -1019,7 +1019,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:142EH         LINE#         99
   C:142EH         LINE#         100
   C:143EH         LINE#         101
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 18
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 18
 
 
   C:1446H         LINE#         102
@@ -1079,7 +1079,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:150CH         LINE#         31
   C:151AH         LINE#         32
   C:151EH         LINE#         33
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 19
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 19
 
 
   -------         ENDPROC       _MAXINT
@@ -1139,7 +1139,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   B:00A8H.7       PUBLIC        EA
   D:00E8H         PUBLIC        P6
   D:00F8H         PUBLIC        P7
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 20
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 20
 
 
   C:08FFH         PUBLIC        _Servo_SetAngle
@@ -1199,7 +1199,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:1571H         LINE#         47
   C:1571H         LINE#         49
   C:1573H         LINE#         50
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 21
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 21
 
 
   C:1575H         LINE#         51
@@ -1259,7 +1259,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:0088H         PUBLIC        TCON
   C:0E24H         PUBLIC        _Motor_Right
   D:00D0H         PUBLIC        PSW
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 22
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 22
 
 
   -------         PROC          MOTOR_INIT
@@ -1319,7 +1319,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00C8H         PUBLIC        P5
   D:00E8H         PUBLIC        P6
   D:00F8H         PUBLIC        P7
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 23
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 23
 
 
   X:0064H         PUBLIC        pid_i
@@ -1379,7 +1379,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00C0H         PUBLIC        P4
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 24
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 24
 
 
   D:00C8H         PUBLIC        P5
@@ -1439,7 +1439,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:08FEH         LINE#         50
   -------         ENDPROC       SENSOR_REFRESHDATA
   -------         PROC          _SENSOR_GETSINGLEDATA
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 25
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 25
 
 
   X:00AEH         SYMBOL        sensorID
@@ -1499,7 +1499,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
   C:1386H         LINE#         24
   C:1386H         LINE#         27
   C:1389H         LINE#         28
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 26
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 26
 
 
   C:138CH         LINE#         29
@@ -1559,7 +1559,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
 
   -------         MODULE        ?C?ULDIV
   C:049EH         PUBLIC        ?C?ULDIV
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 27
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 27
 
 
   -------         ENDMOD        ?C?ULDIV
@@ -1619,7 +1619,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\JMCR_Car (IO)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MININT?STDFUNC
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  11:47:46  PAGE 28
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2019  15:22:49  PAGE 28
 
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS

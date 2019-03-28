@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 1   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE PWM
@@ -62,7 +62,7 @@ line level    source
   52   2          P_SW2 &= ~0x80;
   53   2          PWMCR |= 0x01;
   54   2        }
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 2   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 2   
 
   55   1        lastDutyPWM2 = duty;
   56   1      }
@@ -95,7 +95,7 @@ line level    source
   83   1        P_SW2 &= ~0x80;
   84   1        PWM2 = PWM3 = 0;
   85   1      }
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 3   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -159,7 +159,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0045 A3                INC     DPTR
 0046 04                INC     A
 0047 F0                MOVX    @DPTR,A
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 4   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 4   
 
                                            ; SOURCE LINE # 31
 0048 43F580            ORL     PWMCR,#080H
@@ -223,7 +223,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 002B 4E                ORL     A,R6
 002C 7003              JNZ     ?C0006
 002E D3                SETB    C
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 5   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 5   
 
 002F 8001              SJMP    ?C0007
 0031         ?C0006:
@@ -287,7 +287,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0077 A3                INC     DPTR
 0078 EF                MOV     A,R7
 0079 F0                MOVX    @DPTR,A
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 6   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 6   
 
                                            ; SOURCE LINE # 56
 007A         ?C0003:
@@ -351,7 +351,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 70
 0039 90FF10            MOV     DPTR,#0FF10H
 003C E4                CLR     A
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 7   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 7   
 
 003D F0                MOVX    @DPTR,A
 003E A3                INC     DPTR
@@ -415,7 +415,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0003 E4                CLR     A
 0004 F5F5              MOV     PWMCR,A
                                            ; SOURCE LINE # 83
-C51 COMPILER V9.54   PWM                                                                   03/28/2019 11:47:45 PAGE 8   
+C51 COMPILER V9.54   PWM                                                                   03/28/2019 15:22:48 PAGE 8   
 
 0006 53BA7F            ANL     P_SW2,#07FH
                                            ; SOURCE LINE # 84

@@ -35,7 +35,7 @@ Device: FST SEN2020
 #define L6 9
 #define L7 8
 
-#define WAIT_TIME 3
+#define WAIT_TIME 2
 
 //0 - Black Line, 1 - White Line
 #define SENSOR_SAMPLE 0
