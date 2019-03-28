@@ -35,7 +35,7 @@ void main()
 	while(true)
 	{
 		JMCR_Car();
-		for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
+		//for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
 		//Serial1_SendByte(3); 
 		delay_ms(CONTROL_INV);
 	}

@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:41:52 PAGE 1   
+C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:47:46 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE JMCR_CAR
@@ -45,12 +45,13 @@ line level    source
   35   1        while(true)
   36   1        {
   37   2          JMCR_Car();
-  38   2          for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
+  38   2          //for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
   39   2          //Serial1_SendByte(3); 
   40   2          delay_ms(CONTROL_INV);
   41   2        }
   42   1      }
-C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:41:52 PAGE 2   
+*** WARNING C280 IN LINE 25 OF USER\JMCR_Car.c: 'i': unreferenced local variable
+C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:47:46 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -114,7 +115,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 34
 0028 7FE8              MOV     R7,#0E8H
 002A 7E03              MOV     R6,#03H
-C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:41:52 PAGE 3   
+C51 COMPILER V9.54   JMCR_CAR                                                              03/28/2019 11:47:46 PAGE 3   
 
 002C 120000      E     LCALL   _delay_ms
 002F         ?C0002:
@@ -122,44 +123,18 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 36
                                            ; SOURCE LINE # 37
 002F 120000      R     LCALL   JMCR_Car
-                                           ; SOURCE LINE # 38
-0032 E4                CLR     A
-0033 900000      R     MOV     DPTR,#i
-0036 F0                MOVX    @DPTR,A
-0037         ?C0004:
-0037 900000      R     MOV     DPTR,#i
-003A E0                MOVX    A,@DPTR
-003B FF                MOV     R7,A
-003C C3                CLR     C
-003D 9410              SUBB    A,#010H
-003F 5017              JNC     ?C0005
-0041 7400        E     MOV     A,#LOW sensorData
-0043 2F                ADD     A,R7
-0044 F582              MOV     DPL,A
-0046 E4                CLR     A
-0047 3400        E     ADDC    A,#HIGH sensorData
-0049 F583              MOV     DPH,A
-004B E0                MOVX    A,@DPTR
-004C FF                MOV     R7,A
-004D 120000      E     LCALL   _Serial1_SendByte
-0050 900000      R     MOV     DPTR,#i
-0053 E0                MOVX    A,@DPTR
-0054 04                INC     A
-0055 F0                MOVX    @DPTR,A
-0056 80DF              SJMP    ?C0004
-0058         ?C0005:
                                            ; SOURCE LINE # 40
-0058 7F0A              MOV     R7,#0AH
-005A 7E00              MOV     R6,#00H
-005C 120000      E     LCALL   _delay_ms
+0032 7F0A              MOV     R7,#0AH
+0034 7E00              MOV     R6,#00H
+0036 120000      E     LCALL   _delay_ms
                                            ; SOURCE LINE # 41
-005F 80CE              SJMP    ?C0002
+0039 80F4              SJMP    ?C0002
              ; FUNCTION main (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    133    ----
+   CODE SIZE        =     95    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----       1
    PDATA SIZE       =   ----    ----
@@ -169,4 +144,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
