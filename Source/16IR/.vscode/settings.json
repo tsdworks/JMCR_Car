@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "servo.h": "c",
+        "sensor.h": "c"
+    }
+}

@@ -16,7 +16,7 @@ Date: 2019.2.9
 #define SERVO_IO_GROUP 4
 #define SERVO_IO_NUMBER 5
 
-sbit servoPin = P4^5;
+sbit servoPin = P4 ^ 5;
 
 extern int servoAngle;
 extern int servoHighFreq;

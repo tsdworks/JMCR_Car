@@ -1,7 +1,7 @@
-C51 COMPILER V9.54   STDFUNC                                                               03/18/2019 12:57:46 PAGE 1   
+C51 COMPILER V9.59.0.0   STDFUNC                                                           09/03/2020 14:35:18 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE STDFUNC
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE STDFUNC
 OBJECT MODULE PLACED IN .\Objects\STDFUNC.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\STDFUNC.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DE
                     -BUG OBJECTEXTEND PRINT(.\Listings\STDFUNC.lst) TABS(2) OBJECT(.\Objects\STDFUNC.obj)
@@ -62,7 +62,7 @@ line level    source
   52   1        if(numA < numB)return numA;
   53   1        return numB;
   54   1      }
-C51 COMPILER V9.54   STDFUNC                                                               03/18/2019 12:57:46 PAGE 2   
+C51 COMPILER V9.59.0.0   STDFUNC                                                           09/03/2020 14:35:18 PAGE 2   
 
   55          
   56          //abs Int
@@ -79,7 +79,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    268    ----
+   CODE SIZE        =    264    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----      20
    PDATA SIZE       =   ----    ----

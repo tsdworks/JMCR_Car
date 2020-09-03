@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 1   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE IO
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE IO
 OBJECT MODULE PLACED IN .\Objects\IO.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\IO.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBUG O
-                    -BJECTEXTEND CODE NOCOND PRINT(.\Listings\IO.lst) TABS(2) OBJECT(.\Objects\IO.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\IO.c LARGE WARNINGLEVEL(0) OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWAR
+                    -E;.\LIB) DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\IO.lst) TABS(2) OBJECT(.\Objects\IO.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   4            }
   53   3            break;
   54   3          }
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 2   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 2   
 
   55   2        }
   56   1        else if(IOType == INPUT)
@@ -126,7 +126,7 @@ line level    source
  114   3            break;
  115   3            case 2:
  116   3            {
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 3   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 3   
 
  117   4              P2M1 &= ~regVal;
  118   4              P2M0 |= regVal;
@@ -190,7 +190,7 @@ line level    source
  176   3            {
  177   4              P4M1 = 0x00;
  178   4              P4M0 = 0x00;
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 4   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 4   
 
  179   4              P4 = 0x00;
  180   4            }
@@ -254,7 +254,7 @@ line level    source
  238   4              P1M1 = 0x00;
  239   4              P1M0 = 0xff;
  240   4              P1 = 0x00;
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 5   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 5   
 
  241   4            }
  242   3            break;
@@ -318,7 +318,7 @@ line level    source
  300   3            case 4:
  301   3            {
  302   4              P4 |= regVal;
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 6   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 6   
 
  303   4              return (P4>>IONumber) & 0x01;
  304   4            }
@@ -382,7 +382,7 @@ line level    source
  362   3            break;
  363   3            case 4:
  364   3            {
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 7   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 7   
 
  365   4              P4 = 0xff;
  366   4              return P4;
@@ -446,7 +446,7 @@ line level    source
  424   2          switch(IOGroup)
  425   2          {
  426   3            case 0:
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 8   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 8   
 
  427   3              P0 &= ~regVal;
  428   3              break;
@@ -510,12 +510,12 @@ line level    source
  486   3            case 4:
  487   3              P4 = 0x00;
  488   3              break;
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 9   
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 9   
 
  489   3          }
  490   2        }
  491   1      }
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 10  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 10  
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -528,8 +528,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 12
                                            ; SOURCE LINE # 14
 0000 AE05              MOV     R6,AR5
-0002 7401              MOV     A,#01H
-0004 A806              MOV     R0,AR6
+0002 A806              MOV     R0,AR6
+0004 7401              MOV     A,#01H
 0006 08                INC     R0
 0007 8002              SJMP    ?C0116
 0009         ?C0115:
@@ -579,7 +579,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 002F EE                MOV     A,R6
 0030 F4                CPL     A
 0031 5291              ANL     P1M1,A
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 11  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 11  
 
                                            ; SOURCE LINE # 29
                                            ; SOURCE LINE # 30
@@ -643,7 +643,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0059 2404              ADD     A,#04H
 005B 6003              JZ      $ + 5H
 005D 020000      R     LJMP    ?C0025
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 12  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 12  
 
                                            ; SOURCE LINE # 59
                                            ; SOURCE LINE # 60
@@ -707,7 +707,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0083 52B2              ANL     P3M0,A
                                            ; SOURCE LINE # 85
 0085 52B0              ANL     P3,A
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 13  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 13  
 
                                            ; SOURCE LINE # 86
                                            ; SOURCE LINE # 87
@@ -771,7 +771,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 109
                                            ; SOURCE LINE # 110
 00B4 EE                MOV     A,R6
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 14  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 14  
 
 00B5 F4                CPL     A
 00B6 FF                MOV     R7,A
@@ -835,7 +835,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00E1 52C0              ANL     P4,A
                                            ; SOURCE LINE # 134
                                            ; SOURCE LINE # 135
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 15  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 15  
 
                                            ; SOURCE LINE # 136
                                            ; SOURCE LINE # 137
@@ -899,7 +899,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0025 E4                CLR     A
 0026 F595              MOV     P2M1,A
                                            ; SOURCE LINE # 164
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 16  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 16  
 
                                            ; SOURCE LINE # 165
                                            ; SOURCE LINE # 166
@@ -963,7 +963,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 194
 0052 22                RET     
                                            ; SOURCE LINE # 195
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 17  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 17  
 
 0053         ?C0038:
                                            ; SOURCE LINE # 196
@@ -1027,7 +1027,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0077 ED                MOV     A,R5
 0078 6403              XRL     A,#03H
 007A 703D              JNZ     ?C0050
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 18  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 18  
 
                                            ; SOURCE LINE # 226
                                            ; SOURCE LINE # 227
@@ -1091,7 +1091,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 253
 00AB 75B2FF            MOV     P3M0,#0FFH
                                            ; SOURCE LINE # 254
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 19  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 19  
 
 00AE F5B0              MOV     P3,A
                                            ; SOURCE LINE # 255
@@ -1123,8 +1123,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 ;---- Variable 'IOGroup' assigned to Register 'R5' ----
                                            ; SOURCE LINE # 270
                                            ; SOURCE LINE # 271
-0000 7401              MOV     A,#01H
-0002 A803              MOV     R0,AR3
+0000 A803              MOV     R0,AR3
+0002 7401              MOV     A,#01H
 0004 08                INC     R0
 0005 8002              SJMP    ?C0118
 0007         ?C0117:
@@ -1155,14 +1155,14 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 276
 0023         ?C0053:
                                            ; SOURCE LINE # 277
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 20  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 20  
 
                                            ; SOURCE LINE # 278
 0023 EE                MOV     A,R6
 0024 4280              ORL     P0,A
                                            ; SOURCE LINE # 279
-0026 E580              MOV     A,P0
-0028 A803              MOV     R0,AR3
+0026 A803              MOV     R0,AR3
+0028 E580              MOV     A,P0
 002A 08                INC     R0
 002B 8002              SJMP    ?C0120
 002D         ?C0119:
@@ -1180,8 +1180,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0034 EE                MOV     A,R6
 0035 4290              ORL     P1,A
                                            ; SOURCE LINE # 285
-0037 E590              MOV     A,P1
-0039 A803              MOV     R0,AR3
+0037 A803              MOV     R0,AR3
+0039 E590              MOV     A,P1
 003B 08                INC     R0
 003C 8002              SJMP    ?C0122
 003E         ?C0121:
@@ -1200,8 +1200,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0045 EE                MOV     A,R6
 0046 42A0              ORL     P2,A
                                            ; SOURCE LINE # 291
-0048 E5A0              MOV     A,P2
-004A A803              MOV     R0,AR3
+0048 A803              MOV     R0,AR3
+004A E5A0              MOV     A,P2
 004C 08                INC     R0
 004D 8002              SJMP    ?C0124
 004F         ?C0123:
@@ -1219,11 +1219,11 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 296
 0055 EE                MOV     A,R6
 0056 42B0              ORL     P3,A
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 21  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 21  
 
                                            ; SOURCE LINE # 297
-0058 E5B0              MOV     A,P3
-005A A803              MOV     R0,AR3
+0058 A803              MOV     R0,AR3
+005A E5B0              MOV     A,P3
 005C 08                INC     R0
 005D 8002              SJMP    ?C0126
 005F         ?C0125:
@@ -1242,8 +1242,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0065 EE                MOV     A,R6
 0066 42C0              ORL     P4,A
                                            ; SOURCE LINE # 303
-0068 E5C0              MOV     A,P4
-006A A803              MOV     R0,AR3
+0068 A803              MOV     R0,AR3
+006A E5C0              MOV     A,P4
 006C 08                INC     R0
 006D 8002              SJMP    ?C0128
 006F         ?C0127:
@@ -1279,11 +1279,11 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 312
 008B         ?C0062:
                                            ; SOURCE LINE # 313
-008B E580              MOV     A,P0
-008D A803              MOV     R0,AR3
+008B A803              MOV     R0,AR3
+008D E580              MOV     A,P0
 008F 08                INC     R0
 0090 8002              SJMP    ?C0130
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 22  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 22  
 
 0092         ?C0129:
 0092 C3                CLR     C
@@ -1296,8 +1296,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 315
 0098         ?C0063:
                                            ; SOURCE LINE # 316
-0098 E590              MOV     A,P1
-009A A803              MOV     R0,AR3
+0098 A803              MOV     R0,AR3
+009A E590              MOV     A,P1
 009C 08                INC     R0
 009D 8002              SJMP    ?C0132
 009F         ?C0131:
@@ -1311,8 +1311,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 318
 00A5         ?C0064:
                                            ; SOURCE LINE # 319
-00A5 E5A0              MOV     A,P2
-00A7 A803              MOV     R0,AR3
+00A5 A803              MOV     R0,AR3
+00A7 E5A0              MOV     A,P2
 00A9 08                INC     R0
 00AA 8002              SJMP    ?C0134
 00AC         ?C0133:
@@ -1326,8 +1326,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 321
 00B2         ?C0065:
                                            ; SOURCE LINE # 322
-00B2 E5B0              MOV     A,P3
-00B4 A803              MOV     R0,AR3
+00B2 A803              MOV     R0,AR3
+00B4 E5B0              MOV     A,P3
 00B6 08                INC     R0
 00B7 8002              SJMP    ?C0136
 00B9         ?C0135:
@@ -1342,12 +1342,12 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00BF         ?C0066:
                                            ; SOURCE LINE # 325
 00BF AF03              MOV     R7,AR3
-00C1 E5C0              MOV     A,P4
-00C3 A807              MOV     R0,AR7
+00C1 A807              MOV     R0,AR7
+00C3 E5C0              MOV     A,P4
 00C5 08                INC     R0
 00C6 8002              SJMP    ?C0138
 00C8         ?C0137:
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 23  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 23  
 
 00C8 C3                CLR     C
 00C9 13                RRC     A
@@ -1411,7 +1411,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 349
                                            ; SOURCE LINE # 350
                                            ; SOURCE LINE # 351
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 24  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 24  
 
 0020         ?C0072:
                                            ; SOURCE LINE # 352
@@ -1475,7 +1475,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 004B AF90              MOV     R7,P1
 004D 22                RET     
                                            ; SOURCE LINE # 380
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 25  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 25  
 
                                            ; SOURCE LINE # 381
 004E         ?C0080:
@@ -1513,143 +1513,144 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 397
                                            ; SOURCE LINE # 399
 0000 EF                MOV     A,R7
-0001 6402              XRL     A,#02H
-0003 6005              JZ      ?C0083
-0005 EF                MOV     A,R7
-0006 6403              XRL     A,#03H
-0008 7062              JNZ     ?C0084
-000A         ?C0083:
+0001 F582              MOV     DPL,A
+0003 6402              XRL     A,#02H
+0005 6006              JZ      ?C0083
+0007 E582              MOV     A,DPL
+0009 6403              XRL     A,#03H
+000B 7062              JNZ     ?C0084
+000D         ?C0083:
                                            ; SOURCE LINE # 400
-000A AF03              MOV     R7,AR3
-000C 7401              MOV     A,#01H
-000E A807              MOV     R0,AR7
-0010 08                INC     R0
-0011 8002              SJMP    ?C0140
-0013         ?C0139:
-0013 C3                CLR     C
-0014 33                RLC     A
-0015         ?C0140:
-0015 D8FC              DJNZ    R0,?C0139
-0017 FF                MOV     R7,A
+000D AF03              MOV     R7,AR3
+000F A807              MOV     R0,AR7
+0011 7401              MOV     A,#01H
+0013 08                INC     R0
+0014 8002              SJMP    ?C0140
+0016         ?C0139:
+0016 C3                CLR     C
+0017 33                RLC     A
+0018         ?C0140:
+0018 D8FC              DJNZ    R0,?C0139
+001A FF                MOV     R7,A
 ;---- Variable 'regVal' assigned to Register 'R7' ----
                                            ; SOURCE LINE # 401
-0018 900000      R     MOV     DPTR,#content
-001B E0                MOVX    A,@DPTR
-001C 6025              JZ      ?C0085
+001B 900000      R     MOV     DPTR,#content
+001E E0                MOVX    A,@DPTR
+001F 6025              JZ      ?C0085
                                            ; SOURCE LINE # 402
                                            ; SOURCE LINE # 403
-001E ED                MOV     A,R5
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 26  
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 26  
 
-001F 14                DEC     A
-0020 6011              JZ      ?C0088
+0021 ED                MOV     A,R5
 0022 14                DEC     A
-0023 6012              JZ      ?C0089
+0023 6011              JZ      ?C0088
 0025 14                DEC     A
-0026 6013              JZ      ?C0090
+0026 6012              JZ      ?C0089
 0028 14                DEC     A
-0029 6014              JZ      ?C0091
-002B 2404              ADD     A,#04H
-002D 703D              JNZ     ?C0084
+0029 6013              JZ      ?C0090
+002B 14                DEC     A
+002C 6014              JZ      ?C0091
+002E 2404              ADD     A,#04H
+0030 703D              JNZ     ?C0084
                                            ; SOURCE LINE # 404
                                            ; SOURCE LINE # 405
-002F         ?C0087:
+0032         ?C0087:
                                            ; SOURCE LINE # 406
-002F EF                MOV     A,R7
-0030 4280              ORL     P0,A
+0032 EF                MOV     A,R7
+0033 4280              ORL     P0,A
                                            ; SOURCE LINE # 407
-0032 22                RET     
+0035 22                RET     
                                            ; SOURCE LINE # 408
-0033         ?C0088:
+0036         ?C0088:
                                            ; SOURCE LINE # 409
-0033 EF                MOV     A,R7
-0034 4290              ORL     P1,A
+0036 EF                MOV     A,R7
+0037 4290              ORL     P1,A
                                            ; SOURCE LINE # 410
-0036 22                RET     
+0039 22                RET     
                                            ; SOURCE LINE # 411
-0037         ?C0089:
+003A         ?C0089:
                                            ; SOURCE LINE # 412
-0037 EF                MOV     A,R7
-0038 42A0              ORL     P2,A
+003A EF                MOV     A,R7
+003B 42A0              ORL     P2,A
                                            ; SOURCE LINE # 413
-003A 22                RET     
+003D 22                RET     
                                            ; SOURCE LINE # 414
-003B         ?C0090:
+003E         ?C0090:
                                            ; SOURCE LINE # 415
-003B EF                MOV     A,R7
-003C 42B0              ORL     P3,A
+003E EF                MOV     A,R7
+003F 42B0              ORL     P3,A
                                            ; SOURCE LINE # 416
-003E 22                RET     
+0041 22                RET     
                                            ; SOURCE LINE # 417
-003F         ?C0091:
+0042         ?C0091:
                                            ; SOURCE LINE # 418
-003F EF                MOV     A,R7
-0040 42C0              ORL     P4,A
+0042 EF                MOV     A,R7
+0043 42C0              ORL     P4,A
                                            ; SOURCE LINE # 419
-0042 22                RET     
+0045 22                RET     
                                            ; SOURCE LINE # 420
                                            ; SOURCE LINE # 421
-0043         ?C0085:
+0046         ?C0085:
                                            ; SOURCE LINE # 423
                                            ; SOURCE LINE # 424
-0043 ED                MOV     A,R5
-0044 14                DEC     A
-0045 6012              JZ      ?C0095
+0046 ED                MOV     A,R5
 0047 14                DEC     A
-0048 6014              JZ      ?C0096
+0048 6012              JZ      ?C0095
 004A 14                DEC     A
-004B 6016              JZ      ?C0097
+004B 6014              JZ      ?C0096
 004D 14                DEC     A
-004E 6018              JZ      ?C0098
-0050 2404              ADD     A,#04H
-0052 7018              JNZ     ?C0084
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 27  
+004E 6016              JZ      ?C0097
+0050 14                DEC     A
+0051 6018              JZ      ?C0098
+0053 2404              ADD     A,#04H
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 27  
 
+0055 7018              JNZ     ?C0084
                                            ; SOURCE LINE # 425
                                            ; SOURCE LINE # 426
-0054         ?C0094:
+0057         ?C0094:
                                            ; SOURCE LINE # 427
-0054 EF                MOV     A,R7
-0055 F4                CPL     A
-0056 5280              ANL     P0,A
+0057 EF                MOV     A,R7
+0058 F4                CPL     A
+0059 5280              ANL     P0,A
                                            ; SOURCE LINE # 428
-0058 22                RET     
+005B 22                RET     
                                            ; SOURCE LINE # 429
-0059         ?C0095:
+005C         ?C0095:
                                            ; SOURCE LINE # 430
-0059 EF                MOV     A,R7
-005A F4                CPL     A
-005B 5290              ANL     P1,A
+005C EF                MOV     A,R7
+005D F4                CPL     A
+005E 5290              ANL     P1,A
                                            ; SOURCE LINE # 431
-005D 22                RET     
+0060 22                RET     
                                            ; SOURCE LINE # 432
-005E         ?C0096:
+0061         ?C0096:
                                            ; SOURCE LINE # 433
-005E EF                MOV     A,R7
-005F F4                CPL     A
-0060 52A0              ANL     P2,A
+0061 EF                MOV     A,R7
+0062 F4                CPL     A
+0063 52A0              ANL     P2,A
                                            ; SOURCE LINE # 434
-0062 22                RET     
+0065 22                RET     
                                            ; SOURCE LINE # 435
-0063         ?C0097:
+0066         ?C0097:
                                            ; SOURCE LINE # 436
-0063 EF                MOV     A,R7
-0064 F4                CPL     A
-0065 52B0              ANL     P3,A
+0066 EF                MOV     A,R7
+0067 F4                CPL     A
+0068 52B0              ANL     P3,A
                                            ; SOURCE LINE # 437
-0067 22                RET     
+006A 22                RET     
                                            ; SOURCE LINE # 438
-0068         ?C0098:
+006B         ?C0098:
                                            ; SOURCE LINE # 439
-0068 EF                MOV     A,R7
-0069 F4                CPL     A
-006A 52C0              ANL     P4,A
+006B EF                MOV     A,R7
+006C F4                CPL     A
+006D 52C0              ANL     P4,A
                                            ; SOURCE LINE # 440
                                            ; SOURCE LINE # 441
                                            ; SOURCE LINE # 442
                                            ; SOURCE LINE # 443
-006C         ?C0084:
-006C 22                RET     
+006F         ?C0084:
+006F 22                RET     
              ; FUNCTION _digitalWrite (END)
 
              ; FUNCTION _digitalWriteGroup (BEGIN)
@@ -1660,125 +1661,126 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 447
                                            ; SOURCE LINE # 448
 0000 EF                MOV     A,R7
-0001 6402              XRL     A,#02H
-0003 6005              JZ      ?C0099
-0005 EF                MOV     A,R7
-0006 6403              XRL     A,#03H
-0008 704C              JNZ     ?C0100
-000A         ?C0099:
-                                           ; SOURCE LINE # 449
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 28  
+0001 F582              MOV     DPL,A
+0003 6402              XRL     A,#02H
+0005 6006              JZ      ?C0099
+0007 E582              MOV     A,DPL
+0009 6403              XRL     A,#03H
+000B 704C              JNZ     ?C0100
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 28  
 
-000A EB                MOV     A,R3
-000B 6025              JZ      ?C0101
+000D         ?C0099:
+                                           ; SOURCE LINE # 449
+000D EB                MOV     A,R3
+000E 6025              JZ      ?C0101
                                            ; SOURCE LINE # 450
                                            ; SOURCE LINE # 451
-000D ED                MOV     A,R5
-000E 14                DEC     A
-000F 6011              JZ      ?C0104
+0010 ED                MOV     A,R5
 0011 14                DEC     A
-0012 6012              JZ      ?C0105
+0012 6011              JZ      ?C0104
 0014 14                DEC     A
-0015 6013              JZ      ?C0106
+0015 6012              JZ      ?C0105
 0017 14                DEC     A
-0018 6014              JZ      ?C0107
-001A 2404              ADD     A,#04H
-001C 7038              JNZ     ?C0100
+0018 6013              JZ      ?C0106
+001A 14                DEC     A
+001B 6014              JZ      ?C0107
+001D 2404              ADD     A,#04H
+001F 7038              JNZ     ?C0100
                                            ; SOURCE LINE # 452
                                            ; SOURCE LINE # 453
-001E         ?C0103:
+0021         ?C0103:
                                            ; SOURCE LINE # 454
-001E 7580FF            MOV     P0,#0FFH
+0021 7580FF            MOV     P0,#0FFH
                                            ; SOURCE LINE # 455
-0021 22                RET     
+0024 22                RET     
                                            ; SOURCE LINE # 456
-0022         ?C0104:
+0025         ?C0104:
                                            ; SOURCE LINE # 457
-0022 7590FF            MOV     P1,#0FFH
+0025 7590FF            MOV     P1,#0FFH
                                            ; SOURCE LINE # 458
-0025 22                RET     
+0028 22                RET     
                                            ; SOURCE LINE # 459
-0026         ?C0105:
+0029         ?C0105:
                                            ; SOURCE LINE # 460
-0026 75A0FF            MOV     P2,#0FFH
+0029 75A0FF            MOV     P2,#0FFH
                                            ; SOURCE LINE # 461
-0029 22                RET     
+002C 22                RET     
                                            ; SOURCE LINE # 462
-002A         ?C0106:
+002D         ?C0106:
                                            ; SOURCE LINE # 463
-002A 75B0FF            MOV     P3,#0FFH
+002D 75B0FF            MOV     P3,#0FFH
                                            ; SOURCE LINE # 464
-002D 22                RET     
+0030 22                RET     
                                            ; SOURCE LINE # 465
-002E         ?C0107:
+0031         ?C0107:
                                            ; SOURCE LINE # 466
-002E 75C0FF            MOV     P4,#0FFH
+0031 75C0FF            MOV     P4,#0FFH
                                            ; SOURCE LINE # 467
-0031 22                RET     
+0034 22                RET     
                                            ; SOURCE LINE # 468
                                            ; SOURCE LINE # 469
-0032         ?C0101:
+0035         ?C0101:
                                            ; SOURCE LINE # 471
                                            ; SOURCE LINE # 472
-0032 ED                MOV     A,R5
-0033 14                DEC     A
-0034 6011              JZ      ?C0111
+0035 ED                MOV     A,R5
 0036 14                DEC     A
-0037 6012              JZ      ?C0112
+0037 6011              JZ      ?C0111
 0039 14                DEC     A
-003A 6013              JZ      ?C0113
+003A 6012              JZ      ?C0112
 003C 14                DEC     A
-003D 6014              JZ      ?C0114
-003F 2404              ADD     A,#04H
-0041 7013              JNZ     ?C0100
-C51 COMPILER V9.54   IO                                                                    03/28/2019 15:22:48 PAGE 29  
+003D 6013              JZ      ?C0113
+003F 14                DEC     A
+0040 6014              JZ      ?C0114
+C51 COMPILER V9.59.0.0   IO                                                                10/27/2019 12:36:18 PAGE 29  
 
+0042 2404              ADD     A,#04H
+0044 7013              JNZ     ?C0100
                                            ; SOURCE LINE # 473
                                            ; SOURCE LINE # 474
-0043         ?C0110:
+0046         ?C0110:
                                            ; SOURCE LINE # 475
-0043 E4                CLR     A
-0044 F580              MOV     P0,A
+0046 E4                CLR     A
+0047 F580              MOV     P0,A
                                            ; SOURCE LINE # 476
-0046 22                RET     
+0049 22                RET     
                                            ; SOURCE LINE # 477
-0047         ?C0111:
+004A         ?C0111:
                                            ; SOURCE LINE # 478
-0047 E4                CLR     A
-0048 F590              MOV     P1,A
+004A E4                CLR     A
+004B F590              MOV     P1,A
                                            ; SOURCE LINE # 479
-004A 22                RET     
+004D 22                RET     
                                            ; SOURCE LINE # 480
-004B         ?C0112:
+004E         ?C0112:
                                            ; SOURCE LINE # 481
-004B E4                CLR     A
-004C F5A0              MOV     P2,A
+004E E4                CLR     A
+004F F5A0              MOV     P2,A
                                            ; SOURCE LINE # 482
-004E 22                RET     
+0051 22                RET     
                                            ; SOURCE LINE # 483
-004F         ?C0113:
+0052         ?C0113:
                                            ; SOURCE LINE # 484
-004F E4                CLR     A
-0050 F5B0              MOV     P3,A
+0052 E4                CLR     A
+0053 F5B0              MOV     P3,A
                                            ; SOURCE LINE # 485
-0052 22                RET     
+0055 22                RET     
                                            ; SOURCE LINE # 486
-0053         ?C0114:
+0056         ?C0114:
                                            ; SOURCE LINE # 487
-0053 E4                CLR     A
-0054 F5C0              MOV     P4,A
+0056 E4                CLR     A
+0057 F5C0              MOV     P4,A
                                            ; SOURCE LINE # 488
                                            ; SOURCE LINE # 489
                                            ; SOURCE LINE # 490
                                            ; SOURCE LINE # 491
-0056         ?C0100:
-0056 22                RET     
+0059         ?C0100:
+0059 22                RET     
              ; FUNCTION _digitalWriteGroup (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    911    ----
+   CODE SIZE        =    917    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----       4
    PDATA SIZE       =   ----    ----

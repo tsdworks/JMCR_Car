@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 1   
+C51 COMPILER V9.59.0.0   PID                                                               10/27/2019 12:36:19 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE PID
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE PID
 OBJECT MODULE PLACED IN .\Objects\PID.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\PID.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) D
-                    -EBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\PID.lst) TABS(2) OBJECT(.\Objects\PID.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\PID.c LARGE WARNINGLEVEL(0) OPTIMIZE(8,SPEED) BROWSE INCDIR(.\H
+                    -ARDWARE;.\LIB) DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\PID.lst) TABS(2) OBJECT(.\Objects\PID.obj)
 
 line level    source
 
@@ -20,56 +20,48 @@ line level    source
   10          float PID_KI;
   11          float PID_KD;
   12          int pid_e;
-  13          long pid_i;
-  14          int pid_d;
-  15          int pid_le;
-  16          
-  17          //Data for Apply
-  18          u8 PID_ServoAngle = SERVO_MID_ANGLE;
-  19          int PID_LeftMotorPWM = MOTOR_MAX_PWM;
-  20          int PID_RightMotorPWM = MOTOR_MAX_PWM;
-  21          
-  22          void PID_Setup(float kp, float ki, float kd)
-  23          {
-  24   1        PID_KP = kp;
-  25   1        PID_KI = ki;
-  26   1        PID_KD = kd;
-  27   1        pid_e = 0;
-  28   1        pid_i = 0;
-  29   1        pid_d = 0;
-  30   1        pid_le = 0;
-  31   1      }
-  32          
-  33          void PID_Calc(int sensorData)
-  34          {
-  35   1        PID_LeftMotorPWM = MOTOR_MAX_PWM;
-  36   1        PID_RightMotorPWM = MOTOR_MAX_PWM;
-  37   1        pid_e = sensorData;
-  38   1        pid_i += pid_e;
-  39   1        pid_i = pid_i > MAX_INT ? MAX_INT : (pid_i < MIN_INT ? MIN_INT : pid_i);
-  40   1        pid_d = pid_e - pid_le;
-  41   1        pid_le = pid_e;
-  42   1        PID_ServoAngle += (char)(PID_KP * pid_e + PID_KI * pid_i + PID_KD * pid_d);
-  43   1        PID_ServoAngle = PID_ServoAngle > PID_MAX_ANGLE ? PID_MAX_ANGLE : (PID_ServoAngle < PID_MIN_ANGLE ? PID_M
+  13          int pid_le;
+  14          
+  15          //Data for Apply
+  16          u8 PID_ServoAngle = SERVO_MID_ANGLE;
+  17          int PID_LeftMotorPWM = MOTOR_MAX_PWM;
+  18          int PID_RightMotorPWM = MOTOR_MAX_PWM;
+  19          
+  20          void PID_Setup(float kp, float ki, float kd)
+  21          {
+  22   1        PID_KP = kp;
+  23   1        PID_KI = ki;
+  24   1        PID_KD = kd;
+  25   1        pid_e = 0;
+  26   1        pid_le = 0;
+  27   1      }
+  28          
+  29          void PID_Calc(int sensorData)
+  30          {
+  31   1        PID_LeftMotorPWM = MOTOR_MAX_PWM;
+  32   1        PID_RightMotorPWM = MOTOR_MAX_PWM;
+  33   1        pid_e = sensorData;
+  34   1        PID_ServoAngle += (char)(PID_KP * (pid_e - pid_le) + PID_KI * pid_e);
+  35   1        pid_le = pid_e;
+  36   1        PID_ServoAngle = PID_ServoAngle > PID_MAX_ANGLE ? PID_MAX_ANGLE : (PID_ServoAngle < PID_MIN_ANGLE ? PID_M
              -IN_ANGLE : PID_ServoAngle);
-  44   1        //Motor Auto Suit
-  45   1        PID_LeftMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
-  46   1        PID_RightMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
-  47   1      }
-  48          
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 2   
+  37   1        //Motor Auto Suit
+  38   1        PID_LeftMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
+  39   1        PID_RightMotorPWM -= absInt(PID_ServoAngle - SERVO_MID_ANGLE) / 2;
+  40   1      }
+C51 COMPILER V9.59.0.0   PID                                                               10/27/2019 12:36:19 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
 
              ; FUNCTION _PID_Setup (BEGIN)
-                                           ; SOURCE LINE # 22
+                                           ; SOURCE LINE # 20
 ;---- Variable 'kp' assigned to Register 'R4/R5/R6/R7' ----
-                                           ; SOURCE LINE # 23
-                                           ; SOURCE LINE # 24
+                                           ; SOURCE LINE # 21
+                                           ; SOURCE LINE # 22
 0000 900000      R     MOV     DPTR,#PID_KP
 0003 120000      E     LCALL   ?C?LSTXDATA
-                                           ; SOURCE LINE # 25
+                                           ; SOURCE LINE # 23
 0006 900000      R     MOV     DPTR,#ki
 0009 E0                MOVX    A,@DPTR
 000A FC                MOV     R4,A
@@ -84,7 +76,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0013 FF                MOV     R7,A
 0014 900000      R     MOV     DPTR,#PID_KI
 0017 120000      E     LCALL   ?C?LSTXDATA
-                                           ; SOURCE LINE # 26
+                                           ; SOURCE LINE # 24
 001A 900000      R     MOV     DPTR,#kd
 001D E0                MOVX    A,@DPTR
 001E FC                MOV     R4,A
@@ -99,375 +91,210 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0027 FF                MOV     R7,A
 0028 900000      R     MOV     DPTR,#PID_KD
 002B 120000      E     LCALL   ?C?LSTXDATA
-                                           ; SOURCE LINE # 27
+                                           ; SOURCE LINE # 25
 002E E4                CLR     A
 002F 900000      R     MOV     DPTR,#pid_e
 0032 F0                MOVX    @DPTR,A
 0033 A3                INC     DPTR
 0034 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 28
-0035 A3                INC     DPTR
-0036 120000      E     LCALL   ?C?LSTKXDATA
-0039 00                DB      00H
-003A 00                DB      00H
-003B 00                DB      00H
-003C 00                DB      00H
-                                           ; SOURCE LINE # 29
-003D E4                CLR     A
-003E 900000      R     MOV     DPTR,#pid_d
-0041 F0                MOVX    @DPTR,A
-0042 A3                INC     DPTR
-0043 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 30
-0044 900000      R     MOV     DPTR,#pid_le
-0047 F0                MOVX    @DPTR,A
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 3   
-
-0048 A3                INC     DPTR
-0049 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 31
-004A 22                RET     
+                                           ; SOURCE LINE # 26
+0035 900000      R     MOV     DPTR,#pid_le
+0038 F0                MOVX    @DPTR,A
+0039 A3                INC     DPTR
+003A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 27
+003B 22                RET     
              ; FUNCTION _PID_Setup (END)
 
              ; FUNCTION _PID_Calc (BEGIN)
-                                           ; SOURCE LINE # 33
+                                           ; SOURCE LINE # 29
 ;---- Variable 'sensorData' assigned to Register 'R6/R7' ----
-                                           ; SOURCE LINE # 34
-                                           ; SOURCE LINE # 35
+                                           ; SOURCE LINE # 30
+                                           ; SOURCE LINE # 31
 0000 900000      R     MOV     DPTR,#PID_LeftMotorPWM
 0003 E4                CLR     A
+C51 COMPILER V9.59.0.0   PID                                                               10/27/2019 12:36:19 PAGE 3   
+
 0004 F0                MOVX    @DPTR,A
 0005 A3                INC     DPTR
 0006 7450              MOV     A,#050H
 0008 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 36
+                                           ; SOURCE LINE # 32
 0009 900000      R     MOV     DPTR,#PID_RightMotorPWM
 000C E4                CLR     A
 000D F0                MOVX    @DPTR,A
 000E A3                INC     DPTR
 000F 7450              MOV     A,#050H
 0011 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 37
+                                           ; SOURCE LINE # 33
 0012 900000      R     MOV     DPTR,#pid_e
 0015 EE                MOV     A,R6
 0016 F0                MOVX    @DPTR,A
 0017 A3                INC     DPTR
 0018 EF                MOV     A,R7
 0019 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 38
-001A A3                INC     DPTR
-001B E0                MOVX    A,@DPTR
-001C F8                MOV     R0,A
-001D A3                INC     DPTR
-001E E0                MOVX    A,@DPTR
-001F F9                MOV     R1,A
-0020 A3                INC     DPTR
-0021 E0                MOVX    A,@DPTR
-0022 FA                MOV     R2,A
-0023 A3                INC     DPTR
-0024 E0                MOVX    A,@DPTR
-0025 FB                MOV     R3,A
-0026 900000      R     MOV     DPTR,#pid_e
-0029 E0                MOVX    A,@DPTR
-002A FE                MOV     R6,A
-002B A3                INC     DPTR
-002C E0                MOVX    A,@DPTR
-002D FF                MOV     R7,A
-002E EE                MOV     A,R6
-002F 33                RLC     A
-0030 95E0              SUBB    A,ACC
-0032 FD                MOV     R5,A
-0033 FC                MOV     R4,A
-0034 EB                MOV     A,R3
-0035 2F                ADD     A,R7
-0036 FF                MOV     R7,A
-0037 EA                MOV     A,R2
-0038 3E                ADDC    A,R6
-0039 FE                MOV     R6,A
-003A E9                MOV     A,R1
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 4   
+                                           ; SOURCE LINE # 34
+001A 900000      R     MOV     DPTR,#pid_le
+001D E0                MOVX    A,@DPTR
+001E FC                MOV     R4,A
+001F A3                INC     DPTR
+0020 E0                MOVX    A,@DPTR
+0021 FD                MOV     R5,A
+0022 C3                CLR     C
+0023 EF                MOV     A,R7
+0024 9D                SUBB    A,R5
+0025 FD                MOV     R5,A
+0026 EE                MOV     A,R6
+0027 9C                SUBB    A,R4
+0028 FC                MOV     R4,A
+0029 120000      E     LCALL   ?C?FCASTI
+002C 900000      R     MOV     DPTR,#PID_KP
+002F E0                MOVX    A,@DPTR
+0030 F8                MOV     R0,A
+0031 A3                INC     DPTR
+0032 E0                MOVX    A,@DPTR
+0033 F9                MOV     R1,A
+0034 A3                INC     DPTR
+0035 E0                MOVX    A,@DPTR
+0036 FA                MOV     R2,A
+0037 A3                INC     DPTR
+0038 E0                MOVX    A,@DPTR
+0039 FB                MOV     R3,A
+003A 120000      E     LCALL   ?C?FPMUL
+003D C004              PUSH    AR4
+003F C005              PUSH    AR5
+0041 C006              PUSH    AR6
+0043 C007              PUSH    AR7
+0045 900000      R     MOV     DPTR,#pid_e
+0048 E0                MOVX    A,@DPTR
+0049 FC                MOV     R4,A
+004A A3                INC     DPTR
+004B E0                MOVX    A,@DPTR
+004C FD                MOV     R5,A
+004D EC                MOV     A,R4
+004E 120000      E     LCALL   ?C?FCASTI
+0051 900000      R     MOV     DPTR,#PID_KI
+0054 E0                MOVX    A,@DPTR
+0055 F8                MOV     R0,A
+0056 A3                INC     DPTR
+C51 COMPILER V9.59.0.0   PID                                                               10/27/2019 12:36:19 PAGE 4   
 
-003B 3D                ADDC    A,R5
-003C FD                MOV     R5,A
-003D E8                MOV     A,R0
-003E 3C                ADDC    A,R4
-003F FC                MOV     R4,A
-0040 A3                INC     DPTR
-0041 120000      E     LCALL   ?C?LSTXDATA
-                                           ; SOURCE LINE # 39
-0044 7F00              MOV     R7,#00H
-0046 7E94              MOV     R6,#094H
-0048 7D35              MOV     R5,#035H
-004A 7C77              MOV     R4,#077H
-004C 900000      R     MOV     DPTR,#pid_i
-004F E0                MOVX    A,@DPTR
-0050 F8                MOV     R0,A
-0051 A3                INC     DPTR
-0052 E0                MOVX    A,@DPTR
-0053 F9                MOV     R1,A
-0054 A3                INC     DPTR
-0055 E0                MOVX    A,@DPTR
-0056 FA                MOV     R2,A
-0057 A3                INC     DPTR
-0058 E0                MOVX    A,@DPTR
-0059 FB                MOV     R3,A
-005A D3                SETB    C
-005B 120000      E     LCALL   ?C?SLCMP
-005E 400A              JC      ?C0002
-0060 7F00              MOV     R7,#00H
-0062 7E94              MOV     R6,#094H
-0064 7D35              MOV     R5,#035H
-0066 7C77              MOV     R4,#077H
-0068 8034              SJMP    ?C0003
-006A         ?C0002:
-006A 7F00              MOV     R7,#00H
-006C 7E6C              MOV     R6,#06CH
-006E 7DCA              MOV     R5,#0CAH
-0070 7C88              MOV     R4,#088H
-0072 900000      R     MOV     DPTR,#pid_i
-0075 E0                MOVX    A,@DPTR
-0076 F8                MOV     R0,A
-0077 A3                INC     DPTR
-0078 E0                MOVX    A,@DPTR
-0079 F9                MOV     R1,A
-007A A3                INC     DPTR
-007B E0                MOVX    A,@DPTR
-007C FA                MOV     R2,A
-007D A3                INC     DPTR
-007E E0                MOVX    A,@DPTR
-007F FB                MOV     R3,A
-0080 C3                CLR     C
-0081 120000      E     LCALL   ?C?SLCMP
-0084 500A              JNC     ?C0004
-0086 7F00              MOV     R7,#00H
-0088 7E6C              MOV     R6,#06CH
-008A 7DCA              MOV     R5,#0CAH
-008C 7C88              MOV     R4,#088H
-008E 800E              SJMP    ?C0005
-0090         ?C0004:
-0090 900000      R     MOV     DPTR,#pid_i
-0093 E0                MOVX    A,@DPTR
-0094 FC                MOV     R4,A
-0095 A3                INC     DPTR
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 5   
-
-0096 E0                MOVX    A,@DPTR
-0097 FD                MOV     R5,A
-0098 A3                INC     DPTR
-0099 E0                MOVX    A,@DPTR
-009A FE                MOV     R6,A
-009B A3                INC     DPTR
-009C E0                MOVX    A,@DPTR
-009D FF                MOV     R7,A
-009E         ?C0005:
-009E         ?C0003:
-009E 900000      R     MOV     DPTR,#pid_i
-00A1 120000      E     LCALL   ?C?LSTXDATA
-                                           ; SOURCE LINE # 40
-00A4 900000      R     MOV     DPTR,#pid_le
-00A7 E0                MOVX    A,@DPTR
-00A8 FE                MOV     R6,A
-00A9 A3                INC     DPTR
-00AA E0                MOVX    A,@DPTR
-00AB FF                MOV     R7,A
-00AC 900000      R     MOV     DPTR,#pid_e
+0057 E0                MOVX    A,@DPTR
+0058 F9                MOV     R1,A
+0059 A3                INC     DPTR
+005A E0                MOVX    A,@DPTR
+005B FA                MOV     R2,A
+005C A3                INC     DPTR
+005D E0                MOVX    A,@DPTR
+005E FB                MOV     R3,A
+005F 120000      E     LCALL   ?C?FPMUL
+0062 D003              POP     AR3
+0064 D002              POP     AR2
+0066 D001              POP     AR1
+0068 D000              POP     AR0
+006A 120000      E     LCALL   ?C?FPADD
+006D 120000      E     LCALL   ?C?CASTF
+0070 900000      R     MOV     DPTR,#PID_ServoAngle
+0073 E0                MOVX    A,@DPTR
+0074 2F                ADD     A,R7
+0075 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 35
+0076 900000      R     MOV     DPTR,#pid_e
+0079 E0                MOVX    A,@DPTR
+007A FF                MOV     R7,A
+007B A3                INC     DPTR
+007C E0                MOVX    A,@DPTR
+007D 900000      R     MOV     DPTR,#pid_le
+0080 CF                XCH     A,R7
+0081 F0                MOVX    @DPTR,A
+0082 A3                INC     DPTR
+0083 EF                MOV     A,R7
+0084 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 36
+0085 900000      R     MOV     DPTR,#PID_ServoAngle
+0088 E0                MOVX    A,@DPTR
+0089 FF                MOV     R7,A
+008A 7E00              MOV     R6,#00H
+008C D3                SETB    C
+008D 9491              SUBB    A,#091H
+008F 7480              MOV     A,#080H
+0091 9480              SUBB    A,#080H
+0093 4008              JC      ?C0002
+0095 7C00              MOV     R4,#00H
+0097 7D91              MOV     R5,#091H
+0099 7F91              MOV     R7,#091H
+009B 8014              SJMP    ?C0003
+009D         ?C0002:
+009D C3                CLR     C
+009E EF                MOV     A,R7
+009F 9423              SUBB    A,#023H
+00A1 EE                MOV     A,R6
+00A2 6480              XRL     A,#080H
+00A4 9480              SUBB    A,#080H
+00A6 5004              JNC     ?C0004
+00A8 7F23              MOV     R7,#023H
+00AA 8005              SJMP    ?C0005
+00AC         ?C0004:
+00AC 900000      R     MOV     DPTR,#PID_ServoAngle
 00AF E0                MOVX    A,@DPTR
-00B0 FC                MOV     R4,A
-00B1 A3                INC     DPTR
-00B2 E0                MOVX    A,@DPTR
-00B3 FD                MOV     R5,A
-00B4 C3                CLR     C
-00B5 9F                SUBB    A,R7
-00B6 FF                MOV     R7,A
-00B7 EC                MOV     A,R4
-00B8 9E                SUBB    A,R6
-00B9 900000      R     MOV     DPTR,#pid_d
-00BC F0                MOVX    @DPTR,A
-00BD A3                INC     DPTR
-00BE EF                MOV     A,R7
-00BF F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 41
-00C0 900000      R     MOV     DPTR,#pid_le
-00C3 EC                MOV     A,R4
-00C4 F0                MOVX    @DPTR,A
-00C5 A3                INC     DPTR
-00C6 ED                MOV     A,R5
-00C7 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 42
-00C8 900000      R     MOV     DPTR,#pid_i
+00B0 FF                MOV     R7,A
+00B1         ?C0005:
+00B1         ?C0003:
+00B1 900000      R     MOV     DPTR,#PID_ServoAngle
+C51 COMPILER V9.59.0.0   PID                                                               10/27/2019 12:36:19 PAGE 5   
+
+00B4 EF                MOV     A,R7
+00B5 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 38
+00B6 24A6              ADD     A,#0A6H
+00B8 FF                MOV     R7,A
+00B9 E4                CLR     A
+00BA 34FF              ADDC    A,#0FFH
+00BC FE                MOV     R6,A
+00BD 120000      E     LCALL   _absInt
+00C0 7C00              MOV     R4,#00H
+00C2 7D02              MOV     R5,#02H
+00C4 120000      E     LCALL   ?C?SIDIV
+00C7 C3                CLR     C
+00C8 900000      R     MOV     DPTR,#PID_LeftMotorPWM+01H
 00CB E0                MOVX    A,@DPTR
-00CC FC                MOV     R4,A
-00CD A3                INC     DPTR
-00CE E0                MOVX    A,@DPTR
-00CF FD                MOV     R5,A
-00D0 A3                INC     DPTR
+00CC 9F                SUBB    A,R7
+00CD F0                MOVX    @DPTR,A
+00CE 900000      R     MOV     DPTR,#PID_LeftMotorPWM
 00D1 E0                MOVX    A,@DPTR
-00D2 FE                MOV     R6,A
-00D3 A3                INC     DPTR
-00D4 E0                MOVX    A,@DPTR
-00D5 FF                MOV     R7,A
-00D6 EC                MOV     A,R4
-00D7 120000      E     LCALL   ?C?FCASTL
-00DA 900000      R     MOV     DPTR,#PID_KI
-00DD E0                MOVX    A,@DPTR
-00DE F8                MOV     R0,A
-00DF A3                INC     DPTR
-00E0 E0                MOVX    A,@DPTR
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 6   
-
-00E1 F9                MOV     R1,A
-00E2 A3                INC     DPTR
-00E3 E0                MOVX    A,@DPTR
-00E4 FA                MOV     R2,A
-00E5 A3                INC     DPTR
-00E6 E0                MOVX    A,@DPTR
-00E7 FB                MOV     R3,A
-00E8 120000      E     LCALL   ?C?FPMUL
-00EB C004              PUSH    AR4
-00ED C005              PUSH    AR5
-00EF C006              PUSH    AR6
-00F1 C007              PUSH    AR7
-00F3 900000      R     MOV     DPTR,#pid_e
-00F6 E0                MOVX    A,@DPTR
-00F7 FC                MOV     R4,A
-00F8 A3                INC     DPTR
-00F9 E0                MOVX    A,@DPTR
-00FA FD                MOV     R5,A
-00FB EC                MOV     A,R4
-00FC 120000      E     LCALL   ?C?FCASTI
-00FF 900000      R     MOV     DPTR,#PID_KP
-0102 E0                MOVX    A,@DPTR
-0103 F8                MOV     R0,A
-0104 A3                INC     DPTR
-0105 E0                MOVX    A,@DPTR
-0106 F9                MOV     R1,A
-0107 A3                INC     DPTR
-0108 E0                MOVX    A,@DPTR
-0109 FA                MOV     R2,A
-010A A3                INC     DPTR
-010B E0                MOVX    A,@DPTR
-010C FB                MOV     R3,A
-010D 120000      E     LCALL   ?C?FPMUL
-0110 D003              POP     AR3
-0112 D002              POP     AR2
-0114 D001              POP     AR1
-0116 D000              POP     AR0
-0118 120000      E     LCALL   ?C?FPADD
-011B C004              PUSH    AR4
-011D C005              PUSH    AR5
-011F C006              PUSH    AR6
-0121 C007              PUSH    AR7
-0123 900000      R     MOV     DPTR,#pid_d
-0126 E0                MOVX    A,@DPTR
-0127 FC                MOV     R4,A
-0128 A3                INC     DPTR
-0129 E0                MOVX    A,@DPTR
-012A FD                MOV     R5,A
-012B EC                MOV     A,R4
-012C 120000      E     LCALL   ?C?FCASTI
-012F 900000      R     MOV     DPTR,#PID_KD
-0132 E0                MOVX    A,@DPTR
-0133 F8                MOV     R0,A
-0134 A3                INC     DPTR
-0135 E0                MOVX    A,@DPTR
-0136 F9                MOV     R1,A
-0137 A3                INC     DPTR
-0138 E0                MOVX    A,@DPTR
-0139 FA                MOV     R2,A
-013A A3                INC     DPTR
-013B E0                MOVX    A,@DPTR
-013C FB                MOV     R3,A
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 7   
-
-013D 120000      E     LCALL   ?C?FPMUL
-0140 D003              POP     AR3
-0142 D002              POP     AR2
-0144 D001              POP     AR1
-0146 D000              POP     AR0
-0148 120000      E     LCALL   ?C?FPADD
-014B 120000      E     LCALL   ?C?CASTF
-014E 900000      R     MOV     DPTR,#PID_ServoAngle
-0151 E0                MOVX    A,@DPTR
-0152 2F                ADD     A,R7
-0153 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 43
-0154 E0                MOVX    A,@DPTR
-0155 FF                MOV     R7,A
-0156 D3                SETB    C
-0157 9491              SUBB    A,#091H
-0159 4008              JC      ?C0006
-015B 7C00              MOV     R4,#00H
-015D 7D91              MOV     R5,#091H
-015F 7F91              MOV     R7,#091H
-0161 800F              SJMP    ?C0007
-0163         ?C0006:
-0163 EF                MOV     A,R7
-0164 C3                CLR     C
-0165 9423              SUBB    A,#023H
-0167 5004              JNC     ?C0008
-0169 7F23              MOV     R7,#023H
-016B 8005              SJMP    ?C0009
-016D         ?C0008:
-016D 900000      R     MOV     DPTR,#PID_ServoAngle
-0170 E0                MOVX    A,@DPTR
-0171 FF                MOV     R7,A
-0172         ?C0009:
-0172         ?C0007:
-0172 900000      R     MOV     DPTR,#PID_ServoAngle
-0175 EF                MOV     A,R7
-0176 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 45
-0177 24A6              ADD     A,#0A6H
-0179 FF                MOV     R7,A
-017A E4                CLR     A
-017B 34FF              ADDC    A,#0FFH
-017D FE                MOV     R6,A
-017E 120000      E     LCALL   _absInt
-0181 7C00              MOV     R4,#00H
-0183 7D02              MOV     R5,#02H
-0185 120000      E     LCALL   ?C?SIDIV
-0188 C3                CLR     C
-0189 900000      R     MOV     DPTR,#PID_LeftMotorPWM+01H
-018C E0                MOVX    A,@DPTR
-018D 9F                SUBB    A,R7
-018E F0                MOVX    @DPTR,A
-018F 900000      R     MOV     DPTR,#PID_LeftMotorPWM
-0192 E0                MOVX    A,@DPTR
-0193 9E                SUBB    A,R6
-0194 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 46
-0195 900000      R     MOV     DPTR,#PID_ServoAngle
-0198 E0                MOVX    A,@DPTR
-0199 24A6              ADD     A,#0A6H
-019B FF                MOV     R7,A
-019C E4                CLR     A
-C51 COMPILER V9.54   PID                                                                   03/28/2019 15:22:49 PAGE 8   
-
-019D 34FF              ADDC    A,#0FFH
-019F FE                MOV     R6,A
-01A0 120000      E     LCALL   _absInt
-01A3 7C00              MOV     R4,#00H
-01A5 7D02              MOV     R5,#02H
-01A7 120000      E     LCALL   ?C?SIDIV
-01AA C3                CLR     C
-01AB 900000      R     MOV     DPTR,#PID_RightMotorPWM+01H
-01AE E0                MOVX    A,@DPTR
-01AF 9F                SUBB    A,R7
-01B0 F0                MOVX    @DPTR,A
-01B1 900000      R     MOV     DPTR,#PID_RightMotorPWM
-01B4 E0                MOVX    A,@DPTR
-01B5 9E                SUBB    A,R6
-01B6 F0                MOVX    @DPTR,A
-                                           ; SOURCE LINE # 47
-01B7 22                RET     
+00D2 9E                SUBB    A,R6
+00D3 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 39
+00D4 900000      R     MOV     DPTR,#PID_ServoAngle
+00D7 E0                MOVX    A,@DPTR
+00D8 24A6              ADD     A,#0A6H
+00DA FF                MOV     R7,A
+00DB E4                CLR     A
+00DC 34FF              ADDC    A,#0FFH
+00DE FE                MOV     R6,A
+00DF 120000      E     LCALL   _absInt
+00E2 7C00              MOV     R4,#00H
+00E4 7D02              MOV     R5,#02H
+00E6 120000      E     LCALL   ?C?SIDIV
+00E9 C3                CLR     C
+00EA 900000      R     MOV     DPTR,#PID_RightMotorPWM+01H
+00ED E0                MOVX    A,@DPTR
+00EE 9F                SUBB    A,R7
+00EF F0                MOVX    @DPTR,A
+00F0 900000      R     MOV     DPTR,#PID_RightMotorPWM
+00F3 E0                MOVX    A,@DPTR
+00F4 9E                SUBB    A,R6
+00F5 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 40
+00F6 22                RET     
              ; FUNCTION _PID_Calc (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    515    ----
+   CODE SIZE        =    307    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =     27      12
+   XDATA SIZE       =     21      12
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

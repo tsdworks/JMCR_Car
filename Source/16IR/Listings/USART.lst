@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 1   
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE USART
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USART
 OBJECT MODULE PLACED IN .\Objects\USART.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\USART.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBU
-                    -G OBJECTEXTEND CODE NOCOND PRINT(.\Listings\USART.lst) TABS(2) OBJECT(.\Objects\USART.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\USART.c LARGE WARNINGLEVEL(0) OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARD
+                    -WARE;.\LIB) DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\USART.lst) TABS(2) OBJECT(.\Objects\USART.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   1        {
   53   2          Serial1_SendByte(*s++);
   54   2        }
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 2   
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 2   
 
   55   1      }
   56          
@@ -115,7 +115,7 @@ line level    source
  103   2        }
  104   1        return retValue;
  105   1      }
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 3   
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -179,7 +179,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0049 A3                INC     DPTR
 004A E0                MOVX    A,@DPTR
 004B FA                MOV     R2,A
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 4   
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 4   
 
 004C A3                INC     DPTR
 004D E0                MOVX    A,@DPTR
@@ -243,9 +243,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0011         ?C0002:
                                            ; SOURCE LINE # 44
 0011 3099FD            JNB     TI,?C0002
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 5   
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 5   
 
-0014         ?C0003:
                                            ; SOURCE LINE # 45
 0014 C299              CLR     TI
                                            ; SOURCE LINE # 46
@@ -307,9 +306,9 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000C 4C                ORL     A,R4
 000D 601D              JZ      ?C0010
 000F 900000      R     MOV     DPTR,#s
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 6   
-
 0012 E0                MOVX    A,@DPTR
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 6   
+
 0013 FB                MOV     R3,A
 0014 A3                INC     DPTR
 0015 E0                MOVX    A,@DPTR
@@ -345,7 +344,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000B C007              PUSH    AR7
                                            ; SOURCE LINE # 68
                                            ; SOURCE LINE # 70
-000D 309836            JNB     RI,?C0011
+000D 30983A            JNB     RI,?C0011
                                            ; SOURCE LINE # 71
                                            ; SOURCE LINE # 72
 0010 C298              CLR     RI
@@ -354,60 +353,62 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0015 E0                MOVX    A,@DPTR
 0016 D3                SETB    C
 0017 9440              SUBB    A,#040H
-0019 400C              JC      ?C0012
+0019 7480              MOV     A,#080H
+001B 9480              SUBB    A,#080H
+001D 400C              JC      ?C0012
                                            ; SOURCE LINE # 74
                                            ; SOURCE LINE # 75
-001B A3                INC     DPTR
-001C E0                MOVX    A,@DPTR
-001D 04                INC     A
-001E 543F              ANL     A,#03FH
-0020 F0                MOVX    @DPTR,A
+001F A3                INC     DPTR
+0020 E0                MOVX    A,@DPTR
+0021 04                INC     A
+0022 543F              ANL     A,#03FH
+0024 F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 76
-0021 900000      R     MOV     DPTR,#readBufferLength
-0024 7440              MOV     A,#040H
-0026 F0                MOVX    @DPTR,A
+0025 900000      R     MOV     DPTR,#readBufferLength
+0028 7440              MOV     A,#040H
+002A F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 77
-0027         ?C0012:
+002B         ?C0012:
                                            ; SOURCE LINE # 78
-0027 900000      R     MOV     DPTR,#readBufferLength
-002A E0                MOVX    A,@DPTR
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 7   
+002B 900000      R     MOV     DPTR,#readBufferLength
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 7   
 
-002B 04                INC     A
-002C F0                MOVX    @DPTR,A
+002E E0                MOVX    A,@DPTR
+002F 04                INC     A
+0030 F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 79
-002D 900000      R     MOV     DPTR,#readBufferTail
-0030 E0                MOVX    A,@DPTR
-0031 FF                MOV     R7,A
-0032 2400        R     ADD     A,#LOW readBuffer
-0034 F582              MOV     DPL,A
-0036 E4                CLR     A
-0037 3400        R     ADDC    A,#HIGH readBuffer
-0039 F583              MOV     DPH,A
-003B E599              MOV     A,SBUF
-003D F0                MOVX    @DPTR,A
+0031 900000      R     MOV     DPTR,#readBufferTail
+0034 E0                MOVX    A,@DPTR
+0035 FF                MOV     R7,A
+0036 2400        R     ADD     A,#LOW readBuffer
+0038 F582              MOV     DPL,A
+003A E4                CLR     A
+003B 3400        R     ADDC    A,#HIGH readBuffer
+003D F583              MOV     DPH,A
+003F E599              MOV     A,SBUF
+0041 F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 80
-003E EF                MOV     A,R7
-003F 04                INC     A
-0040 543F              ANL     A,#03FH
-0042 900000      R     MOV     DPTR,#readBufferTail
-0045 F0                MOVX    @DPTR,A
+0042 EF                MOV     A,R7
+0043 04                INC     A
+0044 543F              ANL     A,#03FH
+0046 900000      R     MOV     DPTR,#readBufferTail
+0049 F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 81
-0046         ?C0011:
+004A         ?C0011:
                                            ; SOURCE LINE # 82
-0046 309902            JNB     TI,?C0014
+004A 309902            JNB     TI,?C0014
                                            ; SOURCE LINE # 83
                                            ; SOURCE LINE # 84
-0049 C299              CLR     TI
+004D C299              CLR     TI
                                            ; SOURCE LINE # 85
                                            ; SOURCE LINE # 86
-004B         ?C0014:
-004B D007              POP     AR7
-004D D0D0              POP     PSW
-004F D082              POP     DPL
-0051 D083              POP     DPH
-0053 D0E0              POP     ACC
-0055 32                RETI    
+004F         ?C0014:
+004F D007              POP     AR7
+0051 D0D0              POP     PSW
+0053 D082              POP     DPL
+0055 D083              POP     DPH
+0057 D0E0              POP     ACC
+0059 32                RETI    
              ; FUNCTION Serial1_ISP (END)
 
              ; FUNCTION Serial1_Available (BEGIN)
@@ -418,25 +419,26 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0003 E0                MOVX    A,@DPTR
 0004 D3                SETB    C
 0005 9400              SUBB    A,#00H
-0007 4004              JC      ?C0015
-0009 7F01              MOV     R7,#01H
-000B 8002              SJMP    ?C0016
-000D         ?C0015:
-000D 7F00              MOV     R7,#00H
-000F         ?C0016:
-                                           ; SOURCE LINE # 92
-000F         ?C0017:
+0007 7480              MOV     A,#080H
+0009 9480              SUBB    A,#080H
+000B 4003              JC      ?C0015
+000D 7F01              MOV     R7,#01H
 000F 22                RET     
+0010         ?C0015:
+0010 7F00              MOV     R7,#00H
+0012         ?C0016:
+                                           ; SOURCE LINE # 92
+0012 22                RET     
              ; FUNCTION Serial1_Available (END)
 
              ; FUNCTION Serial1_ReadByte (BEGIN)
                                            ; SOURCE LINE # 95
                                            ; SOURCE LINE # 96
                                            ; SOURCE LINE # 97
+C51 COMPILER V9.59.0.0   USART                                                             10/27/2019 12:36:18 PAGE 8   
+
 ;---- Variable 'retValue' assigned to Register 'R6' ----
 0000 E4                CLR     A
-C51 COMPILER V9.54   USART                                                                 03/28/2019 15:22:48 PAGE 8   
-
 0001 FE                MOV     R6,A
                                            ; SOURCE LINE # 98
 0002 120000      R     LCALL   Serial1_Available
@@ -470,14 +472,13 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 104
 0026 AF06              MOV     R7,AR6
                                            ; SOURCE LINE # 105
-0028         ?C0019:
 0028 22                RET     
              ; FUNCTION Serial1_ReadByte (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    376    ----
+   CODE SIZE        =    383    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     67      10
    PDATA SIZE       =   ----    ----

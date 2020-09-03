@@ -1,7 +1,7 @@
-C51 COMPILER V9.54   PWM                                                                   03/18/2019 12:57:46 PAGE 1   
+C51 COMPILER V9.59.0.0   PWM                                                               09/03/2020 14:35:18 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE PWM
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE PWM
 OBJECT MODULE PLACED IN .\Objects\PWM.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LIB\PWM.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB) DEBUG 
                     -OBJECTEXTEND PRINT(.\Listings\PWM.lst) TABS(2) OBJECT(.\Objects\PWM.obj)
@@ -62,7 +62,7 @@ line level    source
   52   2          P_SW2 &= ~0x80;
   53   2          PWMCR |= 0x01;
   54   2        }
-C51 COMPILER V9.54   PWM                                                                   03/18/2019 12:57:46 PAGE 2   
+C51 COMPILER V9.59.0.0   PWM                                                               09/03/2020 14:35:18 PAGE 2   
 
   55   1        lastDutyPWM2 = duty;
   56   1      }

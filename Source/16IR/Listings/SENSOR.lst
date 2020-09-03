@@ -1,10 +1,10 @@
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 1   
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE SENSOR
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE SENSOR
 OBJECT MODULE PLACED IN .\Objects\SENSOR.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\SENSOR.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB
-                    -) DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\SENSOR.lst) TABS(2) OBJECT(.\Objects\SENSOR.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\SENSOR.c LARGE WARNINGLEVEL(0) OPTIMIZE(8,SPEED) BROWSE INCDIR(
+                    -.\HARDWARE;.\LIB) DEBUG OBJECTEXTEND CODE NOCOND PRINT(.\Listings\SENSOR.lst) TABS(2) OBJECT(.\Objects\SENSOR.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52          //Get Single Sensor Data
   53          u8 Sensor_GetSingleData(u8 sensorID)
   54          {
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 2   
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 2   
 
   55   1        Sensor_RefreshData();
   56   1        return digitalRead(IO_MODE, 0, sensorID) == SENSOR_SAMPLE;
@@ -80,7 +80,7 @@ line level    source
   68   1        return rightValue - leftValue;
   69   1      }
   70          
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 3   
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -91,48 +91,46 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 15
 0000 900000      R     MOV     DPTR,#isSensorInit
 0003 E0                MOVX    A,@DPTR
-0004 703B              JNZ     ?C0002
-0006         ?C0001:
+0004 703A              JNZ     ?C0002
                                            ; SOURCE LINE # 16
 0006 7D01              MOV     R5,#01H
-0008 E4                CLR     A
-0009 FF                MOV     R7,A
-000A 120000      E     LCALL   _pinModeGroup
+0008 FF                MOV     R7,A
+0009 120000      E     LCALL   _pinModeGroup
                                            ; SOURCE LINE # 17
-000D 7B02              MOV     R3,#02H
-000F E4                CLR     A
-0010 FD                MOV     R5,A
-0011 7F01              MOV     R7,#01H
-0013 120000      E     LCALL   _pinMode
+000C 7B02              MOV     R3,#02H
+000E E4                CLR     A
+000F FD                MOV     R5,A
+0010 7F01              MOV     R7,#01H
+0012 120000      E     LCALL   _pinMode
                                            ; SOURCE LINE # 18
-0016 7B02              MOV     R3,#02H
-0018 7D01              MOV     R5,#01H
-001A 7F01              MOV     R7,#01H
-001C 120000      E     LCALL   _pinMode
+0015 7B02              MOV     R3,#02H
+0017 7D01              MOV     R5,#01H
+0019 7F01              MOV     R7,#01H
+001B 120000      E     LCALL   _pinMode
                                            ; SOURCE LINE # 20
-001F 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0022 7401              MOV     A,#01H
-0024 F0                MOVX    @DPTR,A
-0025 E4                CLR     A
-0026 FB                MOV     R3,A
-0027 7D01              MOV     R5,#01H
-0029 7F03              MOV     R7,#03H
-002B 120000      E     LCALL   _digitalWrite
+001E 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0021 7401              MOV     A,#01H
+0023 F0                MOVX    @DPTR,A
+0024 E4                CLR     A
+0025 FB                MOV     R3,A
+0026 7D01              MOV     R5,#01H
+0028 7F03              MOV     R7,#03H
+002A 120000      E     LCALL   _digitalWrite
                                            ; SOURCE LINE # 22
-002E 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
-0031 7401              MOV     A,#01H
-0033 F0                MOVX    @DPTR,A
-0034 FB                MOV     R3,A
-0035 FD                MOV     R5,A
-0036 7F03              MOV     R7,#03H
-0038 120000      E     LCALL   _digitalWrite
+002D 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
+0030 7401              MOV     A,#01H
+0032 F0                MOVX    @DPTR,A
+0033 FB                MOV     R3,A
+0034 FD                MOV     R5,A
+0035 7F03              MOV     R7,#03H
+0037 120000      E     LCALL   _digitalWrite
                                            ; SOURCE LINE # 23
-003B 900000      R     MOV     DPTR,#isSensorInit
-003E 7401              MOV     A,#01H
-0040 F0                MOVX    @DPTR,A
+003A 900000      R     MOV     DPTR,#isSensorInit
+003D 7401              MOV     A,#01H
+003F F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 24
-0041         ?C0002:
-0041 22                RET     
+0040         ?C0002:
+0040 22                RET     
              ; FUNCTION Sensor_Init (END)
 
              ; FUNCTION Sensor_RefreshData (BEGIN)
@@ -144,10 +142,10 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0005 F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 33
 0006 E4                CLR     A
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 4   
-
 0007 900000      E     MOV     DPTR,#?_digitalWrite?BYTE+03H
 000A F0                MOVX    @DPTR,A
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 4   
+
 000B 7B01              MOV     R3,#01H
 000D 7D01              MOV     R5,#01H
 000F 7F03              MOV     R7,#03H
@@ -208,10 +206,10 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 005D EF                MOV     A,R7
 005E F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 38
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 5   
-
 005F AB05              MOV     R3,AR5
 0061 E4                CLR     A
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 5   
+
 0062 FD                MOV     R5,A
 0063 7F01              MOV     R7,#01H
 0065 120000      E     LCALL   _digitalRead
@@ -272,10 +270,10 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00B1 7F02              MOV     R7,#02H
 00B3 7E00              MOV     R6,#00H
 00B5 120000      E     LCALL   _delay_ms
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 6   
-
                                            ; SOURCE LINE # 44
 00B8 900000      R     MOV     DPTR,#roundNum
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 6   
+
 00BB E0                MOVX    A,@DPTR
 00BC FF                MOV     R7,A
 00BD 900000      R     MOV     DPTR,#i
@@ -336,10 +334,10 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0105 FE                MOV     R6,A
 0106 C3                CLR     C
 0107 ED                MOV     A,R5
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 7   
-
 0108 9E                SUBB    A,R6
 0109 FB                MOV     R3,A
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 7   
+
 010A E4                CLR     A
 010B FD                MOV     R5,A
 010C 7F01              MOV     R7,#01H
@@ -400,10 +398,10 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0004 F0                MOVX    @DPTR,A
                                            ; SOURCE LINE # 54
                                            ; SOURCE LINE # 55
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 8   
-
 0005 120000      R     LCALL   Sensor_RefreshData
                                            ; SOURCE LINE # 56
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 8   
+
 0008 900000      R     MOV     DPTR,#sensorID
 000B E0                MOVX    A,@DPTR
 000C FB                MOV     R3,A
@@ -412,15 +410,14 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000F 7F01              MOV     R7,#01H
 0011 120000      E     LCALL   _digitalRead
 0014 EF                MOV     A,R7
-0015 7004              JNZ     ?C0018
+0015 7003              JNZ     ?C0018
 0017 7F01              MOV     R7,#01H
-0019 8002              SJMP    ?C0019
-001B         ?C0018:
-001B 7F00              MOV     R7,#00H
-001D         ?C0019:
+0019 22                RET     
+001A         ?C0018:
+001A 7F00              MOV     R7,#00H
+001C         ?C0019:
                                            ; SOURCE LINE # 57
-001D         ?C0020:
-001D 22                RET     
+001C 22                RET     
              ; FUNCTION _Sensor_GetSingleData (END)
 
              ; FUNCTION Sensor_GetData (BEGIN)
@@ -448,131 +445,135 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0019 E0                MOVX    A,@DPTR
 001A FF                MOV     R7,A
 001B FD                MOV     R5,A
-001C C3                CLR     C
-001D 740F              MOV     A,#0FH
-001F 9D                SUBB    A,R5
-0020 FD                MOV     R5,A
-0021 E4                CLR     A
-0022 9400              SUBB    A,#00H
-0024 FC                MOV     R4,A
-0025 7400        R     MOV     A,#LOW sensorMap
-0027 2D                ADD     A,R5
-0028 F582              MOV     DPL,A
-002A 7400        R     MOV     A,#HIGH sensorMap
-002C 3C                ADDC    A,R4
-002D F583              MOV     DPH,A
-002F E0                MOVX    A,@DPTR
-0030 FE                MOV     R6,A
-0031 7400        R     MOV     A,#LOW sensorData
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 9   
+001C 7C00              MOV     R4,#00H
+001E C3                CLR     C
+001F 9408              SUBB    A,#08H
+0021 7480              MOV     A,#080H
+0023 9480              SUBB    A,#080H
+0025 403F              JC      ?C0022
+0027 740F              MOV     A,#0FH
+0029 9D                SUBB    A,R5
+002A FD                MOV     R5,A
+002B E4                CLR     A
+002C 9C                SUBB    A,R4
+002D FC                MOV     R4,A
+002E 7400        R     MOV     A,#LOW sensorMap
+0030 2D                ADD     A,R5
+0031 F582              MOV     DPL,A
+0033 7400        R     MOV     A,#HIGH sensorMap
+0035 3C                ADDC    A,R4
+0036 F583              MOV     DPH,A
+0038 E0                MOVX    A,@DPTR
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 9   
 
-0033 2F                ADD     A,R7
-0034 F582              MOV     DPL,A
-0036 E4                CLR     A
-0037 3400        R     ADDC    A,#HIGH sensorData
-0039 F583              MOV     DPH,A
-003B E0                MOVX    A,@DPTR
-003C 8EF0              MOV     B,R6
-003E A4                MUL     AB
-003F FD                MOV     R5,A
-0040 ACF0              MOV     R4,B
-0042 900000      R     MOV     DPTR,#leftValue
-0045 E0                MOVX    A,@DPTR
-0046 FE                MOV     R6,A
-0047 A3                INC     DPTR
-0048 E0                MOVX    A,@DPTR
-0049 FF                MOV     R7,A
-004A 120000      E     LCALL   _maxInt
-004D 900000      R     MOV     DPTR,#leftValue
-0050 EE                MOV     A,R6
-0051 F0                MOVX    @DPTR,A
-0052 A3                INC     DPTR
-0053 EF                MOV     A,R7
-0054 F0                MOVX    @DPTR,A
-0055 900000      R     MOV     DPTR,#i
-0058 E0                MOVX    A,@DPTR
-0059 14                DEC     A
+0039 FE                MOV     R6,A
+003A 7400        R     MOV     A,#LOW sensorData
+003C 2F                ADD     A,R7
+003D F582              MOV     DPL,A
+003F E4                CLR     A
+0040 3400        R     ADDC    A,#HIGH sensorData
+0042 F583              MOV     DPH,A
+0044 E0                MOVX    A,@DPTR
+0045 8EF0              MOV     B,R6
+0047 A4                MUL     AB
+0048 FD                MOV     R5,A
+0049 ACF0              MOV     R4,B
+004B 900000      R     MOV     DPTR,#leftValue
+004E E0                MOVX    A,@DPTR
+004F FE                MOV     R6,A
+0050 A3                INC     DPTR
+0051 E0                MOVX    A,@DPTR
+0052 FF                MOV     R7,A
+0053 120000      E     LCALL   _maxInt
+0056 900000      R     MOV     DPTR,#leftValue
+0059 EE                MOV     A,R6
 005A F0                MOVX    @DPTR,A
-005B E0                MOVX    A,@DPTR
-005C C3                CLR     C
-005D 9408              SUBB    A,#08H
-005F 50B5              JNC     ?C0021
-0061         ?C0022:
+005B A3                INC     DPTR
+005C EF                MOV     A,R7
+005D F0                MOVX    @DPTR,A
+005E 900000      R     MOV     DPTR,#i
+0061 E0                MOVX    A,@DPTR
+0062 14                DEC     A
+0063 F0                MOVX    @DPTR,A
+0064 80B0              SJMP    ?C0021
+0066         ?C0022:
                                            ; SOURCE LINE # 67
-0061 E4                CLR     A
-0062 900000      R     MOV     DPTR,#i
-0065 F0                MOVX    @DPTR,A
-0066         ?C0024:
-0066 900000      R     MOV     DPTR,#i
-0069 E0                MOVX    A,@DPTR
-006A FF                MOV     R7,A
-006B 2400        R     ADD     A,#LOW sensorMap
-006D F582              MOV     DPL,A
-006F E4                CLR     A
-0070 3400        R     ADDC    A,#HIGH sensorMap
-0072 F583              MOV     DPH,A
-0074 E0                MOVX    A,@DPTR
-0075 FE                MOV     R6,A
-0076 7400        R     MOV     A,#LOW sensorData
-0078 2F                ADD     A,R7
-0079 F582              MOV     DPL,A
-007B E4                CLR     A
-007C 3400        R     ADDC    A,#HIGH sensorData
-007E F583              MOV     DPH,A
-0080 E0                MOVX    A,@DPTR
-0081 8EF0              MOV     B,R6
-0083 A4                MUL     AB
-0084 FD                MOV     R5,A
-0085 ACF0              MOV     R4,B
-0087 900000      R     MOV     DPTR,#rightValue
-008A E0                MOVX    A,@DPTR
-008B FE                MOV     R6,A
-008C A3                INC     DPTR
-C51 COMPILER V9.54   SENSOR                                                                03/28/2019 15:22:49 PAGE 10  
+0066 E4                CLR     A
+0067 900000      R     MOV     DPTR,#i
+006A F0                MOVX    @DPTR,A
+006B         ?C0024:
+006B 900000      R     MOV     DPTR,#i
+006E E0                MOVX    A,@DPTR
+006F D3                SETB    C
+0070 9407              SUBB    A,#07H
+0072 7480              MOV     A,#080H
+0074 9480              SUBB    A,#080H
+0076 5039              JNC     ?C0025
+0078 E0                MOVX    A,@DPTR
+0079 FF                MOV     R7,A
+007A 2400        R     ADD     A,#LOW sensorMap
+007C F582              MOV     DPL,A
+007E E4                CLR     A
+007F 3400        R     ADDC    A,#HIGH sensorMap
+0081 F583              MOV     DPH,A
+0083 E0                MOVX    A,@DPTR
+0084 FE                MOV     R6,A
+0085 7400        R     MOV     A,#LOW sensorData
+0087 2F                ADD     A,R7
+0088 F582              MOV     DPL,A
+008A E4                CLR     A
+008B 3400        R     ADDC    A,#HIGH sensorData
+008D F583              MOV     DPH,A
+008F E0                MOVX    A,@DPTR
+0090 8EF0              MOV     B,R6
+0092 A4                MUL     AB
+0093 FD                MOV     R5,A
+C51 COMPILER V9.59.0.0   SENSOR                                                            10/27/2019 12:36:19 PAGE 10  
 
-008D E0                MOVX    A,@DPTR
-008E FF                MOV     R7,A
-008F 120000      E     LCALL   _maxInt
-0092 900000      R     MOV     DPTR,#rightValue
-0095 EE                MOV     A,R6
-0096 F0                MOVX    @DPTR,A
-0097 A3                INC     DPTR
-0098 EF                MOV     A,R7
-0099 F0                MOVX    @DPTR,A
-009A 900000      R     MOV     DPTR,#i
-009D E0                MOVX    A,@DPTR
-009E 04                INC     A
-009F F0                MOVX    @DPTR,A
-00A0 E0                MOVX    A,@DPTR
-00A1 D3                SETB    C
-00A2 9407              SUBB    A,#07H
-00A4 40C0              JC      ?C0024
-00A6         ?C0025:
-                                           ; SOURCE LINE # 68
-00A6 900000      R     MOV     DPTR,#leftValue
-00A9 E0                MOVX    A,@DPTR
-00AA FE                MOV     R6,A
-00AB A3                INC     DPTR
+0094 ACF0              MOV     R4,B
+0096 900000      R     MOV     DPTR,#rightValue
+0099 E0                MOVX    A,@DPTR
+009A FE                MOV     R6,A
+009B A3                INC     DPTR
+009C E0                MOVX    A,@DPTR
+009D FF                MOV     R7,A
+009E 120000      E     LCALL   _maxInt
+00A1 900000      R     MOV     DPTR,#rightValue
+00A4 EE                MOV     A,R6
+00A5 F0                MOVX    @DPTR,A
+00A6 A3                INC     DPTR
+00A7 EF                MOV     A,R7
+00A8 F0                MOVX    @DPTR,A
+00A9 900000      R     MOV     DPTR,#i
 00AC E0                MOVX    A,@DPTR
-00AD FF                MOV     R7,A
-00AE C3                CLR     C
-00AF 900000      R     MOV     DPTR,#rightValue+01H
-00B2 E0                MOVX    A,@DPTR
-00B3 9F                SUBB    A,R7
-00B4 FF                MOV     R7,A
-00B5 900000      R     MOV     DPTR,#rightValue
-00B8 E0                MOVX    A,@DPTR
-00B9 9E                SUBB    A,R6
-00BA FE                MOV     R6,A
+00AD 04                INC     A
+00AE F0                MOVX    @DPTR,A
+00AF 80BA              SJMP    ?C0024
+00B1         ?C0025:
+                                           ; SOURCE LINE # 68
+00B1 900000      R     MOV     DPTR,#leftValue
+00B4 E0                MOVX    A,@DPTR
+00B5 FE                MOV     R6,A
+00B6 A3                INC     DPTR
+00B7 E0                MOVX    A,@DPTR
+00B8 FF                MOV     R7,A
+00B9 C3                CLR     C
+00BA 900000      R     MOV     DPTR,#rightValue+01H
+00BD E0                MOVX    A,@DPTR
+00BE 9F                SUBB    A,R7
+00BF FF                MOV     R7,A
+00C0 900000      R     MOV     DPTR,#rightValue
+00C3 E0                MOVX    A,@DPTR
+00C4 9E                SUBB    A,R6
+00C5 FE                MOV     R6,A
                                            ; SOURCE LINE # 69
-00BB         ?C0027:
-00BB 22                RET     
+00C6 22                RET     
              ; FUNCTION Sensor_GetData (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    618    ----
+   CODE SIZE        =    627    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     29       5
    PDATA SIZE       =   ----    ----

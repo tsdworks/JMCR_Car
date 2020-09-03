@@ -22,8 +22,6 @@ extern float PID_KP;
 extern float PID_KI;
 extern float PID_KD;
 extern int pid_e;
-extern long pid_i;
-extern int pid_d;
 extern int pid_le;
 
 //Data for Apply

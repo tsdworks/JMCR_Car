@@ -1,7 +1,7 @@
-C51 COMPILER V9.54   SENSOR                                                                03/18/2019 12:57:47 PAGE 1   
+C51 COMPILER V9.59.0.0   SENSOR                                                            09/03/2020 14:35:18 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE SENSOR
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE SENSOR
 OBJECT MODULE PLACED IN .\Objects\SENSOR.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HARDWARE\SENSOR.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\HARDWARE;.\LIB
                     -) DEBUG OBJECTEXTEND PRINT(.\Listings\SENSOR.lst) TABS(2) OBJECT(.\Objects\SENSOR.obj)
@@ -59,10 +59,10 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    313    ----
+   CODE SIZE        =    322    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     17       4
-C51 COMPILER V9.54   SENSOR                                                                03/18/2019 12:57:47 PAGE 2   
+C51 COMPILER V9.59.0.0   SENSOR                                                            09/03/2020 14:35:18 PAGE 2   
 
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----

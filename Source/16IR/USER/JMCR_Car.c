@@ -19,7 +19,7 @@ void JMCR_Car()
 	Motor_Left(PID_LeftMotorPWM);
 	Motor_Right(PID_RightMotorPWM);
 }
- 
+
 void main()
 {
 	u8 i;
@@ -28,15 +28,15 @@ void main()
 	Sensor_Init();
 	Servo_Attach();
 	//Init PID
-	PID_Setup(0.45, 0, 0.15);
+	PID_Setup(0.45, 0.15, 0);
 	//Serial1_Begin(115200);
 	//Wait for initializing
 	delay_ms(WAIT_INV);
-	while(true)
+	while (true)
 	{
 		JMCR_Car();
 		//for(i = 0; i < 16; i++)Serial1_SendByte(sensorData[i]);
-		//Serial1_SendByte(3); 
+		//Serial1_SendByte(3);
 		delay_ms(CONTROL_INV);
 	}
 }

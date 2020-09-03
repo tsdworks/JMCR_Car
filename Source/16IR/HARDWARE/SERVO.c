@@ -18,7 +18,7 @@ void Timer0Init(void)
 	ET0 = 0;
 	TR0 = 0;
 	AUXR |= 0x80;
-	TMOD &= 0xF0;	
+	TMOD &= 0xF0;
 	TL0 = 0x38;
 	TH0 = 0x50;
 	TF0 = 0;
@@ -47,12 +47,12 @@ void Timer0_ISP() interrupt 1
 void Timer2_ISP() interrupt 12
 {
 	servoPin = 1;
-	TR0	= 1;
+	TR0 = 1;
 }
 
-//Attach Servo 
+//Attach Servo
 void Servo_Attach()
-{		
+{
 	//Setup Servo
 	servoAngle = 0;
 	//Setup IO Mode
@@ -68,7 +68,8 @@ void Servo_Attach()
 //Set Servo Angle
 void Servo_SetAngle(u8 Angle)
 {
-	if(Angle < SERVO_MIN_ANGLE || Angle > SERVO_MAX_ANGLE || Angle == servoAngle)return;
+	if (Angle < SERVO_MIN_ANGLE || Angle > SERVO_MAX_ANGLE || Angle == servoAngle)
+		return;
 	//Timer Stop
 	TR0 = 0;
 	AUXR &= ~0x10;
@@ -76,7 +77,7 @@ void Servo_SetAngle(u8 Angle)
 	servoPin = 0;
 	servoAngle = Angle;
 	servoHighFreq = 100000L / ((servoAngle * 10) / 9 + 50);
-	if(Angle == SERVO_MID_ANGLE)
+	if (Angle == SERVO_MID_ANGLE)
 	{
 		TL0 = 0x38;
 		TH0 = 0x50;
